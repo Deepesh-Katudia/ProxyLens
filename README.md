@@ -4,7 +4,7 @@
 
 > ⚠️ Research and educational tool. Not investment or voting advice.
 
-**Status:** Phases 0–1 complete (regulation corpus + vector search, recall@6 = 1.00 on 20 cases). See [`docs/PROGRESS.md`](docs/PROGRESS.md) and the full build spec in [`SPEC.md`](SPEC.md).
+**Status:** Phases 0–2 complete: regulation corpus + vector search (recall@6 = 1.00 on 20 cases) and notice segmentation (14/14 real notices). See [`docs/PROGRESS.md`](docs/PROGRESS.md) and the full build spec in [`SPEC.md`](SPEC.md).
 
 ## Stack
 
@@ -60,6 +60,19 @@ uv run python -m scripts.eval_retrieval      # recall@6 on tests/retrieval_cases
 ```
 
 Try it: `GET /api/v1/regulations/search?q=material related party transaction threshold&type=RELATED_PARTY_TRANSACTION`
+
+## Notice parsing
+
+```python
+from pathlib import Path
+from app.parsing.notice import parse_notice_pdf
+
+notice = parse_notice_pdf(Path("tests/fixtures/notices/itc_2025.pdf"))
+for item in notice.items:
+    print(item.item_no, item.section, item.title, bool(item.explanatory_statement))
+```
+
+Splits AGM/EGM/postal-ballot notices into items (ordinary vs special business) and attaches each item's Section 102 explanatory statement. Tested on 14 real notices in `tests/fixtures/notices/` with hand-counted items.
 
 ## Development
 

@@ -1,5 +1,40 @@
 # Progress
 
+## Phase 2: PDF parsing + segmentation (done 2026-10-02, pending review)
+
+### Status against acceptance criteria
+| Criterion | Status |
+|---|---|
+| ≥ 10 sample notices in `tests/fixtures/` | ✅ 14 real notices (12 AGMs, 1 EGM, 1 postal ballot), 3 of them held out |
+| Segmentation matches hand-counted items on ≥ 9 of 10 | ✅ **14/14** (11/11 tuning set, 3/3 held out) |
+| Unit tests cover edge cases | ✅ agenda, statements, header stripping, end-to-end |
+
+**How the counts were made:** each notice's agenda was read and its items counted by hand *before* the splitter was written; the counts live in `tests/fixtures/notices/manifest.yaml`.
+
+**Overfitting caveat:** the splitter's rules were developed while looking at the 11 tuning notices, so 11/11 overstates generality. Three more notices (SIS, Kamdhenu, Grovy) were counted and then parsed once with no code changes: **3/3 item counts matched**. Grovy then showed statements printed before the formal "Explanatory Statement" heading; that fix came after, so Grovy's *statement alignment* is not an unseen result.
+
+### Delivered (`app/parsing/`)
+- `pdf_text.py`: PyMuPDF text per page; strips control/bullet glyphs, page-number lines and running headers/footers (lines repeated on ≥30% of pages; must contain words, so bare "1." markers survive).
+- `agenda.py`: notice start ("hereby given", skipping cover letters and annual-report pages), agenda end (NOTES / By Order of the Board / capitalised statement heading), item splitting with ORDINARY/SPECIAL sections:
+  - "Item No. N" headings always start items (and the numbers may repeat, as in MSTC).
+  - A bare "N." starts an item only if it is the next number, the notice hasn't switched to "Item No." headings, and it doesn't continue a numbered list inside the current item (unless the previous line closes a quoted resolution).
+  - An agenda summary table (Persistent) is detected when the numbering restarts at 1 with a matching first item; its titles then vet every later item.
+  - `resolution_kind_hint` from "as a Special/Ordinary Resolution".
+- `statements.py`: finds the Section 102 statement (capitalised heading, mixed-case heading with a dash, or the first real "Item No." heading after the agenda), splits at "Item No(s)." headings ("8 & 9", "3-4", "4 to 6"), ignores in-text references ("Item No. 4 of the Notice").
+- `notice.py`: `parse_notice_pdf()` → `ParsedNotice(meeting_type, page_count, items[NoticeItem])`; aligns statements (shared statements go to every listed item; repeated numbers go to the special-business item; an unheaded statement goes to the sole special item).
+- `scripts/make_notice_fixtures.py` rebuilds fixtures from `source_url`s; images are downsampled (~21 MB → ~10 MB) and each fixture's extracted text is verified identical to the original.
+
+### Notices rejected as fixtures
+- A Simplex Infrastructures EGM *corrigendum* (scanned/OCR, no resolutions), a Tata Steel newspaper advertisement, a Jubilant Pharmova cover letter, and six BSE covering letters: none are notices. TCS and Infosys returned 403 and NSE archives refused connections; no workaround attempted.
+
+### Known limits
+- A numbered list inside a resolution that runs exactly into the next item's number, with no closing quote and no summary table, swallows the next item (tested and documented in `test_parsing_agenda.py`).
+- Statements can be long (Persistent item 7: ~32k chars, including director profiles). Phase 3 prompts should truncate.
+- Text-based PDFs only; scanned notices are out of scope (SPEC §2).
+
+### Verified locally
+- `ruff`, `ruff format`, `mypy --strict`: clean. `pytest`: 122 passed, 1 skipped (opt-in Atlas test).
+
 ## Phase 1: Regulation corpus + vector search (done 2026-10-02, pending review)
 
 ### Status against acceptance criteria

@@ -1,0 +1,121 @@
+# Phase 2 fixtures: real notices with hand-counted agenda items.
+#
+# `items` was counted by reading each notice's agenda, before the splitter was
+# written. Acceptance: the splitter matches `items` on at least 90% of fixtures.
+# Fixture PDFs keep every page; embedded images are downsampled to save space,
+# and text extraction is verified identical (scripts/make_notice_fixtures.py).
+
+notices:
+  - file: itc_2025.pdf
+    company: ITC Limited
+    meeting_type: AGM
+    meeting_date: "2025-07-25"
+    source_url: https://itcportal.com/content/dam/itc-corporate/pdfs/investor-service-centre/notice-agm-2025.pdf
+    items: 11
+    notes: Number on its own line; one statement covers Item Nos. 8 & 9, another 10 & 11.
+
+  - file: mstc_2016.pdf
+    company: MSTC Limited
+    meeting_type: AGM
+    meeting_date: "2016-09-28"
+    source_url: https://www.mstcindia.co.in/MSTC_Static_Pages/frontpage/Notice/51stAGMNotice.pdf
+    items: 6
+    notes: Special business restarts at "Item No.3", so number 3 is used twice.
+
+  - file: devyani_2025.pdf
+    company: Devyani International Limited
+    meeting_type: AGM
+    meeting_date: null
+    source_url: https://dil-rjcorp.com/wp-content/uploads/2025/07/agm-notice-fy-2024-25.pdf
+    items: 6
+
+  - file: tataconsumer_2025.pdf
+    company: Tata Consumer Products Limited
+    meeting_type: AGM
+    meeting_date: null
+    source_url: https://www.tataconsumer.com/sites/g/files/gfwrlq316/files/2025-05/Intimation_of_Notice_of_AGM_FY_2025.pdf
+    items: 6
+    notes: Two-column layout; statement heading breaks one word per line.
+
+  - file: persistent_2025.pdf
+    company: Persistent Systems Limited
+    meeting_type: AGM
+    meeting_date: "2025-07-21"
+    source_url: https://www.persistent.com/wp-content/uploads/2025/07/Submission-of-Notice-of-the-35th-Annual-General-Meeting-of-the-Company.pdf
+    items: 9
+    notes: Cover letter, then a summary table of items 1-9 before the full agenda; items 6-7 contain numbered lists of powers 1-23.
+
+  - file: xtranet_2026.pdf
+    company: Xtranet Technologies Limited
+    meeting_type: AGM
+    meeting_date: null
+    source_url: https://xtranetindia.com/wp-content/uploads/2026/09/Intimation-of-Notice-of-AGM.pdf
+    items: 5
+
+  - file: praveg_postal_2025.pdf
+    company: Praveg Limited
+    meeting_type: POSTAL_BALLOT
+    meeting_date: "2025-03-29"
+    source_url: https://www.dizcoverpraveg.com/Shareholders_Information/3_Other_Filings_with_Stock_Exchange/Notice_of_Postal_ballot_dated_March_29_2025.pdf
+    items: 4
+    notes: Numbered sub-lists ("1.") inside resolutions 3 and 4.
+
+  - file: kanoria_2025.pdf
+    company: Kanoria Energy & Infrastructure Limited
+    meeting_type: AGM
+    meeting_date: null
+    source_url: https://www.bseindia.com/xml-data/corpfiling/AttachHis/64c0c576-4f14-4f5b-aa05-f69e9f2341c3.pdf
+    items: 9
+    notes: Notice bundled inside the annual report.
+
+  - file: mediassist_egm_2025.pdf
+    company: Medi Assist Healthcare Services Limited
+    meeting_type: EGM
+    meeting_date: "2025-09-04"
+    source_url: https://mediassist.in/assets/pdf/investor-relations/mahs/disclosure-under-reg-30/notice-of-egm-to-be-held-on-4sep2025.pdf
+    items: 1
+    notes: Single preferential-issue item; numbered clauses inside the resolution; statement has no Item heading; notes come after the statement.
+
+  - file: mystic_2024.pdf
+    company: Mystic Electronics Limited
+    meeting_type: AGM
+    meeting_date: "2024-09-30"
+    source_url: https://bseindia.com/xml-data/corpfiling/AttachHis/39c58797-8c67-4670-af55-62db9619f839.pdf
+    items: 4
+    notes: Notice bundled inside the annual report.
+
+  - file: premier_2025.pdf
+    company: Premier Synthetics Limited
+    meeting_type: AGM
+    meeting_date: "2025-09-29"
+    source_url: https://bsmedia.business-standard.com/_media/bs/data/announcements/bse/06092025/3d6401e5-086d-4ee1-a002-ed26b1e50ade.pdf
+    items: 8
+    notes: Item 7 quotes an object clause numbered "6."; NOTES section has its own 1, 2, 3 numbering.
+
+  # --- Held out: counted, then parsed once with no code changes (3/3 counts
+  # matched). Grovy then exposed statements printed before the formal heading;
+  # that fix was made afterwards, so Grovy's statement alignment is not unseen.
+  - file: sis_2025.pdf
+    company: SIS Limited
+    meeting_type: AGM
+    meeting_date: "2025-07-04"
+    source_url: https://sisindia.com/wp-content/uploads/2025/06/Notice-of-AGM.pdf
+    items: 5
+    heldout: true
+
+  - file: kamdhenu_2025.pdf
+    company: Kamdhenu Limited
+    meeting_type: AGM
+    meeting_date: "2025-09-25"
+    source_url: https://www.kamdhenulimited.com/pdf/Notice%20of%2031st%20Annual%20General%20Meeting.pdf
+    items: 9
+    heldout: true
+
+  - file: grovy_2025.pdf
+    company: Grovy India Limited
+    meeting_type: AGM
+    meeting_date: null
+    source_url: https://www.grovyindia.com/wp-content/uploads/2025/09/Notice-of-AGM.pdf
+    items: 7
+    heldout: true
+    notes: Uses "Item No. N" headings; item 7 quotes object clauses numbered 1-7; statements for items 5-6 precede the formal heading.
