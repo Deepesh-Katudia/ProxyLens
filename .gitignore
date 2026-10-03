@@ -18,8 +18,11 @@ data/raw/**
 data/processed/**
 data/sft/**
 data/gold/**
+# Re-include directories so the exceptions below can apply.
+!data/**/
 !data/**/.gitkeep
-!data/**/manifest.csv
+!data/raw/notices/manifest.csv
+!data/raw/harvest/*.txt
 !data/DATASET_CARD.md
 
 # Models
@@ -36,3 +39,4 @@ frontend/dist/
 Thumbs.db
 .vscode/
 .idea/
+data/hub_staging/

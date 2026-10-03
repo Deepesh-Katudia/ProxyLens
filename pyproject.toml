@@ -17,6 +17,11 @@ dependencies = [
     "torch>=2.4",
 ]
 
+[project.optional-dependencies]
+# Local GGUF inference for the fine-tuned student (llama.cpp). Optional so CI
+# and the API image can be built without a C++ toolchain.
+student = ["llama-cpp-python>=0.3.2"]
+
 [dependency-groups]
 dev = [
     "ruff>=0.6",
@@ -35,10 +40,17 @@ package = false
 # CPU-only PyTorch keeps the API image small; GPU work happens in Colab notebooks.
 [tool.uv.sources]
 torch = [{ index = "pytorch-cpu" }]
+llama-cpp-python = [{ index = "llama-cpp-cpu" }]
 
 [[tool.uv.index]]
 name = "pytorch-cpu"
 url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+# Prebuilt CPU wheels published by the llama-cpp-python project.
+[[tool.uv.index]]
+name = "llama-cpp-cpu"
+url = "https://abetlen.github.io/llama-cpp-python/whl/cpu"
 explicit = true
 
 [tool.ruff]
@@ -48,6 +60,10 @@ extend-exclude = ["frontend", "notebooks", "*.md"]
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "B", "UP", "N", "SIM", "RUF", "ASYNC"]
+
+[tool.ruff.lint.per-file-ignores]
+# Cell sources for the Colab notebooks: long lines are notebook code, not repo code.
+"scripts/build_notebooks.py" = ["E501"]
 
 [tool.mypy]
 python_version = "3.11"

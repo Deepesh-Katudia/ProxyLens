@@ -18,6 +18,9 @@ _SECTION_HEADER = re.compile(r"^\s*(ORDINARY|SPECIAL)\s+BUSINESS(ES)?\b", re.IGN
 _STRONG_ITEM = re.compile(r"^\s*ITEM\s+NO\.?\s*(\d{1,2})\b\s*[:.\-\N{EN DASH}]?\s*(.*)$", re.I)
 # "3." / "3)" at line start (accepted only when it continues the numbering).
 _WEAK_ITEM = re.compile(r"^\s*(\d{1,2})\s*[.)](?!\d)\s*(.*)$")
+# "II." / "IV)" at line start: some notices number items in Roman numerals.
+_ROMAN_ITEM = re.compile(r"^\s*([IVX]{1,6})\s*[.)]\s*(.*)$")
+_ROMAN_VALUES = {"I": 1, "V": 5, "X": 10}
 _CLOSING_QUOTES = ("\N{RIGHT DOUBLE QUOTATION MARK}", '"', "\N{RIGHT SINGLE QUOTATION MARK}")
 _SPECIAL_HINT = re.compile(r"as\s+(an?\s+)?special\s+resolution", re.IGNORECASE)
 _ORDINARY_HINT = re.compile(r"as\s+(an?\s+)?ordinary\s+resolution", re.IGNORECASE)
@@ -34,12 +37,15 @@ MIN_INNER_LIST = 2
 INNER_LIST_SLACK = 2
 
 
+EXPLICIT, ARABIC, ROMAN = "explicit", "arabic", "roman"  # item numbering styles
+
+
 @dataclass
 class RawItem:
     item_no: int
     section: BusinessSection | None
     lines: list[str]
-    explicit: bool = False  # numbered "Item No. N" rather than a bare "N."
+    style: str = ARABIC  # "Item No. N" (explicit), "N." (arabic) or "IV." (roman)
 
     @property
     def text(self) -> str:
@@ -82,12 +88,19 @@ def _similar(a: str, b: str) -> bool:
     return bool(wa and wb) and len(wa & wb) / min(len(wa), len(wb)) >= RESTART_SIMILARITY
 
 
-def _item_start(line: str) -> tuple[int, str, bool] | None:
-    """(item number, rest of line, is_strong) if `line` can start an item."""
+def _roman(numeral: str) -> int:
+    values = [_ROMAN_VALUES[c] for c in numeral]
+    return sum(-v if i + 1 < len(values) and v < values[i + 1] else v for i, v in enumerate(values))
+
+
+def _item_start(line: str) -> tuple[int, str, str] | None:
+    """(item number, rest of line, numbering style) if `line` can start an item."""
     if strong := _STRONG_ITEM.match(line):
-        return int(strong.group(1)), strong.group(2), True
+        return int(strong.group(1)), strong.group(2), EXPLICIT
     if weak := _WEAK_ITEM.match(line):
-        return int(weak.group(1)), weak.group(2), False
+        return int(weak.group(1)), weak.group(2), ARABIC
+    if roman := _ROMAN_ITEM.match(line):
+        return _roman(roman.group(1)), roman.group(2), ROMAN
     return None
 
 
@@ -114,13 +127,13 @@ def split_items(lines: Sequence[str]) -> list[RawItem]:
             continue
         start = _item_start(line)
         if start is not None:
-            number, rest, strong = start
-            new = RawItem(number, section, [rest] if rest else [], explicit=strong)
+            number, rest, style = start
+            new = RawItem(number, section, [rest] if rest else [], style=style)
             preview = _lookahead(lines, i, rest)
-            if strong or _continues(number, items, summary.get(number), preview):
+            if style == EXPLICIT or _continues(new, items, summary.get(number), preview):
                 items.append(new)
                 continue
-            if _restates(number, items, preview):
+            if _restates(new, items, preview):
                 # The earlier run was a summary table; keep it to vet later items.
                 summary = {item.item_no: item.text for item in items}
                 items = [new]
@@ -131,34 +144,38 @@ def split_items(lines: Sequence[str]) -> list[RawItem]:
 
 
 def _continues(
-    number: int,
+    new: RawItem,
     items: list[RawItem],
     summary_title: str | None,
     preview: str,
 ) -> bool:
-    """A bare 'N.' starts the next item unless it continues a list inside the item.
+    """A bare 'N.' / 'IV.' starts the next item unless it continues a list inside the item.
 
-    Once a notice numbers items as "Item No. N", a bare "N." is never an item
-    (it is a clause or table row inside the resolution). An inner list of two or
+    Items keep one numbering style: once a notice numbers items as "Item No. N"
+    or "II.", a bare "N." is never an item (it is a clause or table row inside
+    the resolution). An inner list of two or
     more entries claims numbers up to INNER_LIST_SLACK past its last seen entry,
     since PDF extraction sometimes merges an entry's number into the line above.
     When the notice opened with a summary table, the table decides instead.
     """
+    number = new.item_no
     if not items:
         return number == 1
     current = items[-1]
-    if current.explicit or number != current.item_no + 1:
+    if current.style != new.style or number != current.item_no + 1:
         return False
     if summary_title is not None:
         return _similar(preview, summary_title)
+    if new.style != ARABIC:
+        return True  # an inner "1. 2. 3." list can't collide with "IV."
     inner = _inner_list(current.lines)
     in_inner_list = len(inner) >= MIN_INNER_LIST and number <= max(inner) + INNER_LIST_SLACK
     return not in_inner_list or _closes_resolution(current.lines)
 
 
-def _restates(number: int, items: list[RawItem], candidate_text: str) -> bool:
+def _restates(new: RawItem, items: list[RawItem], candidate_text: str) -> bool:
     """A new run from 1 that repeats the first item, e.g. after a summary table."""
-    return number == 1 and bool(items) and _similar(candidate_text, items[0].text)
+    return new.item_no == 1 and bool(items) and _similar(candidate_text, items[0].text)
 
 
 def resolution_kind(text: str) -> BusinessSection | None:

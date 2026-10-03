@@ -7,6 +7,10 @@ from pathlib import Path
 
 import pymupdf
 
+# Damaged cross-reference tables are common in filed PDFs; MuPDF repairs them but
+# prints an error per object to stderr, which buries real log output.
+pymupdf.TOOLS.mupdf_display_errors(False)  # type: ignore[no-untyped-call]
+
 # A line repeated on at least this share of pages (and at least MIN_REPEAT_PAGES
 # pages) is a running header/footer, e.g. "NOTICE OF 114TH AGM" or a CIN line.
 REPEAT_SHARE = 0.3
