@@ -1,0 +1,79 @@
+# Which resolution types each legal unit is relevant to (the `applies_to` field).
+#
+# Keys are matched most-specific first:  reg23.4  ->  reg23  ->  (untagged)
+#   SEBI LODR:         reg<N>[.<sub>]       sch<roman>[.part<letter>]
+#   Companies Act:     s<N>[.<sub>]         sch<roman>[.part<letter>]
+# Untagged units are still stored and searchable without a type filter.
+
+groups:
+  directors: &directors
+    - INDEPENDENT_DIRECTOR_APPOINT
+    - NON_INDEPENDENT_DIRECTOR_APPOINT
+    - DIRECTOR_REAPPOINT_ROTATION
+  directors_and_pay: &directors_and_pay
+    - INDEPENDENT_DIRECTOR_APPOINT
+    - NON_INDEPENDENT_DIRECTOR_APPOINT
+    - DIRECTOR_REAPPOINT_ROTATION
+    - MANAGERIAL_REMUNERATION
+  all_types: &all_types
+    - ADOPT_FINANCIALS
+    - DIVIDEND
+    - DIRECTOR_REAPPOINT_ROTATION
+    - INDEPENDENT_DIRECTOR_APPOINT
+    - NON_INDEPENDENT_DIRECTOR_APPOINT
+    - MANAGERIAL_REMUNERATION
+    - RELATED_PARTY_TRANSACTION
+    - AUDITOR_APPOINT
+    - AUDITOR_REMUNERATION_COST
+    - ESOP
+    - CAPITAL_RAISE
+    - BORROWING_LIMITS
+    - ARTICLES_OR_MOA_AMENDMENT
+    - OTHER
+
+SEBI_LODR_2015:
+  reg2: *all_types                          # definitions
+  reg16: [INDEPENDENT_DIRECTOR_APPOINT]     # definition of independent director
+  reg17: *directors_and_pay                 # board composition
+  reg17.1A: *directors                      # NED aged 75+ needs special resolution
+  reg17.1C: *directors                      # shareholder approval within 3 months
+  reg17.1D: *directors                      # approval at least once every 5 years
+  reg17.6: [MANAGERIAL_REMUNERATION, ESOP]  # director pay incl. 17(6)(e) promoter pay
+  reg17A: *directors                        # max number of directorships
+  reg18: [AUDITOR_APPOINT, AUDITOR_REMUNERATION_COST, ADOPT_FINANCIALS, RELATED_PARTY_TRANSACTION]
+  reg19: [MANAGERIAL_REMUNERATION, ESOP, INDEPENDENT_DIRECTOR_APPOINT, NON_INDEPENDENT_DIRECTOR_APPOINT]
+  reg23: [RELATED_PARTY_TRANSACTION]
+  reg24: [RELATED_PARTY_TRANSACTION, OTHER] # material subsidiaries
+  reg25: [INDEPENDENT_DIRECTOR_APPOINT]
+  reg26: *directors                         # code of conduct, directorship limits
+  reg31A: [OTHER]                           # promoter reclassification
+  reg33: [ADOPT_FINANCIALS]
+  reg36: [DIRECTOR_REAPPOINT_ROTATION, INDEPENDENT_DIRECTOR_APPOINT, NON_INDEPENDENT_DIRECTOR_APPOINT, AUDITOR_APPOINT]
+  reg37: [OTHER]                            # schemes of arrangement
+  reg41: [CAPITAL_RAISE]                    # other provisions relating to securities
+  reg43: [DIVIDEND]
+  reg43A: [DIVIDEND]                        # dividend distribution policy
+  sch2.partc: [AUDITOR_APPOINT, AUDITOR_REMUNERATION_COST, ADOPT_FINANCIALS, RELATED_PARTY_TRANSACTION]
+  sch2.partd: [MANAGERIAL_REMUNERATION, ESOP, INDEPENDENT_DIRECTOR_APPOINT, NON_INDEPENDENT_DIRECTOR_APPOINT]
+  sch12: [RELATED_PARTY_TRANSACTION]        # materiality thresholds (since 19.12.2025)
+
+COMPANIES_ACT_2013:
+  s14: [ARTICLES_OR_MOA_AMENDMENT]
+  s42: [CAPITAL_RAISE]
+  s62: [CAPITAL_RAISE, ESOP]
+  s102: *all_types                          # explanatory statement
+  s123: [DIVIDEND]
+  s139: [AUDITOR_APPOINT]
+  s142: [AUDITOR_APPOINT]                   # auditor remuneration
+  s148: [AUDITOR_REMUNERATION_COST]         # cost auditor remuneration ratification
+  s149: [INDEPENDENT_DIRECTOR_APPOINT, NON_INDEPENDENT_DIRECTOR_APPOINT]
+  s152: [DIRECTOR_REAPPOINT_ROTATION, NON_INDEPENDENT_DIRECTOR_APPOINT]
+  s160: [NON_INDEPENDENT_DIRECTOR_APPOINT, INDEPENDENT_DIRECTOR_APPOINT]
+  s177: [AUDITOR_APPOINT, RELATED_PARTY_TRANSACTION, ADOPT_FINANCIALS]
+  s178: [MANAGERIAL_REMUNERATION, INDEPENDENT_DIRECTOR_APPOINT, NON_INDEPENDENT_DIRECTOR_APPOINT]
+  s180: [BORROWING_LIMITS]
+  s188: [RELATED_PARTY_TRANSACTION]
+  s196: [MANAGERIAL_REMUNERATION, NON_INDEPENDENT_DIRECTOR_APPOINT]
+  s197: [MANAGERIAL_REMUNERATION]
+  sch4: [INDEPENDENT_DIRECTOR_APPOINT]
+  sch5: [MANAGERIAL_REMUNERATION, NON_INDEPENDENT_DIRECTOR_APPOINT]

@@ -1,0 +1,169 @@
+# Decision-engine rules (SPEC 6.1). Check functions are implemented in Phase 5;
+# Phase 1 verifies each LAW rule's params and citation against the official text.
+#
+#   kind: LAW     statutory / regulatory requirement
+#   kind: POLICY  house voting guideline (configurable, opinionated)
+#   verified: true once checked against the text at `source_url` as of `as_of`.
+
+sources:
+  lodr: &lodr
+    source_url: https://www.sebi.gov.in/legal/regulations/jul-2026/securities-and-exchange-board-of-india-listing-obligations-and-disclosure-requirements-regulations-2015-last-amended-on-july-14-2026-_102974.html
+    as_of: "2026-07-14"
+  companies_act: &companies_act
+    # As-enacted text (PRS India); India Code / MCA were unreachable. Re-verify
+    # against the amended Act before flipping `verified` to true.
+    source_url: https://prsindia.org/files/bills_acts/acts_parliament/2013/companies-act,-2013.pdf
+    as_of: "2013-08-29"
+
+groups:
+  directors: &directors
+    - INDEPENDENT_DIRECTOR_APPOINT
+    - NON_INDEPENDENT_DIRECTOR_APPOINT
+    - DIRECTOR_REAPPOINT_ROTATION
+
+rules:
+  - id: ID_TENURE_MAX
+    applies_to: [INDEPENDENT_DIRECTOR_APPOINT]
+    kind: LAW
+    check: id_tenure_max
+    params: { term_years: 5, max_consecutive_terms: 2, cooling_off_years: 3 }
+    citation: Section 149(10)-(11), Companies Act 2013
+    <<: *companies_act
+    verified: false
+    notes: >-
+      Params match the 2013 as-enacted text of s.149(10)-(11): terms of up to five
+      consecutive years, re-appointment by special resolution, at most two
+      consecutive terms, three-year cooling-off. Tenure before 1 April 2014 does not
+      count. Not yet checked against the amended Act.
+
+  - id: ID_SPECIAL_RESOLUTION
+    applies_to: [INDEPENDENT_DIRECTOR_APPOINT]
+    kind: LAW
+    check: id_special_resolution
+    params: {}
+    citation: Regulation 25(2A), SEBI LODR 2015; Section 149(10), Companies Act 2013
+    <<: *lodr
+    verified: true
+    notes: >-
+      Replaces the spec's ID_SECOND_TERM_SPECIAL. Reg 25(2A) requires a special
+      resolution for every appointment, re-appointment or removal of an
+      independent director of a listed entity, not only second terms. Its proviso
+      deems the appointment made if the special resolution fails but both total
+      votes and public-shareholder votes in favour exceed votes against.
+
+  - id: NED_AGE_75_SPECIAL
+    applies_to: *directors
+    kind: LAW
+    check: ned_age_special
+    params: { age_years: 75 }
+    citation: Regulation 17(1A), SEBI LODR 2015
+    <<: *lodr
+    verified: true
+    notes: >-
+      Applies to non-executive directors. The explanatory statement must justify
+      the appointment. Compliance is required at appointment/re-appointment or
+      before the director turns 75.
+
+  - id: DIRECTOR_PERIODIC_APPROVAL
+    applies_to: *directors
+    kind: LAW
+    check: director_periodic_approval
+    params: { max_years_between_approvals: 5 }
+    citation: Regulation 17(1D), SEBI LODR 2015
+    <<: *lodr
+    verified: true
+    notes: >-
+      In force from 1 April 2024. Does not apply to WTD, MD, manager, independent
+      directors or directors retiring by rotation under s.152(6) when their
+      approval is otherwise provided for and complied with.
+
+  - id: RPT_MATERIAL_APPROVAL
+    applies_to: [RELATED_PARTY_TRANSACTION]
+    kind: LAW
+    check: rpt_material_approval
+    params:
+      # Schedule XII materiality thresholds (inserted w.e.f. 19.12.2025).
+      materiality_tiers_inr_crore:
+        - { turnover_up_to: 20000, base: 0, pct_of_turnover_above: 10, above: 0 }
+        - { turnover_up_to: 40000, base: 2000, pct_of_turnover_above: 5, above: 20000 }
+        - { turnover_up_to: null, base: 3000, pct_of_turnover_above: 2.5, above: 40000, cap: 5000 }
+      royalty_brand_pct_of_turnover: 5 # Reg 23(1A)
+      sme_threshold: { inr_crore: 50, pct_of_turnover: 10, rule: lower_of }
+    citation: Regulation 23(1), 23(1A), 23(4) and Schedule XII, SEBI LODR 2015
+    <<: *lodr
+    verified: true
+    notes: >-
+      The spec's citation pointed only at Reg 23(1). Thresholds now live in
+      Schedule XII. Material RPTs need prior shareholder approval and no related
+      party may vote to approve, whether or not party to the transaction.
+
+  - id: RPT_OMNIBUS_VALIDITY
+    applies_to: [RELATED_PARTY_TRANSACTION]
+    kind: LAW
+    check: rpt_omnibus_validity
+    params: { agm_valid_until: next_agm, other_meeting_max_years: 1 }
+    citation: Regulation 23(4) provisos, SEBI LODR 2015
+    <<: *lodr
+    verified: true
+    notes: >-
+      New rule. Omnibus approvals granted at an AGM are valid until the next AGM;
+      those granted at other general meetings are valid for at most one year. This
+      makes the ">5 year tenure" part of POL_RPT_NO_CAP a legal question.
+
+  - id: EXEC_PROMOTER_PAY_SPECIAL
+    applies_to: [MANAGERIAL_REMUNERATION]
+    kind: LAW
+    check: exec_promoter_pay_special
+    params:
+      individual_inr_crore: 5
+      individual_pct_net_profit: 2.5 # whichever is higher
+      aggregate_pct_net_profit: 5 # when more than one such director
+    citation: Regulation 17(6)(e), SEBI LODR 2015
+    <<: *lodr
+    verified: true
+    notes: Approval is valid only until the director's term expires.
+
+  - id: AUDITOR_ROTATION
+    applies_to: [AUDITOR_APPOINT]
+    kind: LAW
+    check: auditor_rotation
+    params: { individual_max_terms: 1, firm_max_terms: 2, term_years: 5, cooling_off_years: 5 }
+    citation: Section 139(2), Companies Act 2013
+    <<: *companies_act
+    verified: false
+    notes: >-
+      Params match the 2013 as-enacted text of s.139(2): listed companies may give
+      an individual auditor one term and an audit firm two terms of five
+      consecutive years, then a five-year cooling-off (also for firms sharing a
+      partner). Not yet checked against the amended Act.
+
+  - id: POL_ATTENDANCE_MIN
+    applies_to: *directors
+    kind: POLICY
+    check: attendance_min
+    params: { min_attendance_pct: 75, lookback_years: 3 }
+    citation: House policy
+    source_url: null
+    as_of: "2026-10-02"
+    verified: true
+
+  - id: POL_PAY_JUMP
+    applies_to: [MANAGERIAL_REMUNERATION]
+    kind: POLICY
+    check: pay_jump
+    params: { max_yoy_increase_pct: 50, require_cap: true }
+    citation: House policy
+    source_url: null
+    as_of: "2026-10-02"
+    verified: true
+
+  - id: POL_RPT_NO_CAP
+    applies_to: [RELATED_PARTY_TRANSACTION]
+    kind: POLICY
+    check: rpt_no_cap
+    params: { require_monetary_cap: true }
+    citation: House policy
+    source_url: null
+    as_of: "2026-10-02"
+    verified: true
+    notes: Tenure limits are covered by RPT_OMNIBUS_VALIDITY (LAW).

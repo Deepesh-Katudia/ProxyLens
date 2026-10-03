@@ -20,7 +20,10 @@ class Settings(BaseSettings):
 
     gcp_project_id: str = ""
     gcp_region: str = "asia-south1"
+    teacher_provider: Literal["openrouter", "vertex"] = "openrouter"
     teacher_model: str = ""
+    openrouter_api_key: SecretStr = SecretStr("")
+    openrouter_base_url: str = "https://openrouter.ai/api/v1"
 
     student_provider: Literal["local_gguf", "vertex", "base_hf"] = "local_gguf"
     student_gguf_repo: str = "deepesh/proxylens-qwen3b-gguf-v1"

@@ -1,0 +1,90 @@
+# Hand-written retrieval cases (Phase 1 acceptance: recall@6 >= 0.8).
+#
+# Queries are phrased the way an analyst would ask while reading a notice.
+# `expected` lists legal-unit ids; any one in the top k counts as a hit, and a
+# unit id also matches its split chunks (`<id>_p1`, `<id>_p2`, ...).
+# Expected units come from the statute, not from retriever output.
+
+cases:
+  # --- SEBI LODR 2015 -------------------------------------------------------
+  - query: Does appointing a non-executive director who is 76 years old need a special resolution?
+    resolution_type: NON_INDEPENDENT_DIRECTOR_APPOINT
+    expected: [lodr_reg17_1a]
+
+  - query: How often must shareholders approve the continuation of a director on the board?
+    resolution_type: DIRECTOR_REAPPOINT_ROTATION
+    expected: [lodr_reg17_1d]
+
+  - query: Shareholder approval within three months of appointing a new director
+    resolution_type: NON_INDEPENDENT_DIRECTOR_APPOINT
+    expected: [lodr_reg17_1c]
+
+  - query: Promoter executive director annual remuneration above 5 crore or 2.5 percent of net profits
+    resolution_type: MANAGERIAL_REMUNERATION
+    expected: [lodr_reg17_6]
+
+  - query: Material related party transactions need prior shareholder approval and related parties cannot vote in favour
+    resolution_type: RELATED_PARTY_TRANSACTION
+    expected: [lodr_reg23_4]
+
+  - query: Turnover-based threshold above which a related party transaction becomes material
+    resolution_type: RELATED_PARTY_TRANSACTION
+    expected: [lodr_sch12, lodr_reg23_1]
+
+  - query: Materiality limit for royalty or brand usage payments to a related party
+    resolution_type: RELATED_PARTY_TRANSACTION
+    expected: [lodr_reg23_1a]
+
+  - query: How long is an omnibus shareholder approval for related party transactions valid?
+    resolution_type: RELATED_PARTY_TRANSACTION
+    expected: [lodr_reg23_4, lodr_reg23_3]
+
+  - query: Appointment or re-appointment of an independent director requires a special resolution
+    resolution_type: INDEPENDENT_DIRECTOR_APPOINT
+    expected: [lodr_reg25_2a]
+
+  - query: Who qualifies as an independent director, criteria of independence
+    resolution_type: INDEPENDENT_DIRECTOR_APPOINT
+    # s.149(6) added after the Act was loaded: it is the statutory definition too.
+    expected: [lodr_reg16_1, ca_s149_6]
+
+  - query: Maximum number of listed companies in which a person can serve as an independent director
+    resolution_type: INDEPENDENT_DIRECTOR_APPOINT
+    expected: [lodr_reg17a, lodr_reg17a_1, lodr_reg17a_2]
+
+  - query: Role of the nomination and remuneration committee in recommending the remuneration policy
+    resolution_type: MANAGERIAL_REMUNERATION
+    expected: [lodr_sch2_partd, lodr_reg19_4]
+
+  - query: Audit committee recommends appointment, remuneration and terms of the statutory auditors
+    resolution_type: AUDITOR_APPOINT
+    expected: [lodr_sch2_partc, lodr_reg18_3]
+
+  - query: Dividend distribution policy to be formulated and disclosed by top listed entities
+    resolution_type: DIVIDEND
+    expected: [lodr_reg43a_1]
+
+  # --- Companies Act 2013 ---------------------------------------------------
+  - query: Independent director term of up to five consecutive years and reappointment by special resolution
+    resolution_type: INDEPENDENT_DIRECTOR_APPOINT
+    expected: [ca_s149_10, ca_s149_11]
+
+  - query: Cooling-off period of three years before a former independent director can be appointed again
+    resolution_type: INDEPENDENT_DIRECTOR_APPOINT
+    expected: [ca_s149_11]
+
+  - query: Rotation of the audit firm after two terms of five consecutive years in a listed company
+    resolution_type: AUDITOR_APPOINT
+    expected: [ca_s139_2]
+
+  - query: Borrowing in excess of paid-up capital, free reserves and securities premium needs a special resolution
+    resolution_type: BORROWING_LIMITS
+    expected: [ca_s180_1]
+
+  - query: Directors liable to retire by rotation at the annual general meeting
+    resolution_type: DIRECTOR_REAPPOINT_ROTATION
+    expected: [ca_s152_6]
+
+  - query: Total managerial remuneration cap of eleven percent of net profits
+    resolution_type: MANAGERIAL_REMUNERATION
+    expected: [ca_s197_1]
