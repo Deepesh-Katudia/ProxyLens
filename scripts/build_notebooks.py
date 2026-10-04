@@ -26,7 +26,7 @@ def code(text: str) -> Cell:
     return ("code", dedent(text).strip())
 
 
-def notebook(cells: list[Cell]) -> dict[str, Any]:
+def notebook(cells: list[Cell], *, gpu: bool = True) -> dict[str, Any]:
     def as_cell(kind: str, source: str) -> dict[str, Any]:
         lines = source.splitlines(keepends=True)
         cell: dict[str, Any] = {"cell_type": kind, "metadata": {}, "source": lines}
@@ -34,15 +34,17 @@ def notebook(cells: list[Cell]) -> dict[str, Any]:
             cell |= {"execution_count": None, "outputs": []}
         return cell
 
+    metadata: dict[str, Any] = {
+        "colab": {"provenance": []},
+        "kernelspec": {"display_name": "Python 3", "name": "python3"},
+        "language_info": {"name": "python"},
+    }
+    if gpu:
+        metadata = {"accelerator": "GPU", **metadata, "colab": {"gpuType": "T4", "provenance": []}}
     return {
         "nbformat": 4,
         "nbformat_minor": 5,
-        "metadata": {
-            "accelerator": "GPU",
-            "colab": {"gpuType": "T4", "provenance": []},
-            "kernelspec": {"display_name": "Python 3", "name": "python3"},
-            "language_info": {"name": "python"},
-        },
+        "metadata": metadata,
         "cells": [as_cell(kind, source) for kind, source in cells],
     }
 
@@ -60,9 +62,13 @@ INSTALL = code(
 
 SETUP = code(
     """
-    from unsloth import FastLanguageModel  # import first: Unsloth patches transformers/trl
+    import os
+    # Must be set before torch starts: reduces fragmentation-driven OOMs on the 15 GB T4.
+    os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
-    import glob, json, os, time
+    from unsloth import FastLanguageModel  # import before transformers/trl: Unsloth patches them
+
+    import glob, json, time
     import torch
     from google.colab import drive, userdata
     from huggingface_hub import HfApi, snapshot_download
@@ -80,6 +86,9 @@ SETUP = code(
     MAX_NEW_TOKENS = 1024     # longest teacher answer is ~870 tokens
     SEED = 3407
     print("HF user:", HF_USER)
+
+    import transformers
+    transformers.utils.logging.set_verbosity_error()  # hides a harmless per-generate max_length warning
     """
 )
 
@@ -109,6 +118,93 @@ GENERATE = code(
 )
 
 
+SAVE_AND_EXPORT: list[Cell] = [
+    md("## 8. Save the LoRA adapter (private HF repo)"),
+    code(
+        """
+        model.save_pretrained(f"{OUTPUT_DIR}/final")
+        tokenizer.save_pretrained(f"{OUTPUT_DIR}/final")
+        model.push_to_hub(LORA_REPO, token=HF_TOKEN, private=True)
+        tokenizer.push_to_hub(LORA_REPO, token=HF_TOKEN, private=True)
+        HfApi(token=HF_TOKEN).upload_file(path_or_fileobj=f"{OUTPUT_DIR}/metrics.json",
+                                          path_in_repo="metrics.json", repo_id=LORA_REPO)
+        """
+    ),
+    md("## 9. Export a merged Q4_K_M GGUF for CPU serving (llama.cpp)"),
+    code(
+        """
+        model.save_pretrained_gguf("gguf_out", tokenizer, quantization_method="q4_k_m")
+        candidates = [p for p in glob.glob("**/*.gguf", recursive=True) if "q4_k_m" in p.lower()]
+        assert candidates, "GGUF export produced no Q4_K_M file"
+        gguf_path = max(candidates, key=os.path.getmtime)
+        print(gguf_path, round(os.path.getsize(gguf_path) / 1e9, 2), "GB")
+
+        api = HfApi(token=HF_TOKEN)
+        api.create_repo(GGUF_REPO, private=True, exist_ok=True)
+        api.upload_file(path_or_fileobj=gguf_path, path_in_repo=GGUF_FILE, repo_id=GGUF_REPO)
+        print(f"Uploaded https://huggingface.co/{GGUF_REPO}/blob/main/{GGUF_FILE}")
+        """
+    ),
+    md(
+        """
+        ## Next
+
+        In the repo's `.env` set `STUDENT_GGUF_REPO=<you>/proxylens-qwen3b-gguf-v1` (and `HF_TOKEN`), then run
+        the Phase 4 smoke test:
+
+        ```bash
+        uv sync --extra student
+        uv run python -m scripts.smoke_student --n 10
+        ```
+        """
+    ),
+]
+
+
+# Checkpoint selection and metrics shared by the export notebooks (03 GPU, 04 CPU).
+PICK_CHECKPOINT = code(
+    """
+    drive.mount("/content/drive")
+    OUTPUT_DIR = "/content/drive/MyDrive/proxylens/qwen3b-lora-v1"
+    CHECKPOINT = None   # e.g. f"{OUTPUT_DIR}/checkpoint-130" to choose one; None = latest complete
+
+    def complete(path):
+        # Finished syncing to Drive: adapter weights + trainer state present.
+        weights = os.path.join(path, "adapter_model.safetensors")
+        return (os.path.isfile(weights) and os.path.getsize(weights) > 50_000_000
+                and os.path.isfile(os.path.join(path, "trainer_state.json")))
+
+    found = sorted(glob.glob(f"{OUTPUT_DIR}/checkpoint-*"), key=lambda p: int(p.rsplit("-", 1)[1]))
+    for path in found:
+        print(f"{os.path.basename(path):16} {'complete' if complete(path) else 'INCOMPLETE (skipped)'}")
+    if CHECKPOINT is None:
+        usable = [p for p in found if complete(p)]
+        assert usable, f"no complete checkpoint in {OUTPUT_DIR}"
+        CHECKPOINT = usable[-1]
+    print("using", CHECKPOINT)
+    """
+)
+
+CHECKPOINT_METRICS = code(
+    """
+    # metrics.json from the trainer state saved with the checkpoint.
+    state = json.load(open(f"{CHECKPOINT}/trainer_state.json"))
+    metrics = {
+        "base_model": BASE_MODEL,
+        "checkpoint": os.path.basename(CHECKPOINT),
+        "epochs": state.get("epoch"),
+        "global_step": state.get("global_step"),
+        "train_loss_log": [h for h in state["log_history"] if "loss" in h],
+        "eval_loss_log": [h for h in state["log_history"] if "eval_loss" in h],
+        "sanity_check": SANITY,
+    }
+    with open(f"{OUTPUT_DIR}/metrics.json", "w") as fh:
+        json.dump(metrics, fh, indent=2)
+    print(json.dumps(metrics["eval_loss_log"], indent=2))
+    """
+)
+
+
 # --- 01: fine-tune -------------------------------------------------------------
 
 FINETUNE: list[Cell] = [
@@ -126,13 +222,13 @@ FINETUNE: list[Cell] = [
         `<you>/proxylens-qwen3b-gguf-v1` (both private), plus `metrics.json` with val JSON validity and
         type accuracy.
 
-        **Runtime:** free T4, about 1.5-2.5 h for 3 epochs (~1,370 examples, ~1,500 tokens each).
-        Checkpoints go to Google Drive every 20 steps; re-run all cells after a disconnect and training
-        resumes from the last checkpoint.
+        **Runtime:** free T4, about 2 h per epoch (~1,370 examples, ~1,500 tokens each; ~80 s per
+        optimizer step). Default is 1 epoch: a 2-epoch run gave no gain on the val subset. Checkpoints go to Google Drive every 10 steps; after a
+        disconnect, re-run all cells and training resumes from the last checkpoint.
 
         **Hyper-parameters (SPEC 7.3):** r=16, alpha=16, dropout 0, all attention + MLP projections;
-        lr 2e-4 cosine, 3 epochs, effective batch 16 (2 x 8), fp16 on T4, seed 3407; loss on assistant
-        tokens only.
+        lr 2e-4 cosine, 1 epoch (see the config cell), effective batch 16 (1 x 16 to fit T4 memory), fp16 on T4,
+        seed 3407; loss on assistant tokens only.
         """
     ),
     md("## 1. Install and configure"),
@@ -140,9 +236,14 @@ FINETUNE: list[Cell] = [
     SETUP,
     code(
         """
-        EPOCHS = 3
+        # First run (v1): 2 epochs gave val loss 0.191 -> 0.182 and identical subset metrics
+        # (96.9% valid JSON, 93.8% type accuracy) after epochs 1 and 2, so 1 epoch is the default.
+        EPOCHS = 1
+        FULL_VAL_EVAL = False     # generating all 137 val answers adds ~1 h; notebook 02 / Phase 7 evaluate properly
         LR = 2e-4
-        BATCH, GRAD_ACCUM = 2, 8
+        # Effective batch 16 as in SPEC 7.3. One sequence per device step: two ~4k-token sequences
+        # plus the 152k-vocab logits do not fit in a T4's 15 GB.
+        BATCH, GRAD_ACCUM = 1, 16
         EVAL_SUBSET = 32          # val items generated after each epoch (full val runs at the end)
         drive.mount("/content/drive")
         OUTPUT_DIR = "/content/drive/MyDrive/proxylens/qwen3b-lora-v1"
@@ -264,7 +365,7 @@ FINETUNE: list[Cell] = [
             eval_strategy="epoch",
             per_device_eval_batch_size=BATCH,
             save_strategy="steps",
-            save_steps=20,
+            save_steps=10,
             save_total_limit=3,
             seed=SEED,
             report_to="none",
@@ -301,10 +402,10 @@ FINETUNE: list[Cell] = [
         print(train_stats)
         """
     ),
-    md("## 7. Full validation + metrics"),
+    md("## 7. Metrics (full validation only if FULL_VAL_EVAL)"),
     code(
         """
-        final = score(model, ds["val"])
+        final = score(model, ds["val"]) if FULL_VAL_EVAL else None
         metrics = {
             "base_model": BASE_MODEL,
             "train_examples": len(ds["train"]),
@@ -320,45 +421,7 @@ FINETUNE: list[Cell] = [
         print(json.dumps(final, indent=2))
         """
     ),
-    md("## 8. Save the LoRA adapter (private HF repo)"),
-    code(
-        """
-        model.save_pretrained(f"{OUTPUT_DIR}/final")
-        tokenizer.save_pretrained(f"{OUTPUT_DIR}/final")
-        model.push_to_hub(LORA_REPO, token=HF_TOKEN, private=True)
-        tokenizer.push_to_hub(LORA_REPO, token=HF_TOKEN, private=True)
-        HfApi(token=HF_TOKEN).upload_file(path_or_fileobj=f"{OUTPUT_DIR}/metrics.json",
-                                          path_in_repo="metrics.json", repo_id=LORA_REPO)
-        """
-    ),
-    md("## 9. Export a merged Q4_K_M GGUF for CPU serving (llama.cpp)"),
-    code(
-        """
-        model.save_pretrained_gguf("gguf_out", tokenizer, quantization_method="q4_k_m")
-        candidates = [p for p in glob.glob("**/*.gguf", recursive=True) if "q4_k_m" in p.lower()]
-        assert candidates, "GGUF export produced no Q4_K_M file"
-        gguf_path = max(candidates, key=os.path.getmtime)
-        print(gguf_path, round(os.path.getsize(gguf_path) / 1e9, 2), "GB")
-
-        api = HfApi(token=HF_TOKEN)
-        api.create_repo(GGUF_REPO, private=True, exist_ok=True)
-        api.upload_file(path_or_fileobj=gguf_path, path_in_repo=GGUF_FILE, repo_id=GGUF_REPO)
-        print(f"Uploaded https://huggingface.co/{GGUF_REPO}/blob/main/{GGUF_FILE}")
-        """
-    ),
-    md(
-        """
-        ## Next
-
-        In the repo's `.env` set `STUDENT_GGUF_REPO=<you>/proxylens-qwen3b-gguf-v1` (and `HF_TOKEN`), then run
-        the Phase 4 smoke test:
-
-        ```bash
-        uv sync --extra student
-        uv run python -m scripts.smoke_student --n 10
-        ```
-        """
-    ),
+    *SAVE_AND_EXPORT,
 ]
 
 
@@ -455,15 +518,224 @@ EVAL: list[Cell] = [
 ]
 
 
+# --- 03: export an already-trained checkpoint ---------------------------------------
+
+EXPORT: list[Cell] = [
+    md(
+        """
+        # ProxyLens 03: export a trained checkpoint (no training)
+
+        **When:** notebook 01 finished training but the session ended before the upload/GGUF cells (a
+        long Colab session can run out of time or GPU memory). This loads the latest checkpoint from
+        Google Drive in a fresh session and does only the remaining steps.
+
+        **Inputs:** the Drive folder notebook 01 wrote (`MyDrive/proxylens/qwen3b-lora-v1/checkpoint-*`);
+        Colab secret `HF_TOKEN`.
+
+        **Outputs:** the same as notebook 01: LoRA adapter + `metrics.json` at
+        `<you>/proxylens-qwen3b-lora-v1` and `proxylens-q4_k_m.gguf` at `<you>/proxylens-qwen3b-gguf-v1`.
+
+        **Runtime:** free T4, about 20-40 min (mostly the GGUF conversion).
+        """
+    ),
+    INSTALL,
+    SETUP,
+    PICK_CHECKPOINT,
+    code(
+        """
+        # The checkpoint holds the LoRA adapter; Unsloth loads the 4-bit base model under it.
+        model, tokenizer = FastLanguageModel.from_pretrained(
+            CHECKPOINT, max_seq_length=MAX_SEQ_LEN, load_in_4bit=True, dtype=None
+        )
+        FastLanguageModel.for_inference(model)
+        """
+    ),
+    schema_cell(),
+    GENERATE,
+    code(
+        """
+        # Sanity check before uploading: the adapter must produce valid extractions.
+        from datasets import load_dataset
+
+        data_dir = snapshot_download(DATASET_REPO, repo_type="dataset", token=HF_TOKEN,
+                                     allow_patterns=["sft/val.jsonl"])
+        val = load_dataset("json", data_files=f"{data_dir}/sft/val.jsonl")["train"]
+        ok = 0
+        for row in val.select(range(5)):
+            text, latency_ms, _ = generate(model, row["messages"][:2])
+            try:
+                pred = ResolutionExtraction.model_validate_json(text)
+                ok += 1
+                print("valid", pred.resolution_type.value, f"{latency_ms} ms")
+            except Exception as exc:
+                print("INVALID:", str(exc)[:200])
+        assert ok >= 4, "adapter does not look trained; check CHECKPOINT"
+        SANITY = f"{ok}/5 valid"
+        """
+    ),
+    CHECKPOINT_METRICS,
+    *SAVE_AND_EXPORT,
+]
+
+
+# --- 04: export on a CPU-only runtime -------------------------------------------------
+
+EXPORT_CPU: list[Cell] = [
+    md(
+        """
+        # ProxyLens 04: export a trained checkpoint on CPU (no GPU needed)
+
+        **When:** like notebook 03, but for when Colab offers no GPU (free T4 quota used up). Training is
+        already done; merging the LoRA, converting to GGUF and quantizing all run on CPU. Use
+        *Runtime > Change runtime type > CPU*.
+
+        **How:** plain `transformers` + `peft` merge the adapter into the full-precision
+        `Qwen2.5-3B-Instruct` (bf16, ~6.2 GB of the ~12 GB RAM), then llama.cpp's own
+        `convert_hf_to_gguf.py` and `llama-quantize` produce `Q4_K_M`. This is what Unsloth's
+        `save_pretrained_gguf` does in notebooks 01/03.
+
+        **Inputs:** the Drive folder notebook 01 wrote (`MyDrive/proxylens/qwen3b-lora-v1/checkpoint-*`);
+        Colab secret `HF_TOKEN` with write access.
+
+        **Outputs:** LoRA adapter + `metrics.json` at `<you>/proxylens-qwen3b-lora-v1` and
+        `proxylens-q4_k_m.gguf` at `<you>/proxylens-qwen3b-gguf-v1`.
+
+        **Runtime:** about 30-45 min on the free CPU runtime (building llama-quantize and quantizing
+        take the longest).
+        """
+    ),
+    code(
+        """
+        %%capture
+        !pip install -q "peft>=0.13" "huggingface_hub>=0.25" "pydantic>=2.8" sentencepiece
+        # Colab preinstalls torchao 0.10, which newer peft refuses to import; the merge does not use it.
+        !pip uninstall -q -y torchao
+        # llama.cpp: the HF -> GGUF converter, and the quantizer built from source (CPU only).
+        !git clone -q --depth 1 https://github.com/ggml-org/llama.cpp
+        !cmake -S llama.cpp -B llama.cpp/build -DGGML_NATIVE=OFF -DLLAMA_CURL=OFF -DLLAMA_BUILD_TESTS=OFF
+        !cmake --build llama.cpp/build --target llama-quantize -j 4
+        # Prebuilt CPU wheel, for the sanity check on the finished GGUF.
+        !pip install -q llama-cpp-python --prefer-binary --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+        """
+    ),
+    code(
+        """
+        import gc, glob, json, os, shutil, subprocess
+        import torch
+        from google.colab import drive, userdata
+        from huggingface_hub import HfApi, snapshot_download
+
+        QUANTIZE = "llama.cpp/build/bin/llama-quantize"
+        assert os.path.isfile(QUANTIZE), "llama-quantize did not build; re-run the install cell without %%capture"
+        print("torch", torch.__version__, "| CPU threads:", os.cpu_count())
+
+        HF_TOKEN = userdata.get("HF_TOKEN")  # Colab secret; needs write access
+        HF_USER = HfApi(token=HF_TOKEN).whoami()["name"]
+        DATASET_REPO = f"{HF_USER}/proxylens-sft-v1"
+        LORA_REPO = f"{HF_USER}/proxylens-qwen3b-lora-v1"
+        GGUF_REPO = f"{HF_USER}/proxylens-qwen3b-gguf-v1"
+        GGUF_FILE = "proxylens-q4_k_m.gguf"                     # = STUDENT_GGUF_FILE in .env
+        BASE_MODEL = "unsloth/Qwen2.5-3B-Instruct-bnb-4bit"     # what the adapter was trained on
+        MERGE_BASE = "unsloth/Qwen2.5-3B-Instruct"              # same weights, full precision
+        print("HF user:", HF_USER)
+        """
+    ),
+    PICK_CHECKPOINT,
+    md("## Merge the adapter into the full-precision base"),
+    code(
+        """
+        from peft import PeftModel
+        from transformers import AutoModelForCausalLM, AutoTokenizer
+
+        base = AutoModelForCausalLM.from_pretrained(MERGE_BASE, torch_dtype=torch.bfloat16,
+                                                    low_cpu_mem_usage=True, token=HF_TOKEN)
+        merged = PeftModel.from_pretrained(base, CHECKPOINT).merge_and_unload()
+        has_tokenizer = os.path.isfile(f"{CHECKPOINT}/tokenizer_config.json")
+        tokenizer = AutoTokenizer.from_pretrained(CHECKPOINT if has_tokenizer else MERGE_BASE)
+        merged.save_pretrained("merged", safe_serialization=True)
+        tokenizer.save_pretrained("merged")
+        del base, merged
+        gc.collect()
+        print(sorted(os.listdir("merged")))
+        """
+    ),
+    md("## Convert to GGUF and quantize to Q4_K_M"),
+    code(
+        """
+        def run(cmd):
+            print("$", " ".join(cmd))
+            subprocess.run(cmd, check=True)
+
+        run(["python", "llama.cpp/convert_hf_to_gguf.py", "merged", "--outfile", "proxylens-f16.gguf",
+             "--outtype", "f16"])
+        shutil.rmtree("merged")   # free disk before quantizing
+        run([QUANTIZE, "proxylens-f16.gguf", GGUF_FILE, "Q4_K_M", str(os.cpu_count())])
+        os.remove("proxylens-f16.gguf")
+        print(GGUF_FILE, round(os.path.getsize(GGUF_FILE) / 1e9, 2), "GB")
+        """
+    ),
+    schema_cell(),
+    code(
+        """
+        # Sanity check before uploading: the quantized model must produce valid extractions.
+        # Unconstrained decoding, so this measures the model, not the JSON grammar. ~1-2 min per item.
+        from llama_cpp import Llama
+
+        data_dir = snapshot_download(DATASET_REPO, repo_type="dataset", token=HF_TOKEN,
+                                     allow_patterns=["sft/val.jsonl"])
+        val = [json.loads(line) for line in open(f"{data_dir}/sft/val.jsonl")][:3]
+        llm = Llama(model_path=GGUF_FILE, n_ctx=4096, n_threads=os.cpu_count(), verbose=False)
+        ok = 0
+        for row in val:
+            out = llm.create_chat_completion(messages=row["messages"][:2], temperature=0.0, max_tokens=1024)
+            text = out["choices"][0]["message"]["content"]
+            try:
+                pred = ResolutionExtraction.model_validate_json(text)
+                ok += 1
+                print("valid", pred.resolution_type.value)
+            except Exception as exc:
+                print("INVALID:", str(exc)[:200])
+        del llm
+        assert ok >= 2, "quantized model does not look trained; check CHECKPOINT"
+        SANITY = f"{ok}/3 valid (Q4_K_M, CPU)"
+        """
+    ),
+    CHECKPOINT_METRICS,
+    md("## Upload the LoRA adapter and the GGUF (private HF repos)"),
+    code(
+        """
+        api = HfApi(token=HF_TOKEN)
+        api.create_repo(LORA_REPO, private=True, exist_ok=True)
+        # Adapter + tokenizer only; optimizer/scheduler/RNG state stays on Drive.
+        api.upload_folder(folder_path=CHECKPOINT, repo_id=LORA_REPO,
+                          allow_patterns=["adapter_*", "*.json", "*.jinja", "merges.txt"],
+                          ignore_patterns=["trainer_state.json", "training_args*", "rng_state*"])
+        api.upload_file(path_or_fileobj=f"{OUTPUT_DIR}/metrics.json", path_in_repo="metrics.json",
+                        repo_id=LORA_REPO)
+
+        api.create_repo(GGUF_REPO, private=True, exist_ok=True)
+        api.upload_file(path_or_fileobj=GGUF_FILE, path_in_repo=GGUF_FILE, repo_id=GGUF_REPO)
+        print(f"Uploaded https://huggingface.co/{GGUF_REPO}/blob/main/{GGUF_FILE}")
+        """
+    ),
+    SAVE_AND_EXPORT[-1],  # "Next": the local smoke test
+]
+
+
 def write_all() -> list[Path]:
     NOTEBOOKS.mkdir(exist_ok=True)
     targets = {
         NOTEBOOKS / "01_finetune_qlora.ipynb": FINETUNE,
         NOTEBOOKS / "02_eval_student.ipynb": EVAL,
+        NOTEBOOKS / "03_export_checkpoint.ipynb": EXPORT,
     }
     for path, cells in targets.items():
         path.write_text(json.dumps(notebook(cells), indent=1) + "\n", encoding="utf-8")
-    return list(targets)
+    cpu_path = NOTEBOOKS / "04_export_cpu.ipynb"
+    cpu_path.write_text(
+        json.dumps(notebook(EXPORT_CPU, gpu=False), indent=1) + "\n", encoding="utf-8"
+    )
+    return [*targets, cpu_path]
 
 
 def main() -> int:

@@ -10,7 +10,7 @@ from app.llm.extraction import EXTRACTION_SCHEMA
 from app.llm.fallback import extract_with_fallback
 from app.llm.local_gguf import LocalGGUFProvider, resolve_gguf_path
 from app.llm.prompts import build_extraction_input
-from scripts.build_notebooks import FINETUNE, notebook, schema_cell
+from scripts.build_notebooks import EXPORT_CPU, FINETUNE, notebook, schema_cell
 from scripts.smoke_student import parse_user_message
 
 VALID = json.dumps(
@@ -138,12 +138,24 @@ def test_notebook_embeds_repo_schema_and_valid_json() -> None:
     [
         ("notebooks/01_finetune_qlora.ipynb", "FINETUNE"),
         ("notebooks/02_eval_student.ipynb", "EVAL"),
+        ("notebooks/03_export_checkpoint.ipynb", "EXPORT"),
+        ("notebooks/04_export_cpu.ipynb", "EXPORT_CPU"),
     ],
 )
 def test_committed_notebooks_are_up_to_date(path: str, cells_name: str) -> None:
     import scripts.build_notebooks as builder
 
-    expected = json.dumps(notebook(getattr(builder, cells_name)), indent=1) + "\n"
+    cells = getattr(builder, cells_name)
+    expected = json.dumps(notebook(cells, gpu=cells is not EXPORT_CPU), indent=1) + "\n"
     assert Path(path).read_text(encoding="utf-8") == expected, (
         "run: python -m scripts.build_notebooks"
     )
+
+
+def test_cpu_export_notebook_needs_no_gpu() -> None:
+    nb = notebook(EXPORT_CPU, gpu=False)
+    sources = "".join("".join(c["source"]) for c in nb["cells"] if c["cell_type"] == "code")
+
+    assert "accelerator" not in nb["metadata"] and "gpuType" not in nb["metadata"]["colab"]
+    assert "unsloth import" not in sources and "cuda" not in sources
+    assert "Q4_K_M" in sources and 'GGUF_FILE = "proxylens-q4_k_m.gguf"' in sources
