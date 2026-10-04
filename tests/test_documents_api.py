@@ -71,9 +71,9 @@ def upload(client: TestClient, pdf: bytes, **form: Any) -> Any:
 
 
 def text_pdf(text: str) -> bytes:
-    doc = pymupdf.open()
+    doc = pymupdf.open()  # type: ignore[no-untyped-call]
     doc.new_page().insert_text((72, 72), text)
-    data: bytes = doc.tobytes()
+    data: bytes = doc.tobytes()  # type: ignore[no-untyped-call]
     return data
 
 
