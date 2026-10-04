@@ -101,7 +101,8 @@ rules:
     applies_to: [RELATED_PARTY_TRANSACTION]
     kind: LAW
     check: rpt_omnibus_validity
-    params: { agm_valid_until: next_agm, other_meeting_max_years: 1 }
+    # "Until the next AGM" as a number: s.96(1) allows at most 15 months between AGMs.
+    params: { agm_valid_until: next_agm, agm_max_years: 1.25, other_meeting_max_years: 1 }
     citation: Regulation 23(4) provisos, SEBI LODR 2015
     <<: *lodr
     verified: true

@@ -1,5 +1,34 @@
 # Progress
 
+## Phase 5: Decision engine + LangGraph pipeline (built 2026-10-04; awaiting review)
+
+### Status against acceptance criteria
+| Criterion | Status |
+|---|---|
+| `config/policy.yaml`, rule functions, LLM reasoner, constraint enforcement, LangGraph graph wiring all nodes | ✅ `app/rules/`, `app/llm/reasoner.py`, `app/pipeline/constraints.py`, `app/pipeline/graph.py` (`parse → extract → validate → retrieve → rule_check → reason → assemble`) |
+| Unit tests for every rule (pass/fail/NA/insufficient) | ✅ `tests/test_rules.py`: 70 cases over all 11 rules, each status a rule can return. A test fails if a policy rule has no cases or names an unregistered check. Some rules can't return every status (e.g. `ID_SPECIAL_RESOLUTION` is only PASS/FAIL) |
+| Integration test: a full notice end-to-end with mocked LLMs | ✅ `tests/test_pipeline.py`: the real ITC 2025 notice (11 items) with fake student/teacher/reasoner/retriever. It covers teacher fallback, a LAW failure flipping FOR to AGAINST, invented citations being dropped, a missing reasoner, and retrieval/extraction failures degrading to flags |
+| Constraint violations impossible by test | ✅ `tests/test_constraints.py` runs every combination (4 recommendations × 7 confidences × 5 citation sets × 100 finding sets = 14,000 cases) and asserts all three SPEC 6.2 constraints on each |
+
+### Live check (not part of the acceptance criteria)
+`uv run python -m scripts.analyse_notice tests/fixtures/notices/devyani_2025.pdf --extractor teacher`: real Gemini extraction and reasoning, live Atlas retrieval, 6 items, about 1 minute.
+- Adopting accounts → FOR (1.00). Two rotation re-appointments → NEEDS_REVIEW: the extraction has no age, so the Reg 17(1A) LAW check returns INSUFFICIENT_DATA. Two auditor items → FOR: "second term" read as 5 prior years (10 ≤ 10 for a firm). WTD pay → NEEDS_REVIEW (the reasoner's own call).
+- On one item the reasoner cited a chunk that was not retrieved; enforcement dropped it and lowered confidence 0.95 → 0.80.
+- The first run found two gaps, now fixed with tests: an auditor named only in the title, and "second/third term" wording when prior years are not stated.
+
+### Design notes
+- **Rules return INSUFFICIENT_DATA when the notice lacks a fact.** Company turnover (RPT materiality) and net profit (Reg 17(6)(e)) are not in the extraction. They can be passed as `CompanyFacts` (`--turnover-cr`, `--net-profit-cr`); otherwise those checks only decide when the answer is certain without them. For example, a value above Rs 5,000 crore is material at any turnover, and pay within Rs 5 crore is below the Reg 17(6)(e) threshold at any profit.
+- **Prior tenure**: stated years are used first, then "first/second/third term" wording; a plain "appointment" counts as a first term. A re-appointment with neither gives INSUFFICIENT_DATA.
+- **Constraint order**: invalid citations are dropped first (−0.15 confidence each; quotes must be at least 12 characters and are matched with whitespace normalised). Then a LAW FAIL turns FOR into AGAINST. Then a LAW INSUFFICIENT_DATA or confidence < 0.6 forces NEEDS_REVIEW. Every change is recorded in `adjustments`.
+- **`validate` node**: the notice's item number and its "as a Special Resolution" wording override the model, and mismatches are flagged.
+- **Failures degrade, never crash**: extraction failure → `EXTRACTION_FAILED` + NEEDS_REVIEW; retrieval error → `RETRIEVAL_FAILED` and no citations; reasoner failure → `REASONER_FAILED` + NEEDS_REVIEW.
+- `policy.yaml`: added `agm_max_years: 1.25` to `RPT_OMNIBUS_VALIDITY`. s.96(1) allows at most 15 months between AGMs, which turns "valid until the next AGM" into a number.
+- New dependency: `langgraph` (listed in SPEC 4).
+
+### Not done yet (later phases)
+- Persisting `documents` / `resolutions` / `analyses` and the upload API: Phase 6.
+- Request IDs and per-node latency logging: Phase 8.
+
 ## Phase 4: Fine-tuning notebooks (built 2026-10-03; accepted 2026-10-04)
 
 ### Status against acceptance criteria
@@ -17,7 +46,7 @@
 5. Later (after gold labelling): `notebooks/02_eval_student.ipynb` writes base vs fine-tuned predictions to `eval/results/` for Phase 7.
 
 ### Delivered
-- **Notebook 01** (Unsloth + TRL): `unsloth/Qwen2.5-3B-Instruct-bnb-4bit`, LoRA r=16/α=16/dropout 0 on all attention + MLP projections, lr 2e-4 cosine, 3 epochs, effective batch 16, fp16 on T4, seed 3407, loss on assistant tokens only (`train_on_responses_only`). It logs train/eval loss plus **val JSON validity and type accuracy after every epoch** (32-item subset; full val at the end), checkpoints to Drive every 20 steps and resumes automatically, pushes the LoRA + `metrics.json`, and exports a merged `Q4_K_M` GGUF named `proxylens-q4_k_m.gguf`. It tolerates TRL's `max_seq_length`→`max_length` rename.
+- **Notebook 01** (Unsloth + TRL): `unsloth/Qwen2.5-3B-Instruct-bnb-4bit`, LoRA r=16/α=16/dropout 0 on all attention + MLP projections, lr 2e-4 cosine, 1 epoch (2 tried; no gain), effective batch 16 (1 x 16), fp16 on T4, seed 3407, loss on assistant tokens only (`train_on_responses_only`). It logs train/eval loss plus **val JSON validity and type accuracy after every epoch** (32-item subset; full val at the end), checkpoints to Drive every 10 steps and resumes automatically, pushes the LoRA + `metrics.json`, and exports a merged `Q4_K_M` GGUF named `proxylens-q4_k_m.gguf`. It tolerates TRL's `max_seq_length`→`max_length` rename.
 - **Notebook 02**: base (zero-shot, same prompt) and fine-tuned predictions on `test` (gold-split prompts) or `val`, with greedy decoding, saved per model as `eval/results/<run_id>.json` (format in `eval/README.md`). Metrics are computed in the repo, not the notebook.
 - `app/llm/local_gguf.py`: llama.cpp provider (lazy load, thread lock, `n_ctx` 4096, optional grammar-constrained JSON, HF Hub download with caching or a local path). `app/llm/fallback.py`: student → one repair → teacher, recording whether the fallback fired. `create_student()`.
 - `scripts/push_sft_to_hub.py`, `scripts/smoke_student.py`, `scripts/build_notebooks.py`; `student` optional extra (`llama-cpp-python`) from the project's CPU wheel index.
