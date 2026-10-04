@@ -1,59 +1,27 @@
-import { useEffect, useState } from 'react'
+import { Shell } from './components/Shell'
+import { LabelPage } from './label/LabelPage'
+import { usePath } from './lib/navigation'
+import { AboutPage } from './pages/AboutPage'
+import { EvalPage } from './pages/EvalPage'
+import { ReportPage } from './pages/report/ReportPage'
+import { UploadPage } from './pages/upload/UploadPage'
 
-type Health = {
-  status: 'ok' | 'degraded'
-  db: 'ok' | 'unreachable' | 'not_configured'
-  model: 'loaded' | 'not_loaded'
-}
-
-type HealthState = { kind: 'loading' } | { kind: 'ready'; health: Health } | { kind: 'error'; message: string }
-
-function useHealth(): HealthState {
-  const [state, setState] = useState<HealthState>({ kind: 'loading' })
-
-  useEffect(() => {
-    const controller = new AbortController()
-    fetch('/api/v1/healthz', { signal: controller.signal })
-      .then(async (res) => setState({ kind: 'ready', health: (await res.json()) as Health }))
-      .catch((err: unknown) => {
-        if (controller.signal.aborted) return
-        setState({ kind: 'error', message: err instanceof Error ? err.message : 'API unreachable' })
-      })
-    return () => controller.abort()
-  }, [])
-
-  return state
-}
-
-function StatusPill({ state }: { state: HealthState }) {
-  if (state.kind === 'loading') return <span className="text-sm text-ink/60">Checking API…</span>
-  if (state.kind === 'error') return <span className="text-sm text-red-700">API unreachable</span>
-  const ok = state.health.status === 'ok'
-  return (
-    <span
-      className={`rounded-full px-3 py-1 text-sm font-medium ${ok ? 'bg-accent/15 text-accent' : 'bg-amber-100 text-amber-800'}`}
-    >
-      API {state.health.status} · DB {state.health.db}
-    </span>
-  )
+function NotFound() {
+  return <p className="text-ink/60">Page not found.</p>
 }
 
 export default function App() {
-  const health = useHealth()
+  const path = usePath()
+  // The labelling tool has its own full-width layout.
+  if (path.startsWith('/label')) return <LabelPage />
 
-  return (
-    <main className="mx-auto flex min-h-screen max-w-3xl flex-col gap-8 px-4 py-16">
-      <header className="flex flex-wrap items-center justify-between gap-4">
-        <h1 className="text-4xl font-semibold tracking-tight">ProxyLens</h1>
-        <StatusPill state={health} />
-      </header>
-      <p className="text-lg text-ink/80">
-        AI proxy-voting analyst for Indian AGM/EGM resolutions: extract each resolution, check it against SEBI LODR and
-        the Companies Act 2013, and recommend a vote with cited clauses.
-      </p>
-      <p className="rounded-md border border-ink/10 bg-white px-4 py-3 text-sm text-ink/70">
-        Research and educational tool. Not investment or voting advice.
-      </p>
-    </main>
-  )
+  const report = path.match(/^\/documents\/([a-f0-9]{24})$/)
+  let page
+  if (path === '/') page = <UploadPage />
+  else if (report) page = <ReportPage key={report[1]} documentId={report[1]} />
+  else if (path === '/eval') page = <EvalPage />
+  else if (path === '/about') page = <AboutPage />
+  else page = <NotFound />
+
+  return <Shell path={path}>{page}</Shell>
 }

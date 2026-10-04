@@ -35,6 +35,11 @@ class Settings(BaseSettings):
     student_n_threads: int | None = None  # llama.cpp threads; None = library default
     student_constrained_json: bool = True  # grammar-constrained decoding to the schema
 
+    # Extraction in the API pipeline: the fine-tuned student (with teacher fallback),
+    # or the teacher alone (much faster on a laptop CPU).
+    pipeline_extractor: Literal["student", "teacher"] = "student"
+    max_upload_mb: int = Field(default=25, gt=0)
+
     hf_token: SecretStr = SecretStr("")
     api_key: SecretStr = SecretStr("")
     log_level: Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"] = "INFO"

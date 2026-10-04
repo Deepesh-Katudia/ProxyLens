@@ -10,7 +10,7 @@ from app.db.client import Document
 from app.db.collections import REGULATIONS
 from app.retrieval.embeddings import Embedder
 from app.retrieval.search import DEFAULT_K, retrieve
-from app.schemas.regulation import RegulationHit
+from app.schemas.regulation import RegulationHit, RegulationView
 from app.schemas.resolution import ResolutionType
 
 router = APIRouter(prefix="/regulations", tags=["regulations"])
@@ -35,3 +35,16 @@ async def search_regulations(
     if db is None:
         raise HTTPException(status.HTTP_503_SERVICE_UNAVAILABLE, "database not configured")
     return await retrieve(db[REGULATIONS], embedder, q, resolution_type, k, hybrid=hybrid)
+
+
+@router.get("/{regulation_id}", response_model=RegulationView)
+async def get_regulation(
+    regulation_id: str,
+    db: Annotated[AsyncDatabase[Document] | None, Depends(get_db)],
+) -> RegulationView:
+    if db is None:
+        raise HTTPException(status.HTTP_503_SERVICE_UNAVAILABLE, "database not configured")
+    doc = await db[REGULATIONS].find_one({"_id": regulation_id}, {"embedding": 0})
+    if doc is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "unknown regulation")
+    return RegulationView.model_validate({**doc, "id": doc["_id"]})

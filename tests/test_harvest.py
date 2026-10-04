@@ -1,7 +1,8 @@
 import pytest
 
 from app.parsing.agenda import split_items
-from scripts.harvest_notices import guess_company, looks_like_newspaper_ad
+from app.parsing.company import guess_company
+from scripts.harvest_notices import looks_like_newspaper_ad
 
 
 @pytest.mark.parametrize(

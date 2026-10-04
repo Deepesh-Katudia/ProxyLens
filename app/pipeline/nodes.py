@@ -24,6 +24,8 @@ from app.schemas.resolution import ResolutionExtraction, ResolutionType
 logger = logging.getLogger(__name__)
 
 Retriever = Callable[[str, ResolutionType | None, int], Awaitable[list[RegulationHit]]]
+# Called as (stage, items_done, items_total) while the slow nodes run.
+Progress = Callable[[str, int, int], Awaitable[None]]
 Update = dict[str, Any]
 
 RETRIEVAL_K = 6  # SPEC 6.2
@@ -38,6 +40,12 @@ class PipelineDeps:
     retriever: Retriever
     rules: list[RuleSpec] = field(default_factory=list)
     k: int = RETRIEVAL_K
+    progress: Progress | None = None
+
+
+async def _report(deps: PipelineDeps, stage: str, done: int, total: int) -> None:
+    if deps.progress is not None:
+        await deps.progress(stage, done, total)
 
 
 def parse(state: PipelineState) -> Update:
@@ -61,7 +69,9 @@ def parse(state: PipelineState) -> Update:
 
 async def extract(state: PipelineState, deps: PipelineDeps) -> Update:
     items = []
-    for item in state.items:  # sequential: llama.cpp contexts are not thread-safe
+    total = len(state.items)
+    for done, item in enumerate(state.items):  # sequential: llama.cpp is not thread-safe
+        await _report(deps, "extracting", done, total)
         result = await asyncio.to_thread(
             extract_with_fallback,
             deps.student,
@@ -176,7 +186,13 @@ async def _decide(item: ItemState, state: PipelineState, deps: PipelineDeps) -> 
 
 
 async def decide(state: PipelineState, deps: PipelineDeps) -> Update:
-    return {"items": [await _decide(item, state, deps) for item in state.items]}
+    items = []
+    total = len(state.items)
+    for done, item in enumerate(state.items):
+        await _report(deps, "analysing", done, total)
+        items.append(await _decide(item, state, deps))
+    await _report(deps, "analysing", total, total)
+    return {"items": items}
 
 
 def assemble(state: PipelineState) -> Update:

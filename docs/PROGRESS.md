@@ -1,6 +1,34 @@
 # Progress
 
-## Phase 5: Decision engine + LangGraph pipeline (built 2026-10-04; awaiting review)
+## Phase 6: API + frontend (built 2026-10-04; awaiting review)
+
+### Status against acceptance criteria
+| Criterion | Status |
+|---|---|
+| All SPEC 9 endpoints and pages | ✅ `POST /documents`, `GET /jobs/{id}`, `GET /documents/{id}` (plus a list), `GET /resolutions/{id}`, `POST /analyses/{id}/feedback`, `GET /regulations/search` + `/regulations/{id}`, `GET /eval/latest`, `/healthz` (now reports whether the model is loaded). Pages: Analyse (upload with live progress), Report (table + drawer), Evaluation (empty state until Phase 7), About, Gold labels |
+| Upload a real notice locally and see the full report with citations within ~2 minutes | ✅ 2026-10-04: Tata Consumer Products AGM 2025 (18 pages, 6 items), uploaded through the API with `PIPELINE_EXTRACTOR=teacher` and live Atlas: **58 s** from upload to `done`. Then checked in the browser: report table, drawer with rule checks, rationale and a verified citation |
+| The override saves to `feedback` | ✅ a POST to `/analyses/{id}/feedback` stored it in Atlas; it shows on `/resolutions/{id}` and as "Analyst: For" in the report table |
+
+### Delivered
+- `app/reports/`: `models.py` (job, document, resolution, analysis, feedback records), `store.py` (a `ReportStore` interface; `MongoReportStore` on the SPEC 5 collections plus `jobs`, with indexes; `InMemoryReportStore` for tests and DB-less runs), `runner.py` (background job: parse, then the LangGraph pipeline with per-item progress, then save; one job at a time; failures are recorded on the job).
+- Re-uploading the same PDF with the same company figures returns the existing analysis (`duplicate: true`) instead of paying for it again; a failed job is retried.
+- `app/pipeline/factory.py`: builds providers on the first job (`PIPELINE_EXTRACTOR=student|teacher`). The teacher is the student's fallback and the reasoner; without it, items go to NEEDS_REVIEW.
+- Uploads are checked for the `%PDF-` header and a size limit (`MAX_UPLOAD_MB`, default 25); write endpoints need `X-API-Key`.
+- `guess_company` moved from `scripts/harvest_notices.py` to `app/parsing/company.py` (used for the report header).
+- Frontend: a small path router (no router dependency), shared API client and types, a Fraunces display face with semantic colours (FOR green, AGAINST oxblood, NEEDS_REVIEW amber; LAW tags filled, POLICY outlined). Citations show the quote on hover; click opens the regulation chunk with the quoted span highlighted. Guardrail adjustments and pipeline flags are shown in the drawer.
+- Fix: the Vite proxy now targets `127.0.0.1:8000`. On Windows, Node resolved `localhost` to `::1` and every API call returned 502.
+- New dependency: `python-multipart` (approved 2026-10-04), which FastAPI needs for multipart uploads.
+
+### Tests
+`tests/test_documents_api.py`: upload → job stages (parsing → extracting → analysing → done) → report → resolution → feedback, duplicate reuse, auth, non-PDF (415), size limit (413), a PDF with no notice failing the job with a readable error, 404s, `/eval/latest`. 278 backend tests pass; the frontend builds with `tsc` and passes oxlint with no warnings.
+
+### Not done yet
+- Hand-labelling ≥ 150 gold items (Deepesh), needed for Phase 7.
+- The Evaluation page shows a generic metric list until Phase 7 defines the run format.
+- Request IDs and per-node latency logs: Phase 8.
+
+
+## Phase 5: Decision engine + LangGraph pipeline (built 2026-10-04; accepted)
 
 ### Status against acceptance criteria
 | Criterion | Status |

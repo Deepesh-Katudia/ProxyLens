@@ -4,7 +4,7 @@
 
 > ⚠️ Research and educational tool. Not investment or voting advice.
 
-**Status:** Phases 0–3 complete, Phase 4 notebooks ready to run on Colab: regulation RAG (recall@6 = 1.00), notice segmentation (14/14 real notices), and a teacher-labelled dataset of 1,504 resolutions from 297 notices. See [`docs/PROGRESS.md`](docs/PROGRESS.md) and the full build spec in [`SPEC.md`](SPEC.md).
+**Status:** Phases 0–6 complete: regulation RAG (recall@6 = 1.00), notice segmentation (14/14 real notices), 1,504 teacher-labelled resolutions, a QLoRA fine-tuned Qwen2.5-3B served as GGUF, the rules + LLM decision engine, and the web app (upload a notice → report with cited clauses in about a minute). See [`docs/PROGRESS.md`](docs/PROGRESS.md) and the full build spec in [`SPEC.md`](SPEC.md).
 
 ## Stack
 
@@ -44,7 +44,7 @@ uv run uvicorn app.main:app --reload
 ```bash
 cd frontend
 npm install
-npm run dev          # proxies /api to http://localhost:8000
+npm run dev          # proxies /api to http://127.0.0.1:8000
 ```
 
 ## Regulation corpus (RAG)
@@ -108,6 +108,23 @@ Run a notice end to end against the live services:
 ```bash
 uv run python -m scripts.analyse_notice path/to/notice.pdf --extractor teacher --out analysis.json
 ```
+
+## Web app and API
+
+Pages: **Analyse** (`/`: drag-drop a notice, live progress, recent reports), **Report** (`/documents/{id}`: recommendation per resolution; a drawer with rule checks, rationale, citations that open the regulation text, extracted facts and the analyst override), **Evaluation** (`/eval`), **About** (`/about`), **Gold labels** (`/label`).
+
+| Method | Path (`/api/v1`) | Purpose |
+|---|---|---|
+| POST | `/documents` | Upload a PDF (multipart, `X-API-Key`; optional `turnover_cr`, `net_profit_cr`) → `{document_id, job_id}` |
+| GET | `/jobs/{id}` | `queued / parsing / extracting / analysing / done / failed` with item progress |
+| GET | `/documents`, `/documents/{id}` | Recent uploads; one notice with its resolutions, analyses and feedback |
+| GET | `/resolutions/{id}` | One resolution with its analysis |
+| POST | `/analyses/{id}/feedback` | Analyst override (`X-API-Key`), stored in `feedback` |
+| GET | `/regulations/search`, `/regulations/{id}` | RAG debug search; one regulation chunk |
+| GET | `/eval/latest` | Latest eval run (404 until Phase 7 writes one) |
+| GET | `/healthz` | DB ping and whether the student model is loaded |
+
+Jobs run in FastAPI `BackgroundTasks`, one at a time; `app/reports/runner.py` describes the move to Cloud Tasks / Pub/Sub. Set `PIPELINE_EXTRACTOR=teacher` for fast local runs (about 1 minute for a 6-item notice); the default `student` uses the fine-tuned GGUF, which takes about a minute per item on a laptop CPU.
 
 ## Development
 

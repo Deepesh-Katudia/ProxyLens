@@ -48,3 +48,16 @@ class RegulationHit(BaseModel):
     source_url: str
     notes: str | None = None
     score: float
+
+
+class RegulationView(BaseModel):
+    """One chunk as shown when a citation is opened (no embedding)."""
+
+    id: str
+    source: RegulationSource
+    citation: str
+    heading: str = ""
+    text: str
+    source_url: str
+    as_of: str
+    notes: str | None = None
