@@ -37,7 +37,7 @@ There is no Vertex AI service account: the teacher runs on OpenRouter (decided i
 3. **Set a budget alert** so a stuck instance can't surprise you:
    ```bash
    gcloud billing budgets create --billing-account=XXXXXX-XXXXXX-XXXXXX \
-     --display-name="proxylens" --budget-amount=20USD \
+     --display-name="proxylens" --budget-amount=5USD \
      --threshold-rule=percent=0.5 --threshold-rule=percent=0.9 --threshold-rule=percent=1.0
    ```
 4. **`.env` must have** `MONGODB_URI`, `API_KEY`, `OPENROUTER_API_KEY` and `HF_TOKEN` (read access to the GGUF repo is enough).
@@ -52,7 +52,7 @@ PROJECT_ID=proxylens-demo-123 deploy/setup.sh
 
 This enables Cloud Run, Artifact Registry, Cloud Build, Secret Manager and IAM. It creates:
 
-- the `proxylens` image repository, keeping the 5 newest images;
+- the `proxylens` image repository, keeping only the newest image of each service (about 4 GB, roughly $0.40/month; rolling back means redeploying an older commit);
 - the service accounts;
 - the four secrets, piped from `.env` over stdin;
 - the IAM bindings;
@@ -140,7 +140,7 @@ git tag v0.8.0 && git push origin v0.8.0
 | Idle cost | $0: min instances 0 | |
 | Busy cost | about $0.0001/s (~$0.32/hour) per API instance: 4 vCPU + 8 GiB at instance-based prices; check the [pricing page](https://cloud.google.com/run/pricing) for your region | |
 
-With CPU always allocated, an instance is billed from start until Cloud Run shuts it down, about 15 minutes after its last request. A single demo upload therefore costs roughly 15 minutes of instance time, about $0.08. Cloud Build adds a few cents per deploy, and Artifact Registry storage is about $0.10/GB-month (5 images × ~4 GB).
+With CPU always allocated, an instance is billed from start until Cloud Run shuts it down, about 15 minutes after its last request. A single demo upload therefore costs roughly 15 minutes of instance time, about $0.08. Cloud Build adds a few cents per deploy, and Artifact Registry storage is about $0.10/GB-month (one ~4 GB API image).
 
 To measure after deploying:
 

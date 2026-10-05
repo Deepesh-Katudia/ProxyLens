@@ -68,10 +68,11 @@ if ! gcloud artifacts repositories describe "$AR_REPO" --location="$REGION" >/de
   gcloud artifacts repositories create "$AR_REPO" --repository-format=docker \
     --location="$REGION" --description="ProxyLens images"
 fi
-# Keep the 5 newest images; each API image carries 2.4 GB of model weights.
+# Keep only the newest image per package: each API image carries 2.4 GB of model
+# weights, and storage above 0.5 GB is billed. Rolling back means redeploying.
 cat > "$TMP_DIR/ar-cleanup.json" <<'JSON'
 [
-  {"name": "keep-recent", "action": {"type": "Keep"}, "mostRecentVersions": {"keepCount": 5}},
+  {"name": "keep-recent", "action": {"type": "Keep"}, "mostRecentVersions": {"keepCount": 1}},
   {"name": "delete-old", "action": {"type": "Delete"}, "condition": {"olderThan": "1d"}}
 ]
 JSON
