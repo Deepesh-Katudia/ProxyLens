@@ -3,7 +3,7 @@
 # shellcheck shell=bash disable=SC2034  # variables are used by the scripts that source this
 
 : "${PROJECT_ID:?set PROJECT_ID to your GCP project id}"
-REGION="${REGION:-asia-south1}"
+REGION="${REGION:-us-east4}"  # next to the Atlas cluster (Ashburn, VA)
 
 AR_REPO="${AR_REPO:-proxylens}"
 API_SERVICE="${API_SERVICE:-proxylens-api}"

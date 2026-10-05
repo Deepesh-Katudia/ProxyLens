@@ -4,7 +4,7 @@
 # In bash steps, $$VAR is a shell variable and $_VAR a Cloud Build substitution.
 
 substitutions:
-  _REGION: asia-south1
+  _REGION: us-east4
   _AR_REPO: proxylens
   _API_SERVICE: proxylens-api
   _WEB_SERVICE: proxylens-web
