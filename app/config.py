@@ -43,6 +43,9 @@ class Settings(BaseSettings):
     hf_token: SecretStr = SecretStr("")
     api_key: SecretStr = SecretStr("")
     log_level: Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"] = "INFO"
+    log_format: Literal["text", "json"] = "text"  # json on Cloud Run (Cloud Logging)
+    # Load the embedder and student in the background at startup instead of on first use.
+    preload_models: bool = False
 
 
 @lru_cache

@@ -1,6 +1,43 @@
 # Progress
 
-## Phase 7: Eval harness + report (built 2026-10-05; awaiting review)
+## Phase 8: Deploy to GCP (built 2026-10-05; not yet deployed)
+
+### Status against acceptance criteria
+| Criterion | Status |
+|---|---|
+| Artifact Registry + Cloud Run (4 vCPU / 8 GiB, min 0, concurrency 2), model baked in, Secret Manager, least-privilege service accounts, frontend on Cloud Run | ✅ written: `deploy/setup.sh`, `deploy/cloudbuild.yaml`. ⏳ not run yet: needs a GCP project and the gcloud CLI (Deepesh) |
+| Atlas network access for Cloud Run egress | 📝 two options documented in `docs/DEPLOY.md` §3 (allow-all + strong credentials, or Cloud NAT static IP) |
+| `deploy/` scripts + `docs/DEPLOY.md` + GitHub Actions deploy on tag | ✅ `deploy/deploy.sh`, `deploy/setup_github.sh` (Workload Identity Federation, no keys), `.github/workflows/deploy.yml` |
+| Structured JSON logging; request ID through every node; per-node latency | ✅ `app/observability.py`, tested |
+| Public URL works end-to-end; cold start documented; README has the live link | ⏳ after the first deploy |
+
+### Delivered
+- **Logging:** `LOG_FORMAT=json` writes one JSON object per line with Cloud Logging's `severity`/`message`/`time`, the request ID, and any `extra=` fields.
+- **Request IDs:** `X-Request-ID` is taken from the request if it is short and log-safe, otherwise generated; it is echoed on the response and passed explicitly to the background job, so every pipeline node's log line carries the ID of the upload that started it.
+- **Per-node latency:** `NODE_ORDER` nodes are wrapped by `timed_node`, which logs `node` and `duration_ms` (and failures at ERROR). Uvicorn's access log is replaced by one JSON line per request with its latency.
+- **Model preloading:** `PRELOAD_MODELS=true` loads BGE and the GGUF in a background thread at startup; failures are logged and the models fall back to loading on first use.
+- **Images:** the API Dockerfile takes `INSTALL_STUDENT=1` (llama.cpp prebuilt CPU wheel) and `BAKE_MODELS=1` (BGE + the private GGUF via a BuildKit secret). Models are downloaded as the runtime user, so no `chown` layer duplicates 2.4 GB. The nginx config is now a template (`PORT`, `API_UPSTREAM`), so one web image serves compose and Cloud Run.
+- **CI:** builds the student image variant and imports llama.cpp; checks the deploy scripts parse.
+
+- **Review fixes:**
+  - The web service runs as a role-less SA, not the default compute SA (which would also have failed the deploy).
+  - The upload's access log is written when the response finishes, not after the background job.
+  - WIF tokens are limited to `main` and `v*` tags of the pinned repository id.
+  - CRLF output from gcloud on Windows is stripped.
+  - The deployer can read the staging bucket's metadata.
+  - The embedder load is locked against preload racing a first request.
+
+### Design notes
+- `--no-cpu-throttling` is required, not a tuning choice: jobs run as `BackgroundTasks` after the upload response, and request-based CPU would stall them.
+- No Vertex AI service account: the teacher is on OpenRouter (Phase 3 decision), so nothing calls Vertex.
+- Cloud Build deploys (not the GitHub runner), so local deploys and tag deploys take the same path and the HF token never leaves GCP.
+
+### Next (Deepesh)
+1. Install the gcloud CLI, create a GCP project with billing, set a budget (`docs/DEPLOY.md` §1).
+2. `PROJECT_ID=... deploy/setup.sh`, choose an Atlas network option (§3), then `PROJECT_ID=... deploy/deploy.sh`.
+3. Send me the URL: I'll measure cold start and per-item latency on Cloud Run, fill in the table in `docs/DEPLOY.md`, and add the live link to the README.
+
+## Phase 7: Eval harness + report (done 2026-10-05)
 
 ### Status against acceptance criteria
 | Criterion | Status |

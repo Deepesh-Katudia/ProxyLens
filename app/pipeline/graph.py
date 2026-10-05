@@ -8,6 +8,7 @@ from langgraph.graph import END, START, StateGraph
 from pymongo.asynchronous.collection import AsyncCollection
 
 from app.db.client import Document
+from app.observability import timed_node
 from app.pipeline import nodes
 from app.pipeline.nodes import PipelineDeps, Retriever
 from app.pipeline.state import PipelineState
@@ -22,15 +23,16 @@ NODE_ORDER = ("parse", "extract", "validate", "retrieve", "rule_check", "reason"
 
 
 def build_graph(deps: PipelineDeps) -> Any:
-    """Compile the graph; dependencies are bound into the nodes, so nodes see only state."""
+    """Compile the graph; dependencies are bound into the nodes, so nodes see only state.
+    Every node logs its latency (`timed_node`)."""
     graph = StateGraph(PipelineState)
-    graph.add_node("parse", nodes.parse)
-    graph.add_node("extract", partial(nodes.extract, deps=deps))
-    graph.add_node("validate", nodes.validate)
-    graph.add_node("retrieve", partial(nodes.retrieve, deps=deps))
-    graph.add_node("rule_check", partial(nodes.rule_check, deps=deps))
-    graph.add_node("reason", partial(nodes.decide, deps=deps))
-    graph.add_node("assemble", nodes.assemble)
+    graph.add_node("parse", timed_node("parse", nodes.parse))
+    graph.add_node("extract", timed_node("extract", partial(nodes.extract, deps=deps)))
+    graph.add_node("validate", timed_node("validate", nodes.validate))
+    graph.add_node("retrieve", timed_node("retrieve", partial(nodes.retrieve, deps=deps)))
+    graph.add_node("rule_check", timed_node("rule_check", partial(nodes.rule_check, deps=deps)))
+    graph.add_node("reason", timed_node("reason", partial(nodes.decide, deps=deps)))
+    graph.add_node("assemble", timed_node("assemble", nodes.assemble))
     graph.add_edge(START, NODE_ORDER[0])
     for current, following in pairwise(NODE_ORDER):
         graph.add_edge(current, following)

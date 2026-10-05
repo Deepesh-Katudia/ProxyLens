@@ -42,6 +42,12 @@ class PipelineFactory:
                     self._providers = (create_student(self.settings), teacher)
             return self._providers
 
+    def warm_up(self) -> None:
+        """Create the providers and load the student model (blocking; run in a thread)."""
+        extractor, _ = self.providers()
+        if isinstance(extractor, LocalGGUFProvider):
+            extractor.load()
+
     @property
     def student_loaded(self) -> bool:
         providers = self._providers

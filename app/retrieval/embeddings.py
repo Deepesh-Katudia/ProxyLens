@@ -1,6 +1,7 @@
 """Text embedders. BGE needs an instruction prefix on queries but not on passages."""
 
 import logging
+import threading
 from collections.abc import Sequence
 from typing import TYPE_CHECKING, Protocol
 
@@ -30,20 +31,28 @@ class LocalEmbedder:
         self.model_name = model_name
         self.dim = dim
         self._model: SentenceTransformer | None = None
+        self._lock = threading.Lock()  # startup preload and a first request may race
 
     @property
     def model(self) -> "SentenceTransformer":
-        if self._model is None:
-            from sentence_transformers import SentenceTransformer
-
-            logger.info("Loading embedding model %s", self.model_name)
-            self._model = SentenceTransformer(self.model_name, device="cpu")
-            actual = self._model.get_embedding_dimension()
-            if actual != self.dim:
-                raise ValueError(
-                    f"{self.model_name} produces {actual}-d vectors but EMBEDDING_DIM={self.dim}"
-                )
+        if self._model is not None:
+            return self._model
+        with self._lock:
+            if self._model is None:
+                self._model = self._load()
         return self._model
+
+    def _load(self) -> "SentenceTransformer":
+        from sentence_transformers import SentenceTransformer
+
+        logger.info("Loading embedding model %s", self.model_name)
+        model = SentenceTransformer(self.model_name, device="cpu")
+        actual = model.get_embedding_dimension()
+        if actual != self.dim:
+            raise ValueError(
+                f"{self.model_name} produces {actual}-d vectors but EMBEDDING_DIM={self.dim}"
+            )
+        return model
 
     def _encode(self, texts: Sequence[str]) -> list[list[float]]:
         vectors = self.model.encode(

@@ -40,3 +40,6 @@ Thumbs.db
 .vscode/
 .idea/
 data/hub_staging/
+
+# Deploy scratch files
+.deploy-tmp.*/

@@ -1,0 +1,123 @@
+# Build both images, push them, deploy both Cloud Run services, smoke-test.
+# Submitted by deploy/deploy.sh (locally or from .github/workflows/deploy.yml),
+# which fills in every substitution from deploy/config.sh.
+# In bash steps, $$VAR is a shell variable and $_VAR a Cloud Build substitution.
+
+substitutions:
+  _REGION: asia-south1
+  _AR_REPO: proxylens
+  _API_SERVICE: proxylens-api
+  _WEB_SERVICE: proxylens-web
+  _RUN_SA: ""
+  _WEB_SA: ""
+  _TAG: manual
+  _TEACHER_MODEL: google/gemini-3.8-flash
+  _GGUF_REPO: deepeshkatudia/proxylens-qwen3b-gguf-v1
+  _GGUF_FILE: proxylens-q4_k_m.gguf
+  _SECRET_MONGODB_URI: proxylens-mongodb-uri
+  _SECRET_API_KEY: proxylens-api-key
+  _SECRET_OPENROUTER_KEY: proxylens-openrouter-key
+  _SECRET_HF_TOKEN: proxylens-hf-token
+
+availableSecrets:
+  secretManager:
+    - versionName: projects/$PROJECT_ID/secrets/${_SECRET_HF_TOKEN}/versions/latest
+      env: HF_TOKEN
+
+steps:
+  - id: build-api
+    name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    secretEnv: [HF_TOKEN]
+    env: [DOCKER_BUILDKIT=1]
+    args:
+      - -euc
+      - |
+        IMAGE=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPO}/api
+        docker pull "$$IMAGE:latest" || true
+        # BuildKit secret: a file that exists only for the duration of this step.
+        printf '%s' "$$HF_TOKEN" > /workspace/.hf_token
+        docker build . \
+          --build-arg INSTALL_STUDENT=1 \
+          --build-arg BAKE_MODELS=1 \
+          --build-arg STUDENT_GGUF_REPO=${_GGUF_REPO} \
+          --build-arg STUDENT_GGUF_FILE=${_GGUF_FILE} \
+          --build-arg BUILDKIT_INLINE_CACHE=1 \
+          --secret id=hf_token,src=/workspace/.hf_token \
+          --cache-from "$$IMAGE:latest" \
+          -t "$$IMAGE:${_TAG}" -t "$$IMAGE:latest"
+        rm -f /workspace/.hf_token
+        docker push --all-tags "$$IMAGE"
+
+  - id: build-web
+    name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    waitFor: ["-"]
+    args:
+      - -euc
+      - |
+        IMAGE=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPO}/web
+        docker build frontend -t "$$IMAGE:${_TAG}" -t "$$IMAGE:latest"
+        docker push --all-tags "$$IMAGE"
+
+  - id: deploy-api
+    name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: bash
+    waitFor: [build-api]
+    args:
+      - -euc
+      - |
+        # Cloud Run sizing per SPEC Phase 8. --no-cpu-throttling: analysis jobs run as
+        # background tasks after the upload response, which needs CPU outside requests.
+        gcloud run deploy ${_API_SERVICE} \
+          --image=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPO}/api:${_TAG} \
+          --region=${_REGION} \
+          --service-account=${_RUN_SA} \
+          --cpu=4 --memory=8Gi --concurrency=2 \
+          --min-instances=0 --max-instances=2 \
+          --no-cpu-throttling --cpu-boost \
+          --timeout=300 \
+          --allow-unauthenticated \
+          --set-env-vars=^@^LOG_FORMAT=json@PRELOAD_MODELS=true@PIPELINE_EXTRACTOR=student@STUDENT_GGUF_PATH=/app/models/${_GGUF_FILE}@STUDENT_GGUF_REPO=${_GGUF_REPO}@STUDENT_N_THREADS=4@HF_HUB_OFFLINE=1@TEACHER_PROVIDER=openrouter@TEACHER_MODEL=${_TEACHER_MODEL}@MONGODB_DB=proxylens \
+          --set-secrets=MONGODB_URI=${_SECRET_MONGODB_URI}:latest,API_KEY=${_SECRET_API_KEY}:latest,OPENROUTER_API_KEY=${_SECRET_OPENROUTER_KEY}:latest \
+          --labels=app=proxylens,release=${_TAG}
+
+  - id: deploy-web
+    name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: bash
+    waitFor: [build-web, deploy-api]
+    args:
+      - -euc
+      - |
+        API_URL=$(gcloud run services describe ${_API_SERVICE} --region=${_REGION} --format='value(status.url)')
+        gcloud run deploy ${_WEB_SERVICE} \
+          --image=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPO}/web:${_TAG} \
+          --region=${_REGION} \
+          --service-account=${_WEB_SA} \
+          --cpu=1 --memory=256Mi --concurrency=80 \
+          --min-instances=0 --max-instances=2 \
+          --allow-unauthenticated \
+          --set-env-vars=API_UPSTREAM=$$API_URL \
+          --labels=app=proxylens,release=${_TAG}
+
+  - id: smoke-test
+    name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: bash
+    waitFor: [deploy-web]
+    args:
+      - -euc
+      - |
+        WEB_URL=$(gcloud run services describe ${_WEB_SERVICE} --region=${_REGION} --format='value(status.url)')
+        # /healthz is 503 until MongoDB answers, so this also checks Atlas network access.
+        for attempt in 1 2 3 4 5 6; do
+          if curl --fail --silent --show-error --max-time 60 "$$WEB_URL/api/v1/healthz"; then
+            echo; echo "OK: $$WEB_URL"; exit 0
+          fi
+          echo "attempt $$attempt failed; retrying in 20 s"; sleep 20
+        done
+        echo "smoke test failed: is Atlas allowing Cloud Run egress? (docs/DEPLOY.md)"; exit 1
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  diskSizeGb: 100
+timeout: 3600s

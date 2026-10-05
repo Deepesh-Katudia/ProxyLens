@@ -41,6 +41,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: docker build -t proxylens-api .
+      - name: Student image variant loads llama.cpp (Cloud Run build, minus the model)
+        run: |
+          DOCKER_BUILDKIT=1 docker build --build-arg INSTALL_STUDENT=1 -t proxylens-api-student .
+          docker run --rm proxylens-api-student python -c "import llama_cpp; print('llama.cpp', llama_cpp.__version__)"
+      - name: Deploy scripts parse
+        run: for f in deploy/*.sh; do bash -n "$f"; done
       - run: docker build -t proxylens-frontend ./frontend
       - name: Smoke test compose stack
         run: |

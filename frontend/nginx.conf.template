@@ -1,0 +1,31 @@
+# Rendered by the nginx image's envsubst step at startup (/etc/nginx/templates).
+# PORT: 80 in compose, injected by Cloud Run. API_UPSTREAM: http://api:8000 in
+# compose, the API service's https URL on Cloud Run.
+server {
+    listen ${PORT};
+    root /usr/share/nginx/html;
+    index index.html;
+
+    # Cloud Run caps request bodies at 32 MB; the API itself caps uploads at MAX_UPLOAD_MB.
+    client_max_body_size 32m;
+
+    location /api/ {
+        proxy_pass ${API_UPSTREAM};
+        # Cloud Run routes on the Host header and needs SNI, so send the upstream's own host.
+        proxy_set_header Host $proxy_host;
+        proxy_ssl_server_name on;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 300s;
+    }
+
+    location /assets/ {
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+    # SPA fallback for client-side routes.
+    location / {
+        add_header Cache-Control "no-cache";
+        try_files $uri $uri/ /index.html;
+    }
+}

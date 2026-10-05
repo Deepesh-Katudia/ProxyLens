@@ -84,6 +84,11 @@ class LocalGGUFProvider:
     def loaded(self) -> bool:
         return self._llm is not None
 
+    def load(self) -> None:
+        """Load the model now rather than on the first request."""
+        with self._lock:
+            self._load()
+
     def generate_json(
         self, messages: list[Message], schema: dict[str, Any], schema_name: str
     ) -> LLMResponse:

@@ -14,6 +14,7 @@ import asyncio
 import logging
 from collections.abc import Callable
 
+from app.observability import bind_request_id
 from app.parsing.company import guess_company
 from app.parsing.notice import segment_notice
 from app.parsing.pdf_text import extract_pages
@@ -40,8 +41,23 @@ class JobRunner:
         self.deps_factory = deps_factory
         self._lock = asyncio.Lock()
 
-    async def run(self, job_id: str, document_id: str, pdf: bytes, company: CompanyFacts) -> None:
+    async def run(
+        self,
+        job_id: str,
+        document_id: str,
+        pdf: bytes,
+        company: CompanyFacts,
+        request_id: str | None = None,
+    ) -> None:
+        """`request_id` is the upload's, so the job's logs can be traced back to it."""
+        with bind_request_id(request_id):
+            await self._run_locked(job_id, document_id, pdf, company)
+
+    async def _run_locked(
+        self, job_id: str, document_id: str, pdf: bytes, company: CompanyFacts
+    ) -> None:
         async with self._lock:
+            logger.info("job %s started", job_id, extra={"job_id": job_id})
             try:
                 await self._run(job_id, document_id, pdf, company)
             except Exception as exc:  # recorded on the job for the UI; never re-raised

@@ -19,6 +19,7 @@ from pydantic import BaseModel
 
 from app.api.security import require_api_key
 from app.config import Settings, get_settings
+from app.observability import current_request_id
 from app.reports.models import (
     DocumentMeta,
     DocumentReport,
@@ -108,7 +109,9 @@ async def upload_document(
     filename = (file.filename or "notice.pdf")[:200]
     document = await store.create_document(filename, sha, facts)
     job = await store.create_job(document.id)
-    background.add_task(runner.run, job.id, document.id, pdf, facts)
+    background.add_task(
+        runner.run, job.id, document.id, pdf, facts, request_id=current_request_id()
+    )
     return UploadResponse(document_id=document.id, job_id=job.id, duplicate=False)
 
 

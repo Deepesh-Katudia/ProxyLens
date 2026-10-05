@@ -133,10 +133,23 @@ Jobs run in FastAPI `BackgroundTasks`, one at a time; `app/reports/runner.py` de
 | Model | n | JSON valid | Type macro-F1 | Latency p50 | Cost / 1k |
 |---|---|---|---|---|---|
 | Teacher (Gemini 3.8 Flash, API) | 184 | 100.0% | 91.0% | 2.8 s | $2.74 |
+| Fine-tuned Qwen2.5-3B (LoRA, Colab T4) | 184 | 99.5% | 89.8% | 14.9 s | — |
+| Base Qwen2.5-3B, zero-shot (Colab T4) | 184 | 47.8% | 48.8% | 15.8 s | — |
 | Fine-tuned Qwen2.5-3B (GGUF, laptop CPU, JSON grammar) | 30 | 100.0% | 90.9% | 41.6 s | $4.82 (estimate) |
 | Untuned Qwen2.5-7B (API) | 184 | 26.1% | 31.1% | 5.0 s | $0.31 |
 
-**About the reference labels.** 183 of the 184 were drafted by Claude Sonnet 5.5 (a different model family from the teacher) and saved without human edits, so these scores measure agreement with an independent model, not accuracy against human judgement. The report derives this from the label files and prints it above every table. The fine-tuned row covers the first 30 items only; base vs fine-tuned 3B on all 184 comes from `notebooks/02_eval_student.ipynb` on a GPU. The student's cost is an estimate from laptop latency at Cloud Run prices; Phase 8 measures it on Cloud Run.
+**About the reference labels.** 183 of the 184 were drafted by Claude Sonnet 5.5 (a different model family from the teacher) and saved without human edits, so these scores measure agreement with an independent model, not accuracy against human judgement. The report derives this from the label files and prints it above every table. Fine-tuning takes the same 3B model from 48.8% to 89.8% type macro-F1, level with the teacher on type accuracy (94.6% each). The GGUF row covers the first 30 items only; the two Colab rows come from `notebooks/02_eval_student.ipynb`. The student's cost is an estimate from laptop latency at Cloud Run prices; Phase 8 measures it on Cloud Run.
+
+## Deployment
+
+Two Cloud Run services (FastAPI with the fine-tuned GGUF and BGE baked into the image; nginx serving the React app and proxying `/api`), built by Cloud Build. You don't need Docker locally:
+
+```bash
+PROJECT_ID=my-project deploy/setup.sh    # once: APIs, registry, secrets from .env, service accounts
+PROJECT_ID=my-project deploy/deploy.sh   # build, push, deploy, smoke-test
+```
+
+A `v*` tag deploys from GitHub Actions through Workload Identity Federation. Logs are JSON, carry a request ID from the upload through every pipeline node, and record each node's latency. See [`docs/DEPLOY.md`](docs/DEPLOY.md) for the exact steps, the Atlas network options and the costs.
 
 ## Development
 
