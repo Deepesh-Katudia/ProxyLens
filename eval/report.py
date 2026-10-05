@@ -191,6 +191,8 @@ def render(
         "",
     ]
     students = [(m, r) for m, r in scored if m.provider in STUDENT_PROVIDERS] or scored[:1]
+    # Show failures from the student run that covers the most items.
+    students = sorted(students, key=lambda mr: len(mr[1].items), reverse=True)
     for m, run in students[:1]:
         lines += failure_cases(m, run)
     return "\n".join(lines) + "\n"

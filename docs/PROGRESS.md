@@ -6,7 +6,7 @@
 | Criterion | Status |
 |---|---|
 | `eval/run.py`, metrics, `REPORT.md` generator, `/eval` page, regression test | ✅ `eval/run.py` (teacher / any OpenRouter model / local GGUF; resumable), `eval/metrics.py`, `eval/report.py` (REPORT.md, SVG confusion matrices, `eval_runs` summary), `/eval` page (comparison table, confusion matrix per model, latency and cost bars, reference banner), `tests/test_eval_regression.py` + `eval/baseline.json` |
-| The report shows base vs fine-tuned vs teacher **on the gold set** with real numbers | ⚠️ Partly. Real numbers for the teacher (184 items), the base 3B (184, Colab T4), the fine-tuned GGUF (first 30 items) and an extra untuned 7B baseline (184). **Fine-tuned on all 184 still needs the notebook's fine-tuned run** (Deepesh). The set is **not human gold**: see below |
+| The report shows base vs fine-tuned vs teacher **on the gold set** with real numbers | ✅ with a caveat. Real numbers on all 184 items for the teacher, base 3B and fine-tuned 3B (both Colab T4), plus the fine-tuned GGUF (first 30 items) and an extra untuned 7B baseline. The set is **not human gold**: see below |
 
 ### Reference labels: what they really are
 Plan: a model drafts, Deepesh reviews. `scripts/draft_gold.py` drafted all 184 items with Claude Sonnet 5.5 ($1.81; a different model family from the Gemini teacher). The labels file shows all 184 saved within 3 minutes, a median 0.8 s apart, and 183 identical to their drafts. So they were not reviewed. The report does not assert provenance; it derives it from the files (`eval/reference.py`): **"Mixed reference: 1 human-labelled, 183 model drafts saved unchanged."** That sentence is printed above every table, and the /eval page shows it as a banner. Reviewing the items on /label (each save records `draft_model`) upgrades the claim automatically.
@@ -16,12 +16,14 @@ Plan: a model drafts, Deepesh reviews. `scripts/draft_gold.py` drafted all 184 i
 |---|---|---|---|---|---|---|---|
 | Teacher (Gemini 3.8 Flash) | 184 | 100.0% | 94.6% | 91.0% | 0.0% | 2.8 s | $2.74 |
 | Fine-tuned 3B (GGUF Q4_K_M, laptop CPU, JSON grammar) | 30 | 100.0% | 96.7% | 90.9% | 0.0% | 41.6 s | $4.82 (estimate) |
+| Fine-tuned 3B (LoRA, Colab T4) | 184 | 99.5% | 94.6% | 89.8% | — | 14.9 s | — |
 | Base Qwen2.5-3B, zero-shot (Colab T4) | 184 | 47.8% | 36.4% | 48.8% | — | 15.8 s | — |
 | Untuned Qwen2.5-7B | 184 | 26.1% | 24.5% | 31.1% | 34.2% | 5.0 s | $0.31 |
 
-- The fine-tuned 3B matches the teacher on type macro-F1 over its 30 items. The one miss: a whole-time director's re-appointment *with pay terms*, labelled MANAGERIAL_REMUNERATION by the reference.
+- **The fine-tuned 3B matches the teacher on the full set:** 94.6% type accuracy for both, macro-F1 89.8% vs 91.0%. It is weaker on amounts (83.8% vs 91.2% F1) and counterparties (57.1% vs 66.7%). One reply of 184 was invalid JSON (unconstrained decoding); the served GGUF uses a JSON grammar.
+- Its type errors are mostly genuinely ambiguous items: a whole-time director's re-appointment *with pay terms* (reference: MANAGERIAL_REMUNERATION), a loan-to-equity conversion (BORROWING_LIMITS vs CAPITAL_RAISE), a s.180(1)(a) sale of undertaking (OTHER vs BORROWING_LIMITS). Some of these are as arguable for the reference as for the model.
 - **Honest cost finding:** at laptop-CPU latency (p50 41.6 s), the student costs *more* per 1,000 resolutions on Cloud Run ($4.82, estimated) than the teacher API ($2.74). The "fraction of the teacher's cost" story only holds if Phase 8 gets serving latency down (more vCPUs, smaller context, batching) or if API prices rise. Phase 8 measures real Cloud Run latency.
-- **What fine-tuning buys at 3B:** the same model untuned gets 47.8% JSON validity and 48.8% type macro-F1 zero-shot, against 100% and 90.9% fine-tuned (30-item subset; the full-184 fine-tuned run is pending). An untuned 7B does worse still (26.1% valid).
+- **What fine-tuning buys at 3B:** the same model untuned gets 47.8% JSON validity and 48.8% type macro-F1 zero-shot, against 99.5% and 89.8% fine-tuned, on the same 184 items and GPU. An untuned 7B does worse still (26.1% valid).
 - Citation precision before guardrails: 100% (5/5), but over only 6 web-app analyses. Too few to mean much.
 - Recommendation agreement: not measured (no vote labels).
 
@@ -33,9 +35,10 @@ Plan: a model drafts, Deepesh reviews. `scripts/draft_gold.py` drafted all 184 i
 - The confusion matrix is SVG written directly (no plotting dependency) and renders on GitHub.
 - The regression test is opt-in (`PROXYLENS_MODEL_TESTS=1`, about 30 min on CPU). It re-runs the GGUF on the 30 baseline items and fails on a drop of more than 2 points in JSON validity or type macro-F1.
 - CI now type-checks `eval/` too.
+- Failure cases come from the student run that covers the most items.
 
 ### Next (Deepesh)
-1. Base 3B run done (`eval/results/2026-10-05_base_hf_test.json`). Still to do: the fine-tuned run from `notebooks/02_eval_student.ipynb` on all 184 items; copy its JSON into `eval/results/`; run `uv run python -m eval.report --db`.
+1. Review Phase 7.
 2. Optional, to turn the reference into real gold: review items on /label.
 
 
