@@ -1,16 +1,17 @@
 # What `gcloud builds submit` uploads: only what the two Dockerfiles need.
+# Leading "/" anchors to the repo root: a bare `eval/` would also drop frontend/src/pages/eval/.
 .git
 .gitignore
 .gcloudignore
 #!include:.gitignore
 
-.github/
-data/
-docs/
-eval/
-notebooks/
-scripts/
-tests/
+/.github/
+/data/
+/docs/
+/eval/
+/notebooks/
+/scripts/
+/tests/
 *.md
 !frontend/**/*.md
 frontend/node_modules/
