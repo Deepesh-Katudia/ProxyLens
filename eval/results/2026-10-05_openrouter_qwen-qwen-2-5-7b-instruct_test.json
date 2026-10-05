@@ -1,0 +1,1487 @@
+{
+ "run_id": "2026-10-05_openrouter_qwen-qwen-2-5-7b-instruct_test",
+ "provider": "openrouter",
+ "model": "qwen/qwen-2.5-7b-instruct",
+ "split": "test",
+ "created_at": "2026-10-05T07:26:24.694787+00:00",
+ "hardware": "OpenRouter API",
+ "decoding": {
+  "greedy": true,
+  "max_new_tokens": 1024,
+  "constrained": false
+ },
+ "items": [
+  {
+   "item_id": "682bb8696d21-1",
+   "output_text": "{\"item_no\": \"1\", \"title\": \"Adopt audited financial statements for FY 2023-24\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": null, \"raw\": null}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopt financial statements for FY ended 31st March, 2024\", \"Includes Director's and Auditor's Reports\"]}",
+   "latency_ms": 3952,
+   "output_tokens": 247,
+   "valid_after_repair": true,
+   "cost_usd": 0.000201
+  },
+  {
+   "item_id": "682bb8696d21-2",
+   "output_text": "{\"/item_no\": \"2\", \"/title\": \"Declare Dividend for FY 2024\", \"/resolution_type\": \"DIVIDEND\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": \"To declare dividend on equity shares for the financial year ended 31st March, 2024.\"}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Declaring dividend for the fiscal year ending March 31, 2024.\"]}",
+   "latency_ms": 3922,
+   "output_tokens": 272,
+   "valid_after_repair": false,
+   "cost_usd": 0.00022229999999999998
+  },
+  {
+   "item_id": "682bb8696d21-3",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Re-appointment of Director by rotation\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. Kothapalli Srinivasa Rao\", \"role\": \"Director\", \"age\": null, \"din\": \"10198629\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Re-appointment of Mr. Kothapalli Srinivasa Rao by rotation\"]}",
+   "latency_ms": 2578,
+   "output_tokens": 171,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001014
+  },
+  {
+   "item_id": "682bb8696d21-4",
+   "output_text": "{\"item_no\": \"4\", \"title\": \"Re-appointment of Mr. Prabhnoor Singh Grewal as Director (Sales) for 2 years\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. Prabhnoor Singh Grewal\", \"role\": \"Director (Sales)\", \"age\": 43, \"din\": \"09217422\", \"is_promoter\": null, \"tenure_years_proposed\": 2, \"prior_tenure_years\": 3, \"board_attendance_pct\": null}], \"amounts\": [{\"amount_inr\": 70000000, \"raw\": \"₹700,000/- per month\"}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 2, \"key_facts\": [\"Mr. Prabhnoor Singh Grewal was appointed in 2021 for a 3-year term.\", \"His remuneration is ₹700,000/- per month.\", \"He will continue to hold his office of Director (Sales) and be liable to retire by rotation.\", \"The re-appointment is for another 2-year term starting June 29, 2024.\"]}",
+   "latency_ms": 3969,
+   "output_tokens": 295,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002046
+  },
+  {
+   "item_id": "682bb8696d21-5",
+   "output_text": "{\"item_no\": \"5\", \"title\": \"Appointment of Dr. Anu Appaiah K A as Non-Executive Independent Director\", \"resolution_type\": \"INDEPENDENT_DIRECTOR_APPOINT\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Dr. Anu Appaiah K A\", \"role\": \"Non-Executive Independent Director\", \"age\": null, \"din\": \"09064176\", \"is_promoter\": false, \"tenure_years_proposed\": 5, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"Appointed as an Additional Director effective from 27th September, 2024\", \"Term of five consecutive years\", \"Not liable to retire by rotation\"]}",
+   "latency_ms": 2453,
+   "output_tokens": 202,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001622
+  },
+  {
+   "item_id": "682bb8696d21-6",
+   "output_text": "{\"item_no\": \"6\", \"title\": \"Appointment of Dr. Venkata Hymavathi Thota as Non-Executive Independent Director\", \"resolution_type\": \"INDEPENDENT_DIRECTOR_APPOINT\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Dr. Venkata Hymavathi Thota\", \"role\": \"Non-Executive Independent Director\", \"age\": null, \"din\": \"10783209\", \"is_promoter\": false, \"tenure_years_proposed\": 5, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"Appointed as an Additional Director w.e.f. 27th September, 2024\", \"Categorized as independent Women Director\", \"Term of five consecutive years effective from 27th September, 2024 till 26th September, 2029\", \"Office not liable to retire by rotation\", \"Recommended by Nomination and Remuneration Committee\"]}",
+   "latency_ms": 4030,
+   "output_tokens": 253,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001741
+  },
+  {
+   "item_id": "682bb8696d21-7",
+   "output_text": "{\"data\": {\"item_no\": \"7\", \"title\": \"Re-appointment of Independent Director\", \"resolution_type\": \"INDEPENDENT_DIRECTOR_APPOINT\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Mr. Ramchander Vyasabhattu\", \"role\": \"Independent Director\", \"age\": 71, \"din\": \"03400005\", \"is_promoter\": false, \"tenure_years_proposed\": 5, \"prior_tenure_years\": 5, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"Mr. Ramchander Vyasabhattu is currently an Independent Director on the Board.\", \"He was appointed as an Independent Director for a term of five years.\", \"He is eligible for re-appointment for a second term of five years.\", \"He has significant experience in project finance and technical/administration.\", \"He does not hold any equity shares of the Company.\"]}}",
+   "latency_ms": 7420,
+   "output_tokens": 470,
+   "valid_after_repair": true,
+   "cost_usd": 0.0004809
+  },
+  {
+   "item_id": "9fdb6e146965-1",
+   "output_text": "{\"item_no\": \"1\", \"title\": \"Adopt audited financial statements\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": null, \"raw\": null}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopt audited balance sheet as at 31st March 2023\", \"Adopt profit and loss account for the year ended on that date\", \"Consider reports of directors and auditors\"]}",
+   "latency_ms": 4015,
+   "output_tokens": 258,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002049
+  },
+  {
+   "item_id": "9fdb6e146965-2",
+   "output_text": "{\"item_no\": \"2\", \"title\": \"Re-appointment of Director Parasmal Kanugo\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. Parasmal Kanugo\", \"role\": \"Director\", \"age\": null, \"din\": \"00920021\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Director Parasmal Kanugo retires by rotation\", \"Offers himself for re-appointment\"]}",
+   "latency_ms": 3078,
+   "output_tokens": 171,
+   "valid_after_repair": true,
+   "cost_usd": 0.0000993
+  },
+  {
+   "item_id": "9fdb6e146965-3",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Appoint Statutory Auditor and Fix Remuneration\", \"resolution_type\": \"AUDITOR_APPOINT\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"M/s. Haribhakti & Co. LLP\", \"role\": \"Statutory Auditor\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": {\"amount_inr\": null, \"raw\": null}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 1, \"key_facts\": [\"Appoints M/s. Haribhakti & Co. LLP as statutory auditors\", \"Replaces M/s. Maloo Bhatt & Co.\", \"Term up to the conclusion of the ensuing AGM\"]}",
+   "latency_ms": 7094,
+   "output_tokens": 397,
+   "valid_after_repair": true,
+   "cost_usd": 0.00029529999999999997
+  },
+  {
+   "item_id": "9fdb6e146965-4",
+   "output_text": "{\"data\": {\"item_no\": \"4\", \"title\": \"Ratification of Cost Auditors and Remuneration\", \"resolution_type\": \"AUDITOR_REMUNERATION_COST\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": 50000, \"raw\": \"Rs. 50,000/- (Rupees Fifty thousand only) plus applicable taxes and Out of Pocket Expenses\"}, \"counterparty\": \"M/s. Divyesh Vagadiya & Associates, Cost Accountants, Vadodara\", \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": \"1\", \"key_facts\": [\"Ratify cost auditors' appointment\", \"Remuneration of Rs. 50,000 plus taxes and out-of-pocket expenses\", \"Audit for financial year 2023-24\"]}}",
+   "latency_ms": 7062,
+   "output_tokens": 392,
+   "valid_after_repair": false,
+   "cost_usd": 0.0003055
+  },
+  {
+   "item_id": "92809b886c11-1",
+   "output_text": "{\"io\": {\"item_no\": \"1\", \"title\": \"Adopt audited financial statements and reports\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": [{\"amount_inr\": null, \"raw\": null}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopt audited balance sheet as at March 31, 2019\", \"Adopt statement of profit and loss for the year ended March 31, 2019\", \"Adopt board and auditor reports\"]}}",
+   "latency_ms": 5264,
+   "output_tokens": 279,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002366
+  },
+  {
+   "item_id": "92809b886c11-2",
+   "output_text": "{\"/item_no\": \"2\", \"/title\": \"Declare Dividend for FY 2018-19\", \"/resolution_type\": \"DIVIDEND\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Declares dividend on equity shares\", \"Financial year: 2018-19\"]}",
+   "latency_ms": 4343,
+   "output_tokens": 232,
+   "valid_after_repair": false,
+   "cost_usd": 0.00021250000000000002
+  },
+  {
+   "item_id": "92809b886c11-3",
+   "output_text": "{\"data\": {\"item_no\": \"3\", \"title\": \"Re-appointment of Director\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. Rajesh Sharma\", \"role\": \"Director\", \"age\": null, \"din\": \"00020037\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Re-appointment of Mr. Rajesh Sharma who retires by rotation\", \"Eligible to offer himself for re-appointment\"]}}",
+   "latency_ms": 5156,
+   "output_tokens": 348,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002429
+  },
+  {
+   "item_id": "92809b886c11-4",
+   "output_text": "{\"He item_no\": \"4\", \"title\": \"Re-appointment of Independent Director Mr. Beni Prasad Rauka\", \"resolution_type\": \"INDEPENDENT_DIRECTOR_APPOINT\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Mr. Beni Prasad Rauka\", \"role\": \"Independent Director\", \"age\": null, \"din\": \"00295213\", \"is_promoter\": false, \"tenure_years_proposed\": 5, \"prior_tenure_years\": 5, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"Mr. Beni Prasad Rauka has over 3 decades of experience in finance and manufacturing companies.\", \"He is currently the Group CFO of SEB Group of companies.\", \"He has been associated with the company since January 2011.\", \"He is a member of several committees including Audit Committee and Stake Holders’ Relationship Committee.\"]}",
+   "latency_ms": 8624,
+   "output_tokens": 471,
+   "valid_after_repair": true,
+   "cost_usd": 0.0006204
+  },
+  {
+   "item_id": "92809b886c11-5",
+   "output_text": "{\"He item_no\": 5, \"title\": \"Re-appointment of Ms. Bhagyam Ramani as an Independent Director\", \"resolution_type\": \"INDEPENDENT_DIRECTOR_APPOINT\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Ms. Bhagyam Ramani\", \"role\": \"Independent Director\", \"age\": null, \"din\": \"00107097\", \"is_promoter\": false, \"tenure_years_proposed\": 5, \"prior_tenure_years\": 5, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"Ms. Bhagyam Ramani was appointed as Additional Director in April 2019\", \"She is eligible for re-appointment as an Independent Director for a second term\", \"The re-appointment is not liable to retire by rotation\", \"The term will cover from April 1, 2019 to March 31, 2024\"]}",
+   "latency_ms": 8624,
+   "output_tokens": 477,
+   "valid_after_repair": true,
+   "cost_usd": 0.0006215999999999999
+  },
+  {
+   "item_id": "92809b886c11-6",
+   "output_text": "{\"synced_data\": [{\"item_no\": \"6\", \"title\": \"Re-appointment of Independent Director Mr. Mukesh Kacker\", \"resolution_type\": \"INDEPENDENT_DIRECTOR_APPOINT\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Mr. Mukesh Kacker\", \"role\": \"Independent Director\", \"age\": null, \"din\": \"01569098\", \"is_promoter\": false, \"tenure_years_proposed\": 5, \"prior_tenure_years\": 5, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"Mr. Mukesh Kacker has extensive experience in infrastructure and policy formation.\", \"He served as an Indian Administrative Service officer for three decades.\", \"He was instrumental in planning and executing major infrastructure projects.\", \"He holds a Master’s degree from Harvard University and a top-performing academic record.\"]}]}",
+   "latency_ms": 8000,
+   "output_tokens": 438,
+   "valid_after_repair": true,
+   "cost_usd": 0.0006263
+  },
+  {
+   "item_id": "92809b886c11-7",
+   "output_text": "{\"synced_data\": {\"item_no\": \"7\", \"title\": \"Re-appointment of Independent Director\", \"resolution_type\": \"INDEPENDENT_DIRECTOR_APPOINT\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Mr. T. R. Bajalia\", \"role\": \"Independent Director\", \"age\": null, \"din\": \"02291892\", \"is_promoter\": false, \"tenure_years_proposed\": 5, \"prior_tenure_years\": 5, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"Appointed as Additional Director in June 19, 2019\", \"Eligible for re-appointment as an Independent Director for a second term\", \"Not liable to retire by rotation\", \"Recommended by Nomination & Remuneration Committee based on performance and expertise\"]}}",
+   "latency_ms": 7780,
+   "output_tokens": 430,
+   "valid_after_repair": true,
+   "cost_usd": 0.0005761
+  },
+  {
+   "item_id": "92809b886c11-8",
+   "output_text": "{\"synced_data\": {\"item_no\": \"8\", \"title\": \"Appointment of Mr. Ajay Kumar Relan as Director and Independent Director\", \"resolution_type\": \"INDEPENDENT_DIRECTOR_APPOINT\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. Ajay Kumar Relan\", \"role\": \"Director and Independent Director\", \"age\": null, \"din\": \"00002632\", \"is_promoter\": false, \"tenure_years_proposed\": 5, \"prior_tenure_years\": 4.5, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"Appointed Additional Director on December 04, 2018\", \"Not disqualified under Section 164 of the Companies Act\", \"Independent of Management\", \"More than four decades of experience in corporate and investment banking\", \"Served on boards of multiple companies including Thyrocare, Nueclear, SIS, Monnet and NTL\"]}}",
+   "latency_ms": 7437,
+   "output_tokens": 482,
+   "valid_after_repair": true,
+   "cost_usd": 0.0005347
+  },
+  {
+   "item_id": "92809b886c11-9",
+   "output_text": "{\"item_no\": \"9\", \"title\": \"Appointment of Mr. Ajit Mohan Sharan as Independent Director\", \"resolution_type\": \"INDEPENDENT_DIRECTOR_APPOINT\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Ajit Mohan Sharan\", \"role\": \"Director and Independent Director\", \"age\": null, \"din\": \"02458844\", \"is_promoter\": false, \"tenure_years_proposed\": 5, \"prior_tenure_years\": 4, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"Appointed as Additional Director since June 01, 2019\", \"Not liable to retire by rotation\", \"Independent of management\", \"Has experience in government and insurance sectors\"]}",
+   "latency_ms": 2703,
+   "output_tokens": 199,
+   "valid_after_repair": true,
+   "cost_usd": 0.00029
+  },
+  {
+   "item_id": "92809b886c11-10",
+   "output_text": "{\"item_no\": \"10\", \"title\": \"Authorise borrowing up to 6,500 crores\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 65000000000, \"raw\": \"Rs. Six Thousand Five Hundred Crores\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Authorises borrowing up to 6,500 crores\", \"Exceeds paid-up capital and free reserves\", \"Includes loans, bonds, debentures, securities\", \"No specific term or duration mentioned\"]}",
+   "latency_ms": 4874,
+   "output_tokens": 325,
+   "valid_after_repair": true,
+   "cost_usd": 0.0003388
+  },
+  {
+   "item_id": "92809b886c11-11",
+   "output_text": "{\"item_no\": \"11\", \"title\": \"Mortgage/Charge on Company Assets\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 65000000000, \"raw\": \"up to a sum not exceeding ` 6,500 Crores\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Consent for mortgaging and/or charging company assets up to ₹6,500 crores\", \"Authorization for Board or Committee to finalize form and manner of mortgages/charges\"]}",
+   "latency_ms": 5485,
+   "output_tokens": 315,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002989
+  },
+  {
+   "item_id": "92809b886c11-12",
+   "output_text": "{\"item_no\": \"12\", \"title\": \"Issue of Non-Convertible Debentures\", \"resolution_type\": \"CAPITAL_RAISE\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 100000000000, \"raw\": \"not exceeding `1,000 Crores\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 1, \"key_facts\": [\"To augment long-term resources and meet working capital and capex requirements\", \"Board authorized to issue up to ₹1000 crore in non-convertible debentures\", \"Resolution valid for one year from AGM conclusion\"]}",
+   "latency_ms": 5437,
+   "output_tokens": 325,
+   "valid_after_repair": true,
+   "cost_usd": 0.0004264
+  },
+  {
+   "item_id": "92809b886c11-13",
+   "output_text": "{\"item_no\": \"13\", \"title\": \"Amend MOA for finance and lending activities\", \"resolution_type\": \"ARTICLES_OR_MOA_AMENDMENT\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": [{\"amount_inr\": null, \"raw\": \"To provide finance and to undertake all lending\"}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Amends main object clause of Memorandum of Association\", \"Allows providing finance and undertaking lending for various purposes including construction, real estate, industrial and agricultural development\", \"Requires approval from shareholders as a special resolution\"]}",
+   "latency_ms": 2515,
+   "output_tokens": 148,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001794
+  },
+  {
+   "item_id": "92809b886c11-14",
+   "output_text": "{\"item_no\": \"14\", \"title\": \"Approval for raising funds through QIP\", \"resolution_type\": \"CAPITAL_RAISE\", \"is_special_resolution\": true, \"persons\": null, \"amounts\": {\"amount_inr\": 100000000000, \"raw\": \"Rs.1,000 crores\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 365, \"key_facts\": [\"Empowers the Board to issue Equity Shares by way of QIP to QIBs\", \"Pricing determined in compliance with ICDR Regulations\", \"Relevant date for pricing is the meeting where Board decides to open QIP Issue\", \"Issue and allotment within 365 days from resolution date\", \"Authorization to delegate powers to any Committee or person\"]}",
+   "latency_ms": 5921,
+   "output_tokens": 380,
+   "valid_after_repair": true,
+   "cost_usd": 0.0005283
+  },
+  {
+   "item_id": "dd90e14a7ed7-1",
+   "output_text": "{\"data\": {\"item_no\": \"1\", \"title\": \"Annual Financial Statements and Report\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": null, \"raw\": null}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopt annual financial statements and report\"]}}",
+   "latency_ms": 3374,
+   "output_tokens": 191,
+   "valid_after_repair": false,
+   "cost_usd": 0.0001949
+  },
+  {
+   "item_id": "dd90e14a7ed7-2",
+   "output_text": "{\"/item_no\": \"2\", \"/title\": \"Annual Financial Statements and Report\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopt annual financial statements and report\"]}",
+   "latency_ms": 3311,
+   "output_tokens": 200,
+   "valid_after_repair": false,
+   "cost_usd": 0.000196
+  },
+  {
+   "item_id": "dd90e14a7ed7-3",
+   "output_text": "{\"/item_no\": \"3\", \"/title\": \"Annual Financial Statements and Report\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopt annual financial statements and report\"]}",
+   "latency_ms": 3281,
+   "output_tokens": 200,
+   "valid_after_repair": false,
+   "cost_usd": 0.000196
+  },
+  {
+   "item_id": "dd90e14a7ed7-4",
+   "output_text": "{\"/item_no\": \"4\", \"/title\": \"Annual Financial Statements and Report\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopt annual financial statements and report\"]}",
+   "latency_ms": 3249,
+   "output_tokens": 200,
+   "valid_after_repair": false,
+   "cost_usd": 0.000196
+  },
+  {
+   "item_id": "dd90e14a7ed7-5",
+   "output_text": "{\"/item_no\": \"5\", \"/title\": \"Annual Financial Statements and Report\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopt annual financial statements and report\"]}",
+   "latency_ms": 3437,
+   "output_tokens": 200,
+   "valid_after_repair": false,
+   "cost_usd": 0.000196
+  },
+  {
+   "item_id": "dd90e14a7ed7-6",
+   "output_text": "{\"item_no\": \"6\", \"title\": \"Details of Directors seeking appointment/re-appointment at AGM\", \"resolution_type\": \"OTHER\", \"is_special_resolution\": null, \"persons\": [], \"amounts\": null, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Details of directors seeking appointment/re-appointment are provided.\", \"Members can appoint proxies to attend and vote on a poll.\", \"Proxy limitations for shareholding and number of members represented are specified.\"]}",
+   "latency_ms": 4249,
+   "output_tokens": 239,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002939
+  },
+  {
+   "item_id": "dd90e14a7ed7-7",
+   "output_text": "{\"item_no\": \"7\", \"title\": \"Approval of Directors' Remuneration\", \"resolution_type\": \"MANAGERIAL_REMUNERATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Rajesh Kumar\", \"role\": \"Managing Director\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}, {\"name\": \"Priya Sharma\", \"role\": \"Whole-Time Director\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": {\"amount_inr\": 15000000, \"raw\": \"Rs.15,00,000/-\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"MD and WT Director remuneration proposed\", \"Total remuneration Rs.15,00,000/-\"]}",
+   "latency_ms": 9218,
+   "output_tokens": 513,
+   "valid_after_repair": true,
+   "cost_usd": 0.00026020000000000004
+  },
+  {
+   "item_id": "dd90e14a7ed7-8",
+   "output_text": "{\"/item_no\": \"8\", \"/title\": \"Annual Financial Statements and Report\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopt annual financial statements and report\"]}",
+   "latency_ms": 3984,
+   "output_tokens": 200,
+   "valid_after_repair": false,
+   "cost_usd": 0.000196
+  },
+  {
+   "item_id": "dd90e14a7ed7-9",
+   "output_text": "{\"item_no\": \"9\", \"title\": \"Proposal for appointment of independent director\", \"resolution_type\": \"INDEPENDENT_DIRECTOR_APPOINT\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Ms. XYZ\", \"role\": \"Independent Director\", \"age\": null, \"din\": null, \"is_promoter\": false, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Proposal for appointment of Ms. XYZ as an independent director\"]}",
+   "latency_ms": 3014,
+   "output_tokens": 149,
+   "valid_after_repair": true,
+   "cost_usd": 0.0000902
+  },
+  {
+   "item_id": "dd90e14a7ed7-10",
+   "output_text": "{\"data\": {\"item_no\": \"10\", \"title\": \"Approval of Financial Statements\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": null, \"raw\": null}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Approval of financial statements for the year ending March 31, 2023.\"]}}",
+   "latency_ms": 4467,
+   "output_tokens": 212,
+   "valid_after_repair": false,
+   "cost_usd": 0.000204
+  },
+  {
+   "item_id": "dd90e14a7ed7-11",
+   "output_text": "{\"data\": {\"item_no\": \"11\", \"title\": \"Approval of Financial Statements\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": null, \"persons\": [], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Approval of financial statements.\"]}}",
+   "latency_ms": 3906,
+   "output_tokens": 174,
+   "valid_after_repair": false,
+   "cost_usd": 0.0001907
+  },
+  {
+   "item_id": "dd90e14a7ed7-12",
+   "output_text": "{\"item_no\": \"12\", \"title\": \"Regulation of AGM attendance and voting\", \"resolution_type\": \"OTHER\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": null, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Attendance regulated by means of attendance slips\", \"E-voting system provided for voting\", \"Voting rights proportional to paid-up share capital\", \"Only first joint holder can vote\"]}",
+   "latency_ms": 4452,
+   "output_tokens": 229,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002877
+  },
+  {
+   "item_id": "dd90e14a7ed7-13",
+   "output_text": "{\"item_no\": \"13\", \"title\": \"Facility for Remote E-Voting and Scrutinization of Votes\", \"resolution_type\": \"OTHER\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": null, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Remote e-voting facility available from 25th to 27th September 2024\", \"Voting through Ballot Papers also available at AGM\", \"Scrutinizer appointed to oversee the e-voting process\", \"Results declared and placed on company website after AGM\"]}",
+   "latency_ms": 5406,
+   "output_tokens": 293,
+   "valid_after_repair": true,
+   "cost_usd": 0.0003285
+  },
+  {
+   "item_id": "dd90e14a7ed7-14",
+   "output_text": "{\"/item_no\": \"14\", \"/title\": \"Annual Financial Statements and Report\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopt annual financial statements and report\"]}",
+   "latency_ms": 3749,
+   "output_tokens": 202,
+   "valid_after_repair": false,
+   "cost_usd": 0.0001975
+  },
+  {
+   "item_id": "dd90e14a7ed7-15",
+   "output_text": "{\"/item_no\": \"15\", \"/title\": \"Annual Financial Statements and Report\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopt annual financial statements and report\"]}",
+   "latency_ms": 4312,
+   "output_tokens": 202,
+   "valid_after_repair": false,
+   "cost_usd": 0.0001975
+  },
+  {
+   "item_id": "dd90e14a7ed7-16",
+   "output_text": "{\"/item_no\": \"16\", \"/title\": \"Annual Financial Statements and Report\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopt annual financial statements and report\"]}",
+   "latency_ms": 4234,
+   "output_tokens": 202,
+   "valid_after_repair": false,
+   "cost_usd": 0.0001975
+  },
+  {
+   "item_id": "dd90e14a7ed7-17",
+   "output_text": "{\"filing_item\": {\"item_no\": \"17\", \"title\": \"Access to NSDL e-Voting system for individual shareholders\", \"resolution_type\": \"OTHER\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Individual shareholders holding securities in demat mode can vote through their demat account maintained with Depositories and Depository Participants.\", \"Shareholders are advised to update their mobile number and email Id in their demat accounts to access e-Voting facility.\", \"The process involves logging into the NSDL e-Services website or the NSDL Speede mobile app for voting.\"]}}",
+   "latency_ms": 5436,
+   "output_tokens": 316,
+   "valid_after_repair": true,
+   "cost_usd": 0.0004223
+  },
+  {
+   "item_id": "ff2ffd0bdbc0-1",
+   "output_text": "{\"item_no\": \"1\", \"title\": \"Adopt audited financial statements for FY 2022\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": null, \"raw\": null}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopts audited financial statements for the year ended 31st March, 2022\", \"Includes Board and Auditor reports\"]}",
+   "latency_ms": 4654,
+   "output_tokens": 243,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002004
+  },
+  {
+   "item_id": "ff2ffd0bdbc0-2",
+   "output_text": "{\"item_no\": \"2\", \"title\": \"Re-appointment of Director\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Ms. Ashni Biyani\", \"role\": \"Director\", \"age\": null, \"din\": \"00058775\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Director Ms. Ashni Biyani retires by rotation\", \"She offers herself for re-appointment\"]}",
+   "latency_ms": 3187,
+   "output_tokens": 169,
+   "valid_after_repair": true,
+   "cost_usd": 0.0000985
+  },
+  {
+   "item_id": "ff2ffd0bdbc0-3",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Re-appointment of Statutory Auditors for 5 years\", \"resolution_type\": \"AUDITOR_APPOINT\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"M/s. S R B C & CO LLP\", \"role\": \"Statutory Auditor\", \"age\": null, \"din\": \"324982E/E300003\", \"is_promoter\": false, \"tenure_years_proposed\": 5, \"prior_tenure_years\": 5, \"board_attendance_pct\": null}], \"amounts\": {\"amount_inr\": 490000, \"raw\": \"49.00 Lakhs plus applicable taxes and reimbursement of actual out of pocket expenses\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"M/s. S R B C & CO LLP has completed a term of five years as the Statutory Auditors.\", \"The Board has recommended re-appointment after evaluating various factors.\", \"The remuneration for the second term will be commensurate with services rendered.\", \"The firm is a Limited Liability Partnership registered with ICAI.\"]}",
+   "latency_ms": 8874,
+   "output_tokens": 541,
+   "valid_after_repair": true,
+   "cost_usd": 0.0005231999999999999
+  },
+  {
+   "item_id": "ff2ffd0bdbc0-4",
+   "output_text": "{\"data\": {\"item_no\": \"4\", \"title\": \"Not re-appointing retiring director\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. Krishan Kant Rathi\", \"role\": \"Director\", \"age\": null, \"din\": \"00040094\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Mr. Krishan Kant Rathi is liable to retire by rotation.\", \"He has opted not to be re-appointed due to personal/professional engagements.\", \"The vacancy caused by his retirement will not be filled.\", \"Shareholders will need to expressly resolve not to fill the vacancy.\"]}}",
+   "latency_ms": 6779,
+   "output_tokens": 418,
+   "valid_after_repair": true,
+   "cost_usd": 0.0003671
+  },
+  {
+   "item_id": "994ed3dba9e0-1",
+   "output_text": "{\"item_no\": \"1\", \"title\": \"Adopt audited financial statements\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopts audited financial statements for FY ended March 31, 2024\", \"Includes report of the Board and Independent Auditors\"]}",
+   "latency_ms": 1532,
+   "output_tokens": 111,
+   "valid_after_repair": true,
+   "cost_usd": 0.0000984
+  },
+  {
+   "item_id": "994ed3dba9e0-2",
+   "output_text": "{\"item_no\": \"2\", \"title\": \"Re-appointment of Director by Rotation\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Nitin Kumar Mathur\", \"role\": \"Director\", \"age\": null, \"din\": \"06451862\", \"is_promoter\": null, \"tenure_years_proposed\": 1, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 1, \"key_facts\": [\"Director re-appointment by rotation\", \"Eligible for re-election\", \"Term covers one year\"]}",
+   "latency_ms": 2905,
+   "output_tokens": 170,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001119
+  },
+  {
+   "item_id": "994ed3dba9e0-3",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Approve Transactions under Section 185 of Companies Act, 2013\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 500000000, \"raw\": \"Rs. 50 Crores\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Consent for advancing loan and/or giving guarantee(s) up to Rs. 50 Crores\", \"Authorization for Board to negotiate and finalize terms\", \"Approval for executing documents and taking necessary steps\"]}",
+   "latency_ms": 5217,
+   "output_tokens": 319,
+   "valid_after_repair": true,
+   "cost_usd": 0.000297
+  },
+  {
+   "item_id": "994ed3dba9e0-4",
+   "output_text": "{\"data\": {\"item_no\": \"4\", \"title\": \"Consent for Loans, Guarantees and Investments up to Rs. 50 Crores\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 500000000, \"raw\": \"up to a limit of Rs. 50 Crores\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Consent given for loans, guarantees, and investments up to Rs. 50 Crores\", \"Includes Wholly Owned Subsidiaries\", \"Authorization to modify terms and conditions\", \"Power to transfer/dispose of investments\"]}}",
+   "latency_ms": 5562,
+   "output_tokens": 346,
+   "valid_after_repair": false,
+   "cost_usd": 0.0003756
+  },
+  {
+   "item_id": "994ed3dba9e0-5",
+   "output_text": "{\"item_no\": \"5\", \"title\": \"Sale of immovable property under Section 180(1)(a) of Companies Act, 2013\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 20250000, \"raw\": \"Rs. 2.025 Crore\"}, \"counterparty\": \"M/s. PSS Meadows LLP\", \"counterparty_is_related\": false, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Consent of members for sale of land to M/s. PSS Meadows LLP for Rs. 2.025 crore\", \"Authorization to Board to execute documents and obtain approvals\"]}",
+   "latency_ms": 5921,
+   "output_tokens": 345,
+   "valid_after_repair": true,
+   "cost_usd": 0.0003279
+  },
+  {
+   "item_id": "994ed3dba9e0-6",
+   "output_text": "{\"item_no\": \"6\", \"title\": \"Borrowing up to Rs. 50 crores over share capital and free reserves\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 500000000, \"raw\": \"Rs. 50 crores\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Consent for borrowing up to Rs. 50 crores over share capital and free reserves\", \"Powers granted to the Board to arrange terms and conditions of borrowings\"]}",
+   "latency_ms": 5311,
+   "output_tokens": 309,
+   "valid_after_repair": true,
+   "cost_usd": 0.0003195
+  },
+  {
+   "item_id": "994ed3dba9e0-7",
+   "output_text": "{\"item_no\": \"7\", \"title\": \"Creation of security on company properties for borrowings\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 10000000, \"raw\": \"limits approved under Section 180(1)(c) of the Act\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Consent given for creation of charge/mortgage/pledge/hypothecation/security on company properties and undertakings.\", \"Securing borrowings including loans, debentures, and deferred sales tax loans.\", \"Authorization to execute documents and settle matters related to creating mortgages/charges.\"]}",
+   "latency_ms": 6078,
+   "output_tokens": 357,
+   "valid_after_repair": true,
+   "cost_usd": 0.0004031
+  },
+  {
+   "item_id": "994ed3dba9e0-8",
+   "output_text": "{\"item_no\": \"8\", \"title\": \"Amend Memorandum of Association\", \"resolution_type\": \"ARTICLES_OR_MOA_AMENDMENT\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Alter main object clause and ancillary clauses of the Memorandum of Association\", \"Consent given as a Special Resolution\", \"Subject to approval of Registrar of Companies and Ministry of Corporate Affairs\"]}",
+   "latency_ms": 2265,
+   "output_tokens": 120,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001713
+  },
+  {
+   "item_id": "994ed3dba9e0-9",
+   "output_text": "{\"item_no\": \"9\", \"title\": \"Adoption of new Memorandum of Association\", \"resolution_type\": \"ARTICLES_OR_MOA_AMENDMENT\", \"is_special_resolution\": true, \"persons\": [{\"name\": null, \"role\": null, \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopts new Memorandum of Association in compliance with Companies Act, 2013\", \"Modifies existing Clause III (B) and deletes existing indication related to Other Objects\", \"Authorizes Directors and Company Secretary to take necessary actions\"]}",
+   "latency_ms": 6062,
+   "output_tokens": 317,
+   "valid_after_repair": true,
+   "cost_usd": 0.00029870000000000005
+  },
+  {
+   "item_id": "994ed3dba9e0-10",
+   "output_text": "{\"item_no\": \"10\", \"title\": \"Adopt new articles of association\", \"resolution_type\": \"ARTICLES_OR_MOA_AMENDMENT\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adoption of new articles of association in compliance with Companies Act, 2013\", \"Requires special resolution\", \"Authorizes directors and company secretary to take necessary actions\"]}",
+   "latency_ms": 1969,
+   "output_tokens": 119,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001111
+  },
+  {
+   "item_id": "994ed3dba9e0-11",
+   "output_text": "{\"item_no\": \"11\", \"title\": \"Conversion of loan into equity\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 500000000, \"raw\": \"Rs. 50,00,00,000/- (Rupees Fifty Crores only)\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Conversion of loans into equity shares up to Rs. 50 crores\", \"Approval for borrowing from directors/promoters\", \"Authorization for executing Loan Agreements\"]}",
+   "latency_ms": 5765,
+   "output_tokens": 313,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002856
+  },
+  {
+   "item_id": "a3e12436d7fd-1",
+   "output_text": "{\"item_no\": \"1\", \"title\": \"Adopt audited financial statements and reports\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": null, \"raw\": null}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopt audited financial statements for FY ended 31st March 2023\", \"Includes Board and Auditors' reports\"]}",
+   "latency_ms": 4795,
+   "output_tokens": 233,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002067
+  },
+  {
+   "item_id": "a3e12436d7fd-2",
+   "output_text": "{\"data\": {\"item_no\": \"2\", \"title\": \"Declare dividend on equity shares\", \"resolution_type\": \"DIVIDEND\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": null, \"raw\": null}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": []}}",
+   "latency_ms": 3749,
+   "output_tokens": 168,
+   "valid_after_repair": false,
+   "cost_usd": 0.0001918
+  },
+  {
+   "item_id": "a3e12436d7fd-3",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Re-appointment of Director J. P. Gupta, IAS\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Shri J. P. Gupta, IAS\", \"role\": \"Director\", \"age\": null, \"din\": \"01952821\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Re-appointment of retiring-by-rotation director\"], \"raw_agenda_text\": \"To appoint a Director in place of Shri J. P. Gupta, IAS (DIN 01952821), who retires by rotation in terms of Section 152(6) of the Companies Act, 2013 and being eligible offers himself for re-appointment.\"}",
+   "latency_ms": 5750,
+   "output_tokens": 242,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001154
+  },
+  {
+   "item_id": "a3e12436d7fd-4",
+   "output_text": "{\"item_no\": \"4\", \"title\": \"Ratification of cost auditor remuneration\", \"resolution_type\": \"AUDITOR_REMUNERATION_COST\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": 440000, \"raw\": \"Rs. 4,40,000 (Rupees Four Lakh Forty Thousand only) excluding applicable taxes and reimbursement of out of pocket expenses\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Ratification of remuneration to Cost Auditor as per Section 148 of the Companies Act, 2013\", \"Cost Auditor: M/s Diwanji & Company, Vadodara\", \"Remuneration: Rs. 4,40,000 excluding taxes and out-of-pocket expenses\"]}",
+   "latency_ms": 8936,
+   "output_tokens": 403,
+   "valid_after_repair": true,
+   "cost_usd": 0.0003613
+  },
+  {
+   "item_id": "4f4b7ef726bd-1",
+   "output_text": "{\"/item_no\": \"1\", \"/title\": \"Adopt audited financial statements\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": [{\"amount_inr\": null, \"/raw\": \"the audited standalone financial statements of the Company for the financial year ended March 31, 2024\"}, {\"amount_inr\": null, \"/raw\": \"the audited consolidated financial statements of the Company for the financial year ended March 31, 2024\"}], \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopts audited standalone financial statements for FY ended March 31, 2024\", \"Adopts audited consolidated financial statements for FY ended March 31, 2024\"]}",
+   "latency_ms": 8359,
+   "output_tokens": 392,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002651
+  },
+  {
+   "item_id": "4f4b7ef726bd-2",
+   "output_text": "{\"item_no\": \"2\", \"title\": \"Re-appointment of Director Ashok Kumar Goel\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. Ashok Kumar Goel\", \"role\": \"Director\", \"age\": null, \"din\": \"00025350\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Re-appointing Mr. Ashok Kumar Goel who retires by rotation\"]}",
+   "latency_ms": 4375,
+   "output_tokens": 169,
+   "valid_after_repair": true,
+   "cost_usd": 0.0000987
+  },
+  {
+   "item_id": "4f4b7ef726bd-3",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Increase borrowing limits from $500 Crores to $750 Crores\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": null, \"amounts\": {\"amount_inr\": 250000000, \"raw\": \"$ 750 Crores (Rupees Seven Hundred and Fifty Crores only)\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Increase borrowing limit from $500 Crores to $750 Crores\", \"For inorganic upstream opportunities and operational needs\", \"May require performance bank guarantees and secured by charge\"]}",
+   "latency_ms": 6826,
+   "output_tokens": 334,
+   "valid_after_repair": true,
+   "cost_usd": 0.0004785
+  },
+  {
+   "item_id": "4f4b7ef726bd-4",
+   "output_text": "{\"item_no\": \"4\", \"title\": \"Approve creation of charges on company properties for borrowings\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": null, \"amounts\": {\"amount_inr\": 75000000000, \"raw\": \"$ 750 Crores\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Increase borrowing limits from $500 Crores to $750 Crores\", \"Securing borrowings through charges on company properties\", \"For inorganic growth opportunities and operational needs\"]}",
+   "latency_ms": 6687,
+   "output_tokens": 304,
+   "valid_after_repair": true,
+   "cost_usd": 0.00045220000000000004
+  },
+  {
+   "item_id": "4f4b7ef726bd-5",
+   "output_text": "{\"item_no\": \"5\", \"title\": \"Ratify remuneration to Cost Auditor\", \"resolution_type\": \"AUDITOR_REMUNERATION_COST\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. K. Suryanarayanan\", \"role\": \"Cost Accountant\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": {\"amount_inr\": 200000, \"raw\": \"$ 2,00,000/- (Rupees Two Lakhs Only) plus applicable taxes and out of pocket expenses\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 1, \"key_facts\": [\"Cost Auditor appointed for financial year 2024-25\", \"Remuneration includes $200,000 plus taxes and expenses\", \"Resolution is an Ordinary Resolution\"]}",
+   "latency_ms": 10827,
+   "output_tokens": 467,
+   "valid_after_repair": true,
+   "cost_usd": 0.0003279
+  },
+  {
+   "item_id": "02a0ddd45cc9-1",
+   "output_text": "{\"/item_no\": \"1\", \"/title\": \"Adopt audited financial statements\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": [{\"amount_inr\": null, \"/raw\": \"together with the reports of the Board of Directors and Statutory Auditors thereon\"}], \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopt audited standalone financial statements for FY ended 31st March 2024\", \"Adopt audited consolidated financial statements for FY ended 31st March 2024\"]}",
+   "latency_ms": 7516,
+   "output_tokens": 277,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002388
+  },
+  {
+   "item_id": "02a0ddd45cc9-2",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Re-appointment of Director Vikas Jain\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. Vikas Jain\", \"role\": \"Director\", \"age\": null, \"din\": \"00812760\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Director Vikas Jain retires by rotation\", \"Offers himself for re-appointment\"]}",
+   "latency_ms": 4594,
+   "output_tokens": 165,
+   "valid_after_repair": true,
+   "cost_usd": 0.0000983
+  },
+  {
+   "item_id": "02a0ddd45cc9-3",
+   "output_text": "{\"wu\": {\"item_no\": \"2\", \"title\": \"Re-appoint Cost Auditor and Ratify Remuneration\", \"resolution_type\": \"AUDITOR_REMUNERATION_COST\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. Manish Gupta\", \"role\": \"Director\", \"age\": null, \"din\": \"02917023\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [{\"amount_inr\": 25000, \"raw\": \"? 25,000/- (Rupees Twenty Five Thousand Only)\"}], \"counterparty\": \"M/s. Deepak Mittal & co.\", \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 1, \"key_facts\": [\"Cost auditor reappointment\", \"Ratify remuneration of Rs. 25,000 + GST\", \"Cost auditor for financial year ending 31st March 2025\"]}}",
+   "latency_ms": 10513,
+   "output_tokens": 481,
+   "valid_after_repair": true,
+   "cost_usd": 0.00033850000000000004
+  },
+  {
+   "item_id": "02a0ddd45cc9-4",
+   "output_text": "{\"io\": 4, \"title\": \"Ratify cost auditors' remuneration\", \"resolution_type\": \"AUDITOR_REMUNERATION_COST\", \"is_special_resolution\": false, \"persons\": null, \"amounts\": {\"amount_inr\": null, \"raw\": \"the remuneration payable to Cost Auditors of the Company for the ﬁnancial year 2024-25.\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Ratify cost auditors' remuneration for FY 2024-25\"]}",
+   "latency_ms": 5952,
+   "output_tokens": 292,
+   "valid_after_repair": true,
+   "cost_usd": 0.00022380000000000002
+  },
+  {
+   "item_id": "02a0ddd45cc9-5",
+   "output_text": "{\"item_no\": \"5\", \"title\": \"Approve revision in remuneration of Mr. Manish Gupta\", \"resolution_type\": \"MANAGERIAL_REMUNERATION\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Mr. Manish Gupta\", \"role\": \"Chairman and Whole-time Director\", \"age\": null, \"din\": \"02917023\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [{\"amount_inr\": 2400000, \"raw\": \"Rs. 24,00,000/- per annum\"}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Approval for revision in the remuneration of Mr. Manish Gupta\", \"Salary: Rs. 24,00,000/- per annum\", \"Company may pay minimum remuneration if profits are inadequate\", \"Board authorized to vary terms and conditions of managerial remuneration\"]}",
+   "latency_ms": 4921,
+   "output_tokens": 254,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001934
+  },
+  {
+   "item_id": "02a0ddd45cc9-6",
+   "output_text": "{\"item_no\": \"6\", \"title\": \"Revision in remuneration for Managing Director Mr. Vikas Jain\", \"resolution_type\": \"MANAGERIAL_REMUNERATION\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Mr. Vikas Jain\", \"role\": \"Managing Director\", \"age\": null, \"din\": \"00812760\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [{\"amount_inr\": 2400000, \"raw\": \"Rs. 24,00,000/- per annum including Provident Fund\"}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Resolution for revision in remuneration of Managing Director Mr. Vikas Jain as per Section 196-198 of Companies Act, 2013.\", \"Approval given as a Special Resolution.\", \"Salary and Provident Fund as per Company Policy.\", \"Company may pay minimum remuneration if profits are inadequate.\", \"Board authorized to vary terms and conditions of managerial remuneration without further approval.\"]}",
+   "latency_ms": 6531,
+   "output_tokens": 279,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002058
+  },
+  {
+   "item_id": "02a0ddd45cc9-7",
+   "output_text": "{\"item_no\": \"7\", \"title\": \"Authorization for providing loans, guarantees or securities up to Rs. 200 Crores\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 2000000000, \"raw\": \"upto an aggregate limit of Rs. 200 Crores\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Authorization for loans, guarantees or securities up to Rs. 200 Crores\", \"Utilization for principal business activities only\", \"Subject to 60% or 100% of paid-up share capital, free reserves and Securities Premium Account\", \"Special Resolution\"]}",
+   "latency_ms": 7609,
+   "output_tokens": 367,
+   "valid_after_repair": true,
+   "cost_usd": 0.0003424
+  },
+  {
+   "item_id": "02a0ddd45cc9-8",
+   "output_text": "{\"io\": 8, \"title\": \"Authorization for Loans/ Guarantees and Investments\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Vikas Jain\", \"role\": \"Managing Director\", \"age\": null, \"din\": \"00812760\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": {\"amount_inr\": null, \"raw\": \"any loan / guarantee and/or providing any security in connection with loan and making any investment by the company\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Authorization for giving loans, guarantees, providing security, and investments under Section 186 of the Companies Act, 2013\", \"Special Resolution required\", \"Managing Director Vikas Jain proposed the resolution\"]}",
+   "latency_ms": 8046,
+   "output_tokens": 412,
+   "valid_after_repair": true,
+   "cost_usd": 0.0004943
+  },
+  {
+   "item_id": "4403168d0128-1",
+   "output_text": "{\"data\": {\"item_no\": \"1\", \"title\": \"Adopt audited financial statements\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": null, \"raw\": null}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopt audited financial statements for the year ending March 31, 2024\", \"Consider reports of Board of Directors and Auditors\"]}}",
+   "latency_ms": 5124,
+   "output_tokens": 239,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002162
+  },
+  {
+   "item_id": "4403168d0128-2",
+   "output_text": "{\"item_no\": \"2\", \"title\": \"Re-appointment of Director by Rotation\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. Kamlesh Keshavlal Lodhiya\", \"role\": \"Director\", \"age\": null, \"din\": \"09547591\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Director retiring by rotation\", \"Offers self for re-appointment\"]}",
+   "latency_ms": 3030,
+   "output_tokens": 166,
+   "valid_after_repair": true,
+   "cost_usd": 0.0000988
+  },
+  {
+   "item_id": "4403168d0128-3",
+   "output_text": "{\"io\": 3, \"title\": \"Appointment of Statutory Auditors\", \"resolution_type\": \"AUDITOR_APPOINT\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"M/s. Bimal Shah Associates, Chartered Accountants\", \"role\": \"Statutory Auditor\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [{\"amount_inr\": null, \"raw\": \"as may be determined and recommended by the Audit Committee in consultation with the Auditors and duly approved by the Board of Directors of the Company\"}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 1, \"key_facts\": [\"Piyush Kothari & Associates resigned due to pre-occupation.\", \"Bimal Shah Associates appointed to fill casual vacancy.\", \"Appointment valid until the conclusion of the 2nd Annual General Meeting.\", \"Approval required within 3 months from board appointment.\"]}",
+   "latency_ms": 10094,
+   "output_tokens": 473,
+   "valid_after_repair": true,
+   "cost_usd": 0.0006245000000000001
+  },
+  {
+   "item_id": "4403168d0128-4",
+   "output_text": "{\"/item_no\": \"4\", \"/title\": \"Appointment of Statutory Auditors\", \"/resolution_type\": \"AUDITOR_APPOINT\", \"/is_special_resolution\": false, \"/persons\": [{\"name\": \"M/s. Bimal Shah Associates\", \"role\": \"Statutory Auditor\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": 5, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"/amounts\": [{\"amount_inr\": null, \"raw\": \"as maybe determined and recommended by the Audit Committee in consultation with the Auditors and duly approved by the Board of Directors of the Company\"}], \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": 5, \"/key_facts\": [\"Piyush Kothari & Associates tendered resignation due to pre-occupation.\", \"M/s. Bimal Shah Associates appointed to fill casual vacancy.\", \"Appointment valid for 5 years from AGM conclusion.\", \"Ratification required within 3 months from board appointment.\"]}",
+   "latency_ms": 11015,
+   "output_tokens": 436,
+   "valid_after_repair": false,
+   "cost_usd": 0.0006182
+  },
+  {
+   "item_id": "645380ee5e1c-1",
+   "output_text": "{\"/item_no\": \"1\", \"/title\": \"Adopt Financial Statements\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopts audited financial statements for the year ended March 31, 2023\", \"Includes balance sheet, profit and loss statement, changes in equity, and cash flow statement\"]}",
+   "latency_ms": 6921,
+   "output_tokens": 260,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002285
+  },
+  {
+   "item_id": "645380ee5e1c-2",
+   "output_text": "{\"item_no\": \"2\", \"title\": \"Re-appointment of Director\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mrs. Sandeep Kaur Ahluwalia\", \"role\": \"Director\", \"age\": null, \"din\": \"01355454\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Director retiring by rotation\", \"Eligible for re-appointment\"]}",
+   "latency_ms": 4000,
+   "output_tokens": 165,
+   "valid_after_repair": true,
+   "cost_usd": 0.0000982
+  },
+  {
+   "item_id": "645380ee5e1c-3",
+   "output_text": "{\"/item_no\": \"3\", \"/title\": \"Re-appointment of Whole Time Director\", \"/resolution_type\": \"NON_INDEPENDENT_DIRECTOR_APPOINT\", \"/is_special_resolution\": true, \"/persons\": [{\"name\": \"Mrs. Sandeep Kaur Ahluwalia\", \"role\": \"Whole Time Director\", \"age\": 73, \"din\": \"01355454\", \"is_promoter\": false, \"tenure_years_proposed\": 3, \"prior_tenure_years\": 3, \"board_attendance_pct\": null}], \"/amounts\": [{\"amount_inr\": 19500000, \"raw\": \"Monthly Salary in the grade of Rs. 150000/- Rs.20000/- Rs.25000/- Rs. 195000/-\"}, {\"amount_inr\": 6000000, \"raw\": \"The expenditure by the company on hiring furnished accommodation for the appointee will be subject to the ceiling of 60% (sixty per cent) of the salary, over and above 10% (ten per cent) payable by the appointee.\"}, {\"amount_inr\": 10000, \"raw\": \"Annual premium of which shall not exceed Rs. 10,000/- per annum.\"}, {\"amount_inr\": 1800000, \"raw\": \"Reimbursement of actual traveling expenses incurred in India and/or abroad once in a year in respect of herself and her family.\"}, {\"amount_inr\": 2400000, \"raw\": \"Fee of clubs subject to maximum of two clubs including admission and life membership fees.\"}, {\"amount_inr\": 1200000, \"raw\": \"Provision of car for official-cum-personal use.\"}, {\"amount_inr\": 1200000, \"raw\": \"Provision of telephone at residence and mobile phone for official-cum-personal use.\"}], \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": 3, \"/key_facts\": [\"Mrs. Sandeep Kaur Ahluwalia is re-appointed as Whole Time Director for three years.\", \"Her remuneration includes salary, allowances, and perquisites.\", \"She satisfies conditions set out in Section 196(3) of the Companies Act, 2013.\", \"Minimum remuneration will be paid even if there is loss or inadequacy of profits in any financial year.\"]}",
+   "latency_ms": 21655,
+   "output_tokens": 1128,
+   "valid_after_repair": false,
+   "cost_usd": 0.0007747
+  },
+  {
+   "item_id": "645380ee5e1c-4",
+   "output_text": "{\"data\": {\"item_no\": \"4\", \"title\": \"Appointment of Mr. Rupinder Singh as Chairman cum Executive Director\", \"resolution_type\": \"MANAGERIAL_REMUNERATION\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Mr. Rupinder Singh\", \"role\": \"Chairman cum Executive Director\", \"age\": 68, \"din\": \"01239483\", \"is_promoter\": false, \"tenure_years_proposed\": 3, \"prior_tenure_years\": 33, \"board_attendance_pct\": null}], \"amounts\": {\"amount_inr\": 7200000, \"raw\": \"Monthly Salary of Rs. 60000/- and other allowances and perquisites\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 3, \"key_facts\": [\"Mr. Rupinder Singh is appointed as Chairman cum Executive Director for a period of three years.\", \"He will manage the Production, Sales and Marketing divisions.\", \"He will be paid a monthly salary of Rs. 60000/- and other allowances and perquisites.\", \"In case of loss or inadequacy of profits, he will be paid the same remuneration as minimum remuneration.\"]}}",
+   "latency_ms": 12421,
+   "output_tokens": 576,
+   "valid_after_repair": false,
+   "cost_usd": 0.0005868
+  },
+  {
+   "item_id": "645380ee5e1c-5",
+   "output_text": "{\"item_no\": \"5\", \"title\": \"Approve sale, lease or disposal of company assets\", \"resolution_type\": \"OTHER\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Rupinder Singh\", \"role\": \"Chairman\", \"age\": null, \"din\": \"01239483\", \"is_promoter\": false, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}, {\"name\": \"Mandeep Ahluwalia Pahwa\", \"role\": \"Director\", \"age\": null, \"din\": \"01355511\", \"is_promoter\": false, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": {\"amount_inr\": null, \"raw\": \"such consideration\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 1, \"key_facts\": [\"Company needs funds and lacks working capital.\", \"Previous resolution valid for one year.\", \"Board seeks approval to sell, lease or dispose assets.\", \"Chairman and Director authorized to act on behalf of the Board.\"]}",
+   "latency_ms": 11202,
+   "output_tokens": 545,
+   "valid_after_repair": true,
+   "cost_usd": 0.0004661
+  },
+  {
+   "item_id": "ba0e145cf6d9-1",
+   "output_text": "{\"item_no\": \"1\", \"title\": \"Alteration in Articles of Association for preferential issue of securities\", \"resolution_type\": \"ARTICLES_OR_MOA_AMENDMENT\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": [{\"amount_inr\": null, \"raw\": \"further issue of securities may be made in any manner whatsoever as the Board may determine including by way of preferential offer or private placement\"}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Shareholders' consent required for altering Articles of Association to allow preferential issue of securities\", \"Approval sought for preferential allotment of Equity Shares\", \"Amendments to empower Company to make further issues in any manner determined by Board\", \"Resolution to be passed as a Special Resolution\"]}",
+   "latency_ms": 4625,
+   "output_tokens": 185,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001537
+  },
+  {
+   "item_id": "ba0e145cf6d9-2",
+   "output_text": "{\"io\": 2, \"title\": \"Approve Issue of Equity Shares Preferentially\", \"resolution_type\": \"CAPITAL_RAISE\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Kamini Ritesh Jain\", \"role\": \"Non-Promoter\", \"age\": null, \"din\": null, \"is_promoter\": false, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}, {\"name\": \"Madhu Rathi\", \"role\": \"Non-Promoter\", \"age\": null, \"din\": null, \"is_promoter\": false, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [{\"amount_inr\": 531564000, \"raw\": \"Rs. 53,15,64,000/- (Rupees Fifty Three Crores Fifteen Lacs Sixty Four Thousand Only)\"}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Resolution for preferential issue of equity shares for Rs. 53,15,64,000/-\", \"Purpose: capital base enhancement and working capital requirements\", \"Price per share: Rs. 165/-\", \"Number of shares: 32,21,600\"]}",
+   "latency_ms": 10655,
+   "output_tokens": 643,
+   "valid_after_repair": true,
+   "cost_usd": 0.0007971
+  },
+  {
+   "item_id": "ba0e145cf6d9-3",
+   "output_text": "{\"/item_no\": \"3\", \"/title\": \"Issue of Warrants Convertible into Equity Shares\", \"/resolution_type\": \"CAPITAL_RAISE\", \"/is_special_resolution\": true, \"/persons\": [{\"name\": \"Palak Maheshwari\", \"role\": \"Non-Promoter\", \"age\": null, \"din\": null, \"is_promoter\": false, \"tenure_years_proposed\": null, \"prior_tenure_years\": 0, \"board_attendance_pct\": null}, {\"name\": \"Aagman Advisory LLP\", \"role\": \"Non-Promoter\", \"age\": null, \"din\": null, \"is_promoter\": false, \"tenure_years_proposed\": null, \"prior_tenure_years\": 0, \"board_attendance_pct\": null}, {\"name\": \"Hardik Manilal Limbani\", \"role\": \"Non-Promoter\", \"age\": null, \"din\": null, \"is_promoter\": false, \"tenure_years_proposed\": null, \"prior_tenure_years\": 0, \"board_attendance_pct\": null}, {\"name\": \"Vrushali Yogesh Supekar\", \"role\": \"Non-Promoter\", \"age\": null, \"din\": null, \"is_promoter\": false, \"tenure_years_proposed\": null, \"prior_tenure_years\": 0, \"board_attendance_pct\": null}, {\"name\": \"Oberoi Pooja Hitesh\", \"role\": \"Non-Promoter\", \"age\": null, \"din\": null, \"is_promoter\": false, \"tenure_years_proposed\": null, \"prior_tenure_years\": 0, \"board_attendance_pct\": null}, {\"name\": \"Chetan Sahebrao Tupe\", \"role\": \"Non-Promoter\", \"age\": null, \"din\": null, \"is_promoter\": false, \"tenure_years_proposed\": null, \"prior_tenure_years\": 0, \"board_attendance_pct\": null}, {\"name\": \"Komal Parag Mandhana\", \"role\": \"Non-Promoter\", \"age\": null, \"din\": null, \"is_promoter\": false, \"tenure_years_proposed\": null, \"prior_tenure_years\": 0, \"board_attendance_pct\": null}, {\"name\": \"Shantanu Sharma\", \"role\": \"Non-Promoter\", \"age\": null, \"din\": null, \"is_promoter\": false, \"tenure_years_proposed\": null, \"prior_tenure_years\": 0, \"board_attendance_pct\": null}, {\"name\": \"Aadarsh Ladda\", \"role\": \"Non-Promoter\", \"age\": null, \"din\": null, \"is_promoter\": false, \"tenure_years_proposed\": null, \"prior_tenure_years\": 0, \"board_attendance_pct\": null}, {\"name\": \"Dipti Bhatia\", \"role\": \"Non-Promoter\", \"age\": null, \"din\": null, \"is_promoter\": false, \"tenure_years_proposed\": null, \"prior_tenure_years\": 0, \"board_attendance_pct\": null}, {\"name\": \"Gunjan\", \"role\": \"Non-Promoter\", \"age\": null, \"din\": null, \"is_promoter\": false, \"tenure_years_proposed\": null, \"prior_tenure_years\": 0, \"board_attendance_pct\": null}], \"/amounts\": [{\"amount_inr\": 259116000, \"raw\": \"Rs. 25,91,16,000/- [Rupees Twenty Five Crores Ninety One Lacs Sixteen Thousand Only]\"}], \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": 18, \"/key_facts\": [\"Warrants convertible into equity shares to be issued for cash\", \"Total warrants: 15,70,400\", \"Issue price per warrant: Rs. 165\", \"Right to apply for 1 Equity Share per warrant\", \"Allotment period: 18 months\", \"Purpose: Capital base enhancement and working capital\"]}",
+   "latency_ms": 33155,
+   "output_tokens": 1813,
+   "valid_after_repair": false,
+   "cost_usd": 0.0011621000000000001
+  },
+  {
+   "item_id": "b281981aed3f-1",
+   "output_text": "{\"/item_no\": \"1\", \"/title\": \"Adopt Financial Statements\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopt audited balance sheet as at 31 March, 2024\", \"Adopt statement of profit and loss for the year ended on that date\", \"Consider reports of the board of directors and auditors\"]}",
+   "latency_ms": 5187,
+   "output_tokens": 274,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002256
+  },
+  {
+   "item_id": "b281981aed3f-2",
+   "output_text": "{\"/item_no\": \"2\", \"/title\": \"Declare Dividend for FY 2024\", \"/resolution_type\": \"DIVIDEND\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": \"To declare Dividend on Equity Shares for the Financial Year ended 31 March, 2024.\"}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Dividend to be declared for the financial year ending 31 March 2024\"]}",
+   "latency_ms": 4952,
+   "output_tokens": 272,
+   "valid_after_repair": false,
+   "cost_usd": 0.00022150000000000002
+  },
+  {
+   "item_id": "b281981aed3f-3",
+   "output_text": "{\"/item_no\": \"3\", \"/title\": \"Re-appointment of Director\", \"/resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"/is_special_resolution\": false, \"/persons\": [{\"name\": \"Mr. Bhadresh K. Shah\", \"role\": \"Director\", \"age\": null, \"din\": \"00058177\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"/amounts\": [], \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Re-appointing Mr. Bhadresh K. Shah who retires by rotation\"]}",
+   "latency_ms": 6406,
+   "output_tokens": 334,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002438
+  },
+  {
+   "item_id": "b281981aed3f-4",
+   "output_text": "{\"data\": {\"item_no\": \"4\", \"title\": \"Approval of material related party transactions with AIA Engineering Limited\", \"resolution_type\": \"RELATED_PARTY_TRANSACTION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. Bhadresh K. Shah\", \"role\": \"Director in AIA\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}, {\"name\": \"Mr. Sanjay S. Majmudar\", \"role\": \"Director in AIA\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}, {\"name\": \"Mrs. Khushali Samip Solanki\", \"role\": \"Director in AIA\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}, {\"name\": \"Mr. S. N. Jetheliya\", \"role\": \"Company Secretary and CFO of AIA\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}, {\"name\": \"Mr. Viren K. Thakkar\", \"role\": \"CFO of AIA\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": {\"amount_inr\": 2000000000, \"raw\": \"₹ 200 Crores\"}, \"counterparty\": \"AIA Engineering Limited\", \"counterparty_is_related\": true, \"transaction_nature\": \"Sale of Goods\", \"duration_years\": 1, \"key_facts\": [\"Material related party transactions with AIA Engineering Limited require shareholder approval.\", \"Transactions must not exceed ₹100 crore or 10% of annual consolidated turnover.\", \"Omnibus approvals from Audit Committee obtained.\", \"Related parties cannot vote on this resolution.\"]}}",
+   "latency_ms": 19014,
+   "output_tokens": 1008,
+   "valid_after_repair": false,
+   "cost_usd": 0.0005618
+  },
+  {
+   "item_id": "b281981aed3f-5",
+   "output_text": "{\"/item_no\": \"5\", \"/title\": \"Ratify Cost Auditor Remuneration\", \"/resolution_type\": \"AUDITOR_REMUNERATION_COST\", \"/is_special_resolution\": false, \"/persons\": [{\"name\": \"Kiran J. Mehta & Co.\", \"role\": \"Cost Accountants\", \"age\": null, \"din\": \"000025\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"/amounts\": {\"amount_inr\": 75000, \"raw\": \"₹75,000/- p.a.\"}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": \"1\", \"/key_facts\": [\"Cost Auditors re-appointed for FY 2024-2025\", \"Remuneration of ₹75,000/- p.a.\", \"Ratification by Ordinary Resolution required\"]}",
+   "latency_ms": 8844,
+   "output_tokens": 448,
+   "valid_after_repair": false,
+   "cost_usd": 0.00041010000000000005
+  },
+  {
+   "item_id": "38c223ad7592-1",
+   "output_text": "{\"/item_no\": \"1\", \"/title\": \"Adopt Audited Financial Statements\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopts audited financial statements for the year ended March 31, 2024.\", \"Includes balance sheet, profit and loss statement, and cash flow statement.\", \"Report of the board and auditors included.\"]}",
+   "latency_ms": 5842,
+   "output_tokens": 278,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002484
+  },
+  {
+   "item_id": "38c223ad7592-2",
+   "output_text": "{\"/item_no\": \"2\", \"/title\": \"Declare Dividend on Equity Shares\", \"/resolution_type\": \"DIVIDEND\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": 10000000, \"raw\": \"Rs. Ten Crore\"}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Dividend declared for FY 2023-24\", \"Amount: Rs. Ten Crore\"]}",
+   "latency_ms": 4672,
+   "output_tokens": 250,
+   "valid_after_repair": false,
+   "cost_usd": 0.00021500000000000002
+  },
+  {
+   "item_id": "38c223ad7592-3",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Re-appointment of Director\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. Rajesh Sharma\", \"role\": \"Director\", \"age\": null, \"din\": \"00020037\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Director retiring by rotation\", \"Eligible for re-appointment\"]}",
+   "latency_ms": 2921,
+   "output_tokens": 159,
+   "valid_after_repair": true,
+   "cost_usd": 0.0000965
+  },
+  {
+   "item_id": "38c223ad7592-4",
+   "output_text": "{\"item_no\": \"4\", \"title\": \"Appoint Statutory Auditor and Approve Terms\", \"resolution_type\": \"AUDITOR_APPOINT\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"MSKA & Associates\", \"role\": \"Statutory Auditor\", \"age\": null, \"din\": \"105047W\", \"is_promoter\": null, \"tenure_years_proposed\": 3, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [{\"amount_inr\": 750000, \"raw\": \"₹75 lakhs\"}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 3, \"key_facts\": [\"Appointment of M/s. MSKA & Associates as statutory auditor for 3 years\", \"Consent confirmed by M/s. MSKA & Associates to act as statutory auditor\", \"Proposed remuneration of ₹75 lakhs for FY 2025\"]}",
+   "latency_ms": 4469,
+   "output_tokens": 226,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001997
+  },
+  {
+   "item_id": "38c223ad7592-5",
+   "output_text": "{\"item_no\": \"5\", \"title\": \"Increase Borrowing Limit to ₹15,000 Crores\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 150000000000, \"raw\": \"₹15,000 Crores (Rupees Fifteen Thousand Crores)\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Authorised borrowing in excess of paid-up capital and free reserves\", \"New limit is ₹15,000 Crores\", \"Existing limit was ₹10,000 Crores\", \"To support business operations and raise additional funds\", \"Approval for creating charge on assets to secure borrowings\"]}",
+   "latency_ms": 7326,
+   "output_tokens": 383,
+   "valid_after_repair": true,
+   "cost_usd": 0.0005044
+  },
+  {
+   "item_id": "38c223ad7592-6",
+   "output_text": "{\"item_no\": \"6\", \"title\": \"Consent for mortgage/charge on company assets up to ₹15,000 Crores\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": null, \"amounts\": {\"amount_inr\": 150000000000, \"raw\": \"up to a sum not exceeding ₹15,000 Crores (Rupees Fifteen Thousand Crores)\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Consent for mortgaging and/or charging movable and/or immovable properties of the company\", \"Up to ₹15,000 Crores borrowing limit\", \"In supersession of previous resolution from 2023\", \"To secure debentures, loans or finance and other credit facilities\"]}",
+   "latency_ms": 7906,
+   "output_tokens": 408,
+   "valid_after_repair": true,
+   "cost_usd": 0.00047589999999999997
+  },
+  {
+   "item_id": "38c223ad7592-7",
+   "output_text": "{\"io\": \"item_no\", \"value\": \"7\", \"title\": \"Conversion of Loan into Equity\", \"resolution_type\": \"OTHER\", \"is_special_resolution\": true, \"persons\": null, \"amounts\": {\"amount_inr\": 150000000000, \"raw\": \"not exceeding ₹15,000 Crores (Rupees Fifteen Thousand Crores)\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Enables conversion of up to ₹15,000 Crores in loans into equity shares.\", \"Supersedes a previous resolution from September 01, 2023.\", \"Subject to terms and conditions as stipulated in financing documents.\", \"Enhances borrowing limit from ₹10,000 Crores to ₹15,000 Crores.\"]}",
+   "latency_ms": 7827,
+   "output_tokens": 402,
+   "valid_after_repair": false,
+   "cost_usd": 0.0005924
+  },
+  {
+   "item_id": "38c223ad7592-8",
+   "output_text": "{\"item_no\": \"8\", \"title\": \"Raising funds through issuance of securities\", \"resolution_type\": \"CAPITAL_RAISE\", \"is_special_resolution\": true, \"persons\": null, \"amounts\": {\"amount_inr\": 200000000000, \"raw\": \"upto ₹2,000 Crores (Rupees Two Thousand Crores)\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"The company aims to raise up to ₹2,000 crores for growth and strategic acquisitions.\", \"Proceeds can be used for investments in subsidiaries, joint ventures or associates.\", \"Approval is sought for issuing various types of securities including equity shares, GDRs, FCBs, and convertible securities.\"]}",
+   "latency_ms": 7578,
+   "output_tokens": 370,
+   "valid_after_repair": true,
+   "cost_usd": 0.0005480000000000001
+  },
+  {
+   "item_id": "9eb980d948e3-1",
+   "output_text": "{\"/item_no\": \"1\", \"/title\": \"Adopt audited financial statements\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopts audited financial statements for the year ended March 31, 2020\", \"Includes both standalone and consolidated financial statements\"]}",
+   "latency_ms": 4734,
+   "output_tokens": 244,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002207
+  },
+  {
+   "item_id": "9eb980d948e3-2",
+   "output_text": "{\"/item_no\": \"2\", \"/title\": \"Confirm Interim Dividend as Final\", \"/resolution_type\": \"DIVIDEND\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": 0, \"raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Confirms interim dividend as final for the year ended March 31, 2020.\"]}",
+   "latency_ms": 4842,
+   "output_tokens": 225,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002116
+  },
+  {
+   "item_id": "9eb980d948e3-3",
+   "output_text": "{\"/item_no\": \"3\", \"/title\": \"Re-appointment of Director\", \"/resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"/is_special_resolution\": false, \"/persons\": [{\"name\": \"Mr. D.S. Sahney\", \"role\": \"director\", \"age\": null, \"din\": \"00003956\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"/amounts\": [], \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Re-appointing Mr. D.S. Sahney who retires by rotation\"]}",
+   "latency_ms": 7469,
+   "output_tokens": 335,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002394
+  },
+  {
+   "item_id": "9eb980d948e3-4",
+   "output_text": "{\"item_no\": \"4\", \"title\": \"Ratify Cost Auditor Remuneration\", \"resolution_type\": \"AUDITOR_REMUNERATION_COST\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"M/s Nanabhoy and Co.\", \"role\": \"Cost Accountants\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": {\"amount_inr\": 98000, \"raw\": \"Rs. 98,000/-\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Audit of cost records for financial year ending March 31, 2021\", \"Board approved remuneration of Rs. 98,000\", \"Ratification required by Section 148 of the Companies Act, 2013\"]}",
+   "latency_ms": 9358,
+   "output_tokens": 459,
+   "valid_after_repair": true,
+   "cost_usd": 0.0004376
+  },
+  {
+   "item_id": "9eb980d948e3-5",
+   "output_text": "{\"wu\": {\"item_no\": \"5\", \"title\": \"Approve Director Remuneration\", \"resolution_type\": \"MANAGERIAL_REMUNERATION\", \"is_special_resolution\": true, \"persons\": [{\"name\": null, \"role\": null, \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [{\"amount_inr\": 100000, \"raw\": \"1 (one) per cent of the net profits of the Company\"}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Approves remuneration to non-whole-time directors and independent directors\", \"Not exceeding 1% of net profits\", \"In addition to meeting fees and reimbursement of expenses\"]}}",
+   "latency_ms": 7687,
+   "output_tokens": 354,
+   "valid_after_repair": true,
+   "cost_usd": 0.0003263
+  },
+  {
+   "item_id": "9eb980d948e3-6",
+   "output_text": "{\"io\": 6, \"title\": \"Appointment of Mr. Satish Rangani as Executive Director\", \"resolution_type\": \"NON_INDEPENDENT_DIRECTOR_APPOINT\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Satish Rangani\", \"role\": \"Whole-time director (Executive Director)\", \"age\": 71, \"din\": \"00209069\", \"is_promoter\": false, \"tenure_years_proposed\": 1, \"prior_tenure_years\": 27, \"board_attendance_pct\": 100}], \"amounts\": [{\"amount_inr\": 15000000, \"raw\": \"Rs. 1,50,00,000/- (Rupees One crore fifty lakhs only)\"}], \"key_facts\": [\"Mr. Satish Rangani has attained the age of 70 years on the date of his appointment.\", \"The resolution is proposed as a Special Resolution under Section 196(3) of the Companies Act, 2013.\", \"Mr. Rangani has extensive experience in finance, strategy, legal and compliance.\", \"He has been associated with the company since 1993 and holds 9,000 equity shares (0.01%) in the company.\"]}",
+   "latency_ms": 12281,
+   "output_tokens": 577,
+   "valid_after_repair": true,
+   "cost_usd": 0.000719
+  },
+  {
+   "item_id": "9eb980d948e3-7",
+   "output_text": "{\"item_no\": \"7\", \"title\": \"Appointment of Managing Director with Remuneration\", \"resolution_type\": \"MANAGERIAL_REMUNERATION\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Ms. Harshbeena Zaveri\", \"role\": \"Managing Director\", \"age\": null, \"din\": \"00003948\", \"is_promoter\": null, \"tenure_years_proposed\": 5, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [{\"amount_inr\": 43674000, \"raw\": \"Up to Rs. 4,36,74,000/- per annum\"}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"Appointment of Ms. Harshbeena Zaveri as Managing Director for 5 years\", \"Annual increments based on performance and Company's profits\", \"Perquisites include housing, leave travel assistance, club fees, medical expenses, insurance\", \"Remuneration capped at 1% of net profits per financial year\"]}",
+   "latency_ms": 4937,
+   "output_tokens": 259,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002027
+  },
+  {
+   "item_id": "9eb980d948e3-8",
+   "output_text": "{\"w\": {\"item_no\": \"8\", \"title\": \"Annual remuneration for Vice Chairman & Managing Director\", \"resolution_type\": \"MANAGERIAL_REMUNERATION\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Ms. Harshbeena Zaveri\", \"role\": \"Vice Chairman & Managing Director\", \"age\": null, \"din\": \"00003948\", \"is_promoter\": true, \"tenure_years_proposed\": 5, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [{\"amount_inr\": 5000000, \"raw\": \"Rs. 5,00,00,000/- (Rupees Five crores only)\"}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"Approval for annual remuneration exceeding Rs. 5 crore or 2.5% of net profits, whichever is higher.\", \"For a period of 5 years starting from October 1, 2020.\", \"Vice Chairman & Managing Director is part of the Promoter group.\"]}}",
+   "latency_ms": 9953,
+   "output_tokens": 536,
+   "valid_after_repair": true,
+   "cost_usd": 0.00035
+  },
+  {
+   "item_id": "a3697fbef8b8-1",
+   "output_text": "{\"/item_no\": \"1\", \"/title\": \"Adopt audited standalone financial statements\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": null, \"/amounts\": null, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopt audited standalone financial statements for FY ended 31st March 2024\", \"Includes Directors' and Auditors' reports\"]}",
+   "latency_ms": 4624,
+   "output_tokens": 230,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002158
+  },
+  {
+   "item_id": "a3697fbef8b8-2",
+   "output_text": "{\"item_no\": \"1\", \"title\": \"Adopt audited consolidated financial statements\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": null, \"raw\": null}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopt audited consolidated financial statements for FY ended March 31, 2024\", \"Reports of the auditors on the financial statements\"]}",
+   "latency_ms": 4452,
+   "output_tokens": 237,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002009
+  },
+  {
+   "item_id": "a3697fbef8b8-3",
+   "output_text": "{\"item_no\": \"2\", \"title\": \"Re-appointment of Director by Rotation\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"MR. HITEN RAMNIKLAL MEHTA\", \"role\": \"Director\", \"age\": null, \"din\": \"01875252\", \"is_promoter\": null, \"tenure_years_proposed\": 1, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 1, \"key_facts\": [\"Re-appoints Mr. Hiten Ramniklal Mehta as a Director liable to retire by rotation\"]}",
+   "latency_ms": 3405,
+   "output_tokens": 178,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001111
+  },
+  {
+   "item_id": "a3697fbef8b8-4",
+   "output_text": "{\"data\": {\"item_no\": \"3\", \"title\": \"Re-appointment of Mr. Hiten Ramniklal Mehta as Whole-time Director\", \"resolution_type\": \"MANAGERIAL_REMUNERATION\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Mr. Hiten Ramniklal Mehta\", \"role\": \"Whole-time director\", \"age\": 55, \"din\": \"01875252\", \"is_promoter\": null, \"tenure_years_proposed\": 3, \"prior_tenure_years\": 0, \"board_attendance_pct\": null}], \"amounts\": {\"amount_inr\": 1200000, \"raw\": \"Rs. 12,00,000/- (Rupees Twelve Lakhs) per annum\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 3, \"key_facts\": [\"Mr. Hiten Ramniklal Mehta is re-appointed as Whole-time director for 3 years.\", \"Annual remuneration is Rs. 12,00,000/- inclusive of salary, perquisites, benefits, incentives and other allowances.\", \"Remuneration can be altered by the Board or Nomination and Remuneration Committee within Schedule V limits.\", \"Minimum remuneration will be paid if profits are inadequate.\", \"Appointment and remuneration are subject to approval of shareholders.\"]}}",
+   "latency_ms": 10186,
+   "output_tokens": 636,
+   "valid_after_repair": false,
+   "cost_usd": 0.0007578
+  },
+  {
+   "item_id": "e60ea2644e4d-1",
+   "output_text": "{\"data\": {\"item_no\": \"1\", \"title\": \"Adopt audited financial statements\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": [{\"amount_inr\": null, \"raw\": null}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopts audited financial statements for FY ended 31st March, 2024\", \"Includes Board and Auditors reports\", \"Ordinary Resolutions\"]}}",
+   "latency_ms": 4499,
+   "output_tokens": 256,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002485
+  },
+  {
+   "item_id": "e60ea2644e4d-2",
+   "output_text": "{\"item_no\": \"2\", \"title\": \"Re-appointment of Director P V Rao\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. P V Rao\", \"role\": \"Director\", \"age\": null, \"din\": \"03157581\", \"is_promoter\": null, \"tenure_years_proposed\": 1, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"P V Rao retires by rotation and offers himself for re-appointment\", \"Resolution passed as an Ordinary Resolution\"]}",
+   "latency_ms": 2375,
+   "output_tokens": 172,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001091
+  },
+  {
+   "item_id": "e60ea2644e4d-3",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Ratify audit and remuneration for cost accountants\", \"resolution_type\": \"AUDITOR_REMUNERATION_COST\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"M/s. Kandikonda & Associates.\", \"role\": \"Cost Accountants\", \"age\": null, \"din\": \"101361\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [{\"amount_inr\": 80000, \"raw\": \"Rs. 80,000/- p.a.\"}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 1, \"key_facts\": [\"Ratify audit of cost records\", \"Audit fee of Rs. 80,000/- p.a.\", \"For financial year ending 31st March, 2025\"]}",
+   "latency_ms": 3718,
+   "output_tokens": 229,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001388
+  },
+  {
+   "item_id": "e60ea2644e4d-4",
+   "output_text": "{\"item_no\": \"4\", \"title\": \"Create charges for borrowing and non-fund based facilities up to Rs. 2000 crores\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 200000000000, \"raw\": \"Rs. 2,000 crores\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Consent given for creating charges for fund-based borrowing and non-fund-based facilities up to Rs. 2000 crores\", \"Includes mortages, hypothecations, and corporate guarantees\", \"Board can act through any committee or director for implementation\"]}",
+   "latency_ms": 6202,
+   "output_tokens": 361,
+   "valid_after_repair": true,
+   "cost_usd": 0.0003094
+  },
+  {
+   "item_id": "e60ea2644e4d-5",
+   "output_text": "{\"item_no\": \"5\", \"title\": \"To approve borrowing limits exceeding paid-up capital and free reserves\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 200000000000, \"raw\": \"Rs. 2,000 crores\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Consent for borrowing in excess of paid-up capital and free reserves\", \"Total borrowing limit is Rs. 2,000 crores\", \"Pursuant to Section 180(1)(c) of Companies Act 2013\"]}",
+   "latency_ms": 6171,
+   "output_tokens": 343,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002921
+  },
+  {
+   "item_id": "ebf5ed17bec2-1",
+   "output_text": "{\"/item_no\": \"1\", \"/title\": \"Adopt Financial Statements\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopt standalone financial statements including audited balance sheet and profit and loss statement for the year ended 31st March, 2024.\", \"Includes board of directors' and auditors' reports.\"]}",
+   "latency_ms": 5203,
+   "output_tokens": 268,
+   "valid_after_repair": false,
+   "cost_usd": 0.00022810000000000001
+  },
+  {
+   "item_id": "ebf5ed17bec2-2",
+   "output_text": "{\"io\": \"item_no\", \"value\": \"2\"}",
+   "latency_ms": 4092,
+   "output_tokens": 221,
+   "valid_after_repair": true,
+   "cost_usd": 0.0003679
+  },
+  {
+   "item_id": "3e8a335be40d-1",
+   "output_text": "{\"/item_no\": \"1\", \"/title\": \"Adopt Audited Financial Statements\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopts audited financial statements for the year ended March 31, 2024\", \"Includes reports of Board and Auditors\"]}",
+   "latency_ms": 4249,
+   "output_tokens": 244,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002327
+  },
+  {
+   "item_id": "3e8a335be40d-2",
+   "output_text": "{\"item_no\": \"2\", \"title\": \"Re-appointment of Director by Rotation\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Dr. Naraiah Naidu Gudaru\", \"role\": \"Director\", \"age\": null, \"din\": \"00105597\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Director re-appointment by rotation\", \"Resolution as an Ordinary Resolution\", \"Pursuant to Section 152 of the Companies Act, 2013\"]}",
+   "latency_ms": 2828,
+   "output_tokens": 187,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001136
+  },
+  {
+   "item_id": "3e8a335be40d-3",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Authorization for Loans, Guarantees, Investments up to Rs.200 Crores\", \"resolution_type\": \"OTHER\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 2000000000, \"raw\": \"Rs.200 crores\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Authorization for loans, guarantees, and investments up to Rs.200 crores.\", \"Approval for Board of Directors to take decisions on loans, guarantees, securities, and investments.\", \"Exceeding the maximum permissible limit of 60% of paid-up capital and free reserves or 100% of free reserves and securities premium account.\", \"Future plans and strategic objectives of the company.\", \"No conflicts of interest among directors or key managerial personnel.\"]}",
+   "latency_ms": 6999,
+   "output_tokens": 419,
+   "valid_after_repair": true,
+   "cost_usd": 0.0004521
+  },
+  {
+   "item_id": "3e8a335be40d-4",
+   "output_text": "{\"data\": {\"item_no\": \"4\", \"title\": \"Approve material related party transactions with Chairman\", \"resolution_type\": \"RELATED_PARTY_TRANSACTION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Dr. Naraiah Naidu Gudaru\", \"role\": \"Chairman and Promoter\", \"age\": null, \"din\": null, \"is_promoter\": true, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": {\"amount_inr\": 1000000000, \"raw\": \"Rs. 100 Crores\"}, \"counterparty\": \"Dr. Naraiah Naidu Gudaru\", \"counterparty_is_related\": true, \"transaction_nature\": \"unsecured loan\", \"duration_years\": null, \"key_facts\": [\"Dr. Naraiah Naidu Gudaru is the Executive Chairman and promoter of the company holding 27.51% of paid-up capital.\", \"The transaction is an interest-free loan repayable on demand.\", \"The loan amount is Rs. 100 Crores.\", \"The transaction represents 500% of the company's annual consolidated turnover.\", \"The loan is in the interest of the company as it is in its revival stage.\"]}}",
+   "latency_ms": 10078,
+   "output_tokens": 570,
+   "valid_after_repair": false,
+   "cost_usd": 0.0005777
+  },
+  {
+   "item_id": "3e8a335be40d-5",
+   "output_text": "{\"/item_no\": \"5\", \"/title\": \"Approve Related Party Transaction with Managing Director\", \"/resolution_type\": \"RELATED_PARTY_TRANSACTION\", \"/is_special_resolution\": false, \"/persons\": [{\"name\": \"Narala Satyendra Prasad\", \"role\": \"Managing Director & CFO\", \"age\": null, \"din\": \"01410333\", \"is_promoter\": true, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"/amounts\": [{\"amount_inr\": 500000000, \"raw\": \"Rs. 50 Crores\"}], \"/counterparty\": \"Narala Satyendra Prasad\", \"/counterparty_is_related\": true, \"/transaction_nature\": \"unsecured loan\", \"/duration_years\": null, \"/key_facts\": [\"Transaction type: unsecured loan\", \"Loan amount: Rs. 50 Crores\", \"Interest rate: Interest free\", \"Tenure: Continuing business transactions\", \"Justification: Company in revival stage, funds needed without security and interest\"]}",
+   "latency_ms": 8640,
+   "output_tokens": 482,
+   "valid_after_repair": false,
+   "cost_usd": 0.0005878
+  },
+  {
+   "item_id": "d3d22d1e87c6-1",
+   "output_text": "{\"data\": {\"item_no\": \"1\", \"title\": \"Adopt audited financial statements and reports\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": [{\"amount_inr\": null, \"raw\": null}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopts audited financial statements for the year ended March 31, 2022\", \"Includes both standalone and consolidated financial statements\", \"Reports of Board of Directors and Auditors are considered\"]}}",
+   "latency_ms": 4608,
+   "output_tokens": 263,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002582
+  },
+  {
+   "item_id": "d3d22d1e87c6-2",
+   "output_text": "{\"item_no\": \"2\", \"title\": \"Re-appointment of Dr. Sanjiv Goenka as Director\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Dr. Sanjiv Goenka\", \"role\": \"Director\", \"age\": null, \"din\": \"00074796\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Dr. Sanjiv Goenka retires by rotation\", \"Resolution to re-appoint Dr. Sanjiv Goenka as a Director\"]}",
+   "latency_ms": 4016,
+   "output_tokens": 188,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001116
+  },
+  {
+   "item_id": "d3d22d1e87c6-3",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Increase Borrowing Limit to ₹1750 Cr\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 175000000000, \"raw\": \"H 1750 crore\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Existing borrowing limit of ₹1000 Cr approved in 2018\", \"Proposed increase to ₹1750 Cr for operations and growth\", \"Consent of members required for superseding earlier resolution\"]}",
+   "latency_ms": 5624,
+   "output_tokens": 321,
+   "valid_after_repair": true,
+   "cost_usd": 0.000352
+  },
+  {
+   "item_id": "d3d22d1e87c6-4",
+   "output_text": "{\"item_no\": \"4\", \"title\": \"Creation of charge/security on company properties\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 190000000000, \"raw\": \"H 1900 crore (Rupees one thousand nine hundred crore only)\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Consent for creating charge on movable and immovable properties for financial assistance up to H 1900 crore\", \"Resolution superseding earlier EGM resolution from February 9, 2022\", \"Approval for creating security in favor of lenders for various types of financial assistance\"]}",
+   "latency_ms": 6687,
+   "output_tokens": 359,
+   "valid_after_repair": true,
+   "cost_usd": 0.00037129999999999997
+  },
+  {
+   "item_id": "d3d22d1e87c6-5",
+   "output_text": "{\"item_no\": \"5\", \"title\": \"Enhance Investment Limit to H 1600 crore\", \"resolution_type\": \"OTHER\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 160000000000, \"raw\": \"H 1600 crore\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Enhances investment limit from H 850 crore to H 1600 crore\", \"Subject to certain conditions and limits\", \"For subsidiaries and other bodies corporate\", \"Board can take decisions in absolute discretion\"]}",
+   "latency_ms": 4812,
+   "output_tokens": 313,
+   "valid_after_repair": true,
+   "cost_usd": 0.00035
+  },
+  {
+   "item_id": "71c5cd0baa3a-1",
+   "output_text": "{\"item_no\": \"1\", \"title\": \"Ratify Cost Auditor Remuneration and Re-appoint Managing Director\", \"resolution_type\": \"MANAGERIAL_REMUNERATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Vasistha C. Patel\", \"role\": \"Managing Director\", \"age\": null, \"din\": \"00048324\", \"is_promoter\": null, \"tenure_years_proposed\": 3, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [{\"amount_inr\": null, \"raw\": \"with liberty to the Board of Directors to alter and vary the terms and conditions of the said re-appointment in such manner as may be agreed to between the Board of Directors and Mr. Vasistha C. Patel\"}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 3, \"key_facts\": [\"Re-appointment of Managing Director for 3 years\", \"Ratification of remuneration to cost auditor\", \"Effective from January 1, 2023 to December 31, 2025\"]}",
+   "latency_ms": 3968,
+   "output_tokens": 262,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001697
+  },
+  {
+   "item_id": "fc673ce83a6b-1",
+   "output_text": "{\"data\": {\"item_no\": \"1\", \"title\": \"Adopt audited financial statements\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. Punit Makharia\", \"role\": \"Chairman & Managing Director\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}, {\"name\": \"Mr. Gautam Makharia\", \"role\": \"Joint Managing Director\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopt audited financial statements for the year ended 31st March, 2024\", \"Authorize Mr. Punit Makharia and Mr. Gautam Makharia to take necessary actions\"]}}",
+   "latency_ms": 11203,
+   "output_tokens": 502,
+   "valid_after_repair": true,
+   "cost_usd": 0.0003088
+  },
+  {
+   "item_id": "fc673ce83a6b-2",
+   "output_text": "{\"item_no\": \"2\", \"title\": \"Adopt Financial Statements and Authorize Action\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. Punit Makharia\", \"role\": \"Chairman & Managing Director\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}, {\"name\": \"Mr. Gautam Makharia\", \"role\": \"Joint Managing Director\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopts the Consolidated Financial Statements for FY ended 31st March 2024\", \"Authorizes Mr. Punit Makharia and Mr. Gautam Makharia to take necessary action\"]}",
+   "latency_ms": 6312,
+   "output_tokens": 251,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001281
+  },
+  {
+   "item_id": "fc673ce83a6b-3",
+   "output_text": "{\"io\": 3, \"title\": \"Declare Final Dividend of Rs.1.50 per share\", \"resolution_type\": \"DIVIDEND\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": 150000, \"raw\": \"Rs.1.50/- per share (i.e. 15% on Face value of share)\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Final dividend declared at Rs.1.50 per share\"], \"item_no\": 3}",
+   "latency_ms": 7483,
+   "output_tokens": 290,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002295
+  },
+  {
+   "item_id": "fc673ce83a6b-4",
+   "output_text": "{\"item_no\": \"4\", \"title\": \"Re-appointment of Director by Rotation\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. Ramakant Nayak\", \"role\": \"Director\", \"age\": null, \"din\": \"00129854\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Director retiring by rotation and offering re-appointment\", \"Resolution to be passed as an Ordinary Resolution\"]}",
+   "latency_ms": 4000,
+   "output_tokens": 169,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001069
+  },
+  {
+   "item_id": "fc673ce83a6b-5",
+   "output_text": "{\"wu\": \"item_no\\\": 5, \\\"title\\\": \"}",
+   "latency_ms": 5108,
+   "output_tokens": 213,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002598
+  },
+  {
+   "item_id": "fc673ce83a6b-6",
+   "output_text": "{\"data\": {\"item_no\": \"6\", \"title\": \"Remuneration for Chairman & Managing Director\", \"resolution_type\": \"MANAGERIAL_REMUNERATION\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Mr. Punit Gopikishan Makharia\", \"role\": \"Chairman & Managing Director\", \"age\": null, \"din\": \"01430764\", \"is_promoter\": null, \"tenure_years_proposed\": 2, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": {\"amount_inr\": 0, \"raw\": \"w.e.f. 1st April, 2024 upto the remainder period of his tenure of appointment i.e. 31st March, 2026\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 2, \"key_facts\": [\"Consent for payment of remuneration to Mr. Punit Gopikishan Makharia as Chairman & Managing Director from 1st April, 2024 to 31st March, 2026.\", \"Authorization to pay minimum remuneration even if profits are inadequate.\", \"Discretionary power given to Board to modify remuneration scope.\"]}}",
+   "latency_ms": 12562,
+   "output_tokens": 586,
+   "valid_after_repair": false,
+   "cost_usd": 0.0004267
+  },
+  {
+   "item_id": "fc673ce83a6b-7",
+   "output_text": "{\"io\": 7, \"title\": \"Joint Managing Director's Remuneration\", \"resolution_type\": \"MANAGERIAL_REMUNERATION\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Mr. Gautam Gopikishan Makharia\", \"role\": \"Joint Managing Director\", \"age\": null, \"din\": \"01354843\", \"is_promoter\": null, \"tenure_years_proposed\": 2, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [{\"amount_inr\": null, \"raw\": \"remuneration to Mr. Gautam Gopikishan Makharia (DIN:01354843), Joint Managing Director of the Company\"}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 2, \"key_facts\": [\"Consent for payment of remuneration to Joint Managing Director from April 1, 2024 to March 31, 2026\", \"Remuneration can be paid even if profits are inadequate\", \"Board has discretion to modify remuneration as needed\"]}",
+   "latency_ms": 10781,
+   "output_tokens": 529,
+   "valid_after_repair": true,
+   "cost_usd": 0.0003942
+  },
+  {
+   "item_id": "c7503c6f2c35-1",
+   "output_text": "{\"io\": {\"item_no\": \"1\", \"title\": \"Adopt Audited Financial Statements\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": null, \"raw\": null}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopt standalone audited financial statements as at 31st March, 2024\", \"Includes auditors' and directors' reports\"]}}",
+   "latency_ms": 4421,
+   "output_tokens": 237,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002159
+  },
+  {
+   "item_id": "c7503c6f2c35-2",
+   "output_text": "{\"/item_no\": \"2\", \"/title\": \"Adopt Financial Statements\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopts consolidated audited financial statements as at 31st March, 2024.\", \"Includes auditors' reports.\"]}",
+   "latency_ms": 4453,
+   "output_tokens": 238,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002164
+  },
+  {
+   "item_id": "c7503c6f2c35-3",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Declare Dividend\", \"resolution_type\": \"DIVIDEND\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": null, \"raw\": null}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"To declare dividend if any\"]}",
+   "latency_ms": 3733,
+   "output_tokens": 171,
+   "valid_after_repair": true,
+   "cost_usd": 0.00017480000000000002
+  },
+  {
+   "item_id": "c7503c6f2c35-4",
+   "output_text": "{\"item_no\": \"4\", \"title\": \"Re-appointment of Director C. S. Nopany\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"C. S. Nopany\", \"role\": \"Director\", \"age\": null, \"din\": \"00014587\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Director C. S. Nopany retires by rotation\", \"Offers himself for re-appointment\"]}",
+   "latency_ms": 4437,
+   "output_tokens": 175,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001002
+  },
+  {
+   "item_id": "c7503c6f2c35-5",
+   "output_text": "{\"/item_no\": \"5\", \"/title\": \"Appointment of Statutory Auditor\", \"/resolution_type\": \"AUDITOR_APPOINT\", \"/is_special_resolution\": false, \"/persons\": [{\"name\": \"M/s. DMKH & Co., Chartered Accountants\", \"role\": \"Statutory Auditor\", \"age\": null, \"din\": \"0116886W\", \"is_promoter\": false, \"tenure_years_proposed\": 3, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"/amounts\": {\"amount_inr\": 3150000, \"raw\": \"For FY 2024-25 - Rs. 10.00 lakhs\\nFor FY 2025-26 - Rs. 10.50 lakhs\\nFor FY 2026-27 - Rs. 11.00 lakhs\"}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": 3, \"/key_facts\": [\"RBI guidelines for appointment of statutory auditors are followed.\", \"Audit period is from FY 2024-25 to 2026-27.\", \"DMKH & Co., has confirmed their eligibility.\", \"Board authorized to fix remuneration including out-of-pocket expenses.\"]}",
+   "latency_ms": 11985,
+   "output_tokens": 598,
+   "valid_after_repair": false,
+   "cost_usd": 0.000611
+  },
+  {
+   "item_id": "c7503c6f2c35-6",
+   "output_text": "{\"/item_no\": \"6\", \"/title\": \"Re-appointment of Managing Director with Terms and Conditions\", \"/resolution_type\": \"MANAGERIAL_REMUNERATION\", \"/is_special_resolution\": true, \"/persons\": [{\"name\": \"Mrs. Shalini Nopany\", \"role\": \"Managing Director\", \"age\": null, \"din\": \"00077299\", \"is_promoter\": false, \"tenure_years_proposed\": 3, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"/amounts\": [{\"amount_inr\": 1120000, \"raw\": \"Rs. 11,20,000/- (Rupees Eleven Lakhs Twenty Thousand only) per month.\"}, {\"amount_inr\": 980691, \"raw\": \"9,80,691\"}], \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": 3, \"/key_facts\": [\"Re-appointing Mrs. Shalini Nopany as Managing Director for 3 years\", \"Salary Rs. 11,20,000/- per month\", \"Gratuity as per Payment of Gratuity Act\", \"40 days leave on full pay and allowances\", \"Personal Accident Insurance provided by the Company\", \"Telephone provided for official business\", \"Chauffer-driven car provided for Company’s business\", \"Minimum remuneration in case of loss or inadequacy of profits\", \"Not liable to retire by rotation\", \"Board can alter terms and conditions at discretion\"]}",
+   "latency_ms": 14326,
+   "output_tokens": 702,
+   "valid_after_repair": false,
+   "cost_usd": 0.0007692
+  },
+  {
+   "item_id": "c7503c6f2c35-7",
+   "output_text": "{\"io\": 7, \"title\": \"Appointment of Independent Director\", \"resolution_type\": \"INDEPENDENT_DIRECTOR_APPOINT\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Mr. Sanjay Kumar Maheswary\", \"role\": \"Independent Director\", \"age\": null, \"din\": \"00497335\", \"is_promoter\": false, \"tenure_years_proposed\": 5, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"Appointed as Additional Director on June 24, 2024\", \"Eligible for appointment as Independent Director\", \"Has over four decades of experience in finance, audit and accounting\", \"Independent Director of The Indian Wood Products Co. Ltd. since 2004\", \"Age 75 years, not liable to retire by rotation\"]}",
+   "latency_ms": 9093,
+   "output_tokens": 449,
+   "valid_after_repair": true,
+   "cost_usd": 0.0005414
+  },
+  {
+   "item_id": "ab7c1bc1fcf2-1",
+   "output_text": "{\"/item_no\": \"1\", \"/title\": \"Adopt Financial Statements\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopt standalone audited financial statements as at 31st March, 2023\", \"Includes auditors' and directors' reports\"]}",
+   "latency_ms": 5405,
+   "output_tokens": 244,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002164
+  },
+  {
+   "item_id": "ab7c1bc1fcf2-2",
+   "output_text": "{\"item_no\": \"2\", \"title\": \"Adopt 2023 Audited Financial Statements\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": [{\"amount_inr\": null, \"raw\": null}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopt consolidated audited financial statements as at 31st March, 2023\", \"Auditors' reports included\"]}",
+   "latency_ms": 4765,
+   "output_tokens": 254,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002026
+  },
+  {
+   "item_id": "ab7c1bc1fcf2-3",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Declare Dividend\", \"resolution_type\": \"DIVIDEND\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": null, \"raw\": null}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"To declare dividend if any\"]}",
+   "latency_ms": 3874,
+   "output_tokens": 171,
+   "valid_after_repair": true,
+   "cost_usd": 0.00017480000000000002
+  },
+  {
+   "item_id": "ab7c1bc1fcf2-4",
+   "output_text": "{\"item_no\": \"4\", \"title\": \"Re-appointment of Director by Rotation\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Mr. C. S. Nopany\", \"role\": \"Director\", \"age\": null, \"din\": \"00014587\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Re-appointing Mr. C. S. Nopany who retires by rotation\"]}",
+   "latency_ms": 3733,
+   "output_tokens": 170,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001007
+  },
+  {
+   "item_id": "ab7c1bc1fcf2-5",
+   "output_text": "{\"data\": {\"item_no\": \"5\", \"title\": \"Re-appointment of Independent Director Mr. Shrikant Mantri\", \"resolution_type\": \"INDEPENDENT_DIRECTOR_APPOINT\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Shrikant Mantri\", \"role\": \"Independent Director\", \"age\": null, \"din\": \"01240147\", \"is_promoter\": false, \"tenure_years_proposed\": 5, \"prior_tenure_years\": 1, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"Mr. Shrikant Mantri is re-appointed as an Independent Director for a second term of 5 years.\", \"He will be re-appointed with effect from 10th May, 2024.\", \"The resolution is proposed as a Special Resolution.\", \"Mr. Mantri will be 75 years old in October 2027 and the resolution ensures his continued directorship beyond that age.\", \"The Board considers his continued association beneficial to the Company.\"]}}",
+   "latency_ms": 9015,
+   "output_tokens": 514,
+   "valid_after_repair": true,
+   "cost_usd": 0.0005005
+  },
+  {
+   "item_id": "d0261e6623c9-1",
+   "output_text": "{\"item_no\": \"1\", \"title\": \"Adopt audited financial statements for FY 2022\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": null, \"raw\": null}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopt audited financial statements for FY 2022\", \"Reports of the Board and Auditors to be considered\"]}",
+   "latency_ms": 3765,
+   "output_tokens": 237,
+   "valid_after_repair": true,
+   "cost_usd": 0.00019930000000000002
+  },
+  {
+   "item_id": "d0261e6623c9-2",
+   "output_text": "{\"item_no\": \"2\", \"title\": \"Appointment of Mr. Subir Roy Choudhury as Non-Executive, Non-Independent Director\", \"resolution_type\": \"NON_INDEPENDENT_DIRECTOR_APPOINT\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Mr. Subir Roy Choudhury\", \"role\": \"Non-Executive, Non-Independent Director\", \"age\": null, \"din\": \"09404407\", \"is_promoter\": false, \"tenure_years_proposed\": 1, \"prior_tenure_years\": 0, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 1, \"key_facts\": [\"Appointed as Additional Director on November 18, 2021\", \"Holds office till the conclusion of this AGM\", \"Has rich experience of about 15 years in marketing of food products\"]}",
+   "latency_ms": 3328,
+   "output_tokens": 220,
+   "valid_after_repair": true,
+   "cost_usd": 0.000198
+  },
+  {
+   "item_id": "d0261e6623c9-3",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Appointment of Mr. Suresh Singh B. Rao as an Independent Director for 5 years\", \"resolution_type\": \"INDEPENDENT_DIRECTOR_APPOINT\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Mr. Suresh Singh B. Rao\", \"role\": \"Independent Director\", \"age\": null, \"din\": \"09415899\", \"is_promoter\": false, \"tenure_years_proposed\": 5, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"Appointed as Additional Director since December 2, 2021\", \"Meets independence criteria under Companies Act and Listing Regulations\", \"Declared to be independent by the Board\", \"Benefits to the Company as per Board opinion\"]}",
+   "latency_ms": 3093,
+   "output_tokens": 213,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002047
+  },
+  {
+   "item_id": "d0261e6623c9-4",
+   "output_text": "{\"item_no\": \"4\", \"title\": \"Appointment of Ms. Akshaya Eknath Naik as an Independent Director for 5 years\", \"resolution_type\": \"INDEPENDENT_DIRECTOR_APPOINT\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Ms. Akshaya Eknath Naik\", \"role\": \"Independent Director\", \"age\": null, \"din\": \"09421579\", \"is_promoter\": false, \"tenure_years_proposed\": 5, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"Appointed as Additional Director since December 2, 2021\", \"Has rich experience in accounts field\", \"Meets independence criteria under Companies Act, 2013 and Listing Regulations\", \"Not financially or otherwise interested in the Resolution\"]}",
+   "latency_ms": 3187,
+   "output_tokens": 220,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002077
+  },
+  {
+   "item_id": "d0261e6623c9-5",
+   "output_text": "{\"item_no\": \"5\", \"title\": \"Shifting of Registered Office from West Bengal to Goa\", \"resolution_type\": \"OTHER\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": null, \"counterparty\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Shifting of registered office from West Bengal to Goa for better administrative and economic control.\", \"Increase in operational and management efficiency.\", \"Integration of business functions and optimization of administrative expenses.\"]}",
+   "latency_ms": 3561,
+   "output_tokens": 217,
+   "valid_after_repair": true,
+   "cost_usd": 0.0004437
+  },
+  {
+   "item_id": "2798d95aab98-1",
+   "output_text": "{\"/item_no\": \"1\", \"/title\": \"Adopt Audited Financial Statements\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopt audited financial statements for the year ended March 31, 2023\", \"Includes Board and Auditor reports\"]}",
+   "latency_ms": 4046,
+   "output_tokens": 240,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002159
+  },
+  {
+   "item_id": "2798d95aab98-2",
+   "output_text": "{\"item_no\": \"2\", \"title\": \"Declare dividend for FY 2023\", \"resolution_type\": \"DIVIDEND\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": null, \"raw\": null}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Dividend to be declared on Equity Shares for FY 2023\"]}",
+   "latency_ms": 3811,
+   "output_tokens": 203,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001856
+  },
+  {
+   "item_id": "2798d95aab98-3",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Re-appointment of Director Satish Rangani\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. Satish Rangani\", \"role\": \"Director\", \"age\": null, \"din\": \"00209069\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Director Satish Rangani retires by rotation\", \"Offers himself for re-appointment\"]}",
+   "latency_ms": 3125,
+   "output_tokens": 171,
+   "valid_after_repair": true,
+   "cost_usd": 0.0000991
+  },
+  {
+   "item_id": "2798d95aab98-4",
+   "output_text": "{\"/item_no\": \"4\", \"/title\": \"Re-appointment of Statutory Auditor\", \"/resolution_type\": \"AUDITOR_APPOINT\", \"/is_special_resolution\": false, \"/persons\": [{\"name\": \"M/s. Walker Chandiok & Co. LLP\", \"role\": \"Statutory Auditor\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": 5, \"prior_tenure_years\": 5, \"board_attendance_pct\": null}], \"/amounts\": {\"amount_inr\": null, \"raw\": \"such remuneration as may be mutually decided between the Company and M/s. Walker Chandiok & Co. LLP\"}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": 5, \"/key_facts\": [\"M/s. Walker Chandiok & Co. LLP is re-appointed as statutory auditor for a second term of five years.\", \"The appointment is subject to mutual agreement on remuneration.\", \"The term will cover from the conclusion of the 43rd Annual General Meeting to the conclusion of the 48th Annual General Meeting.\"]}",
+   "latency_ms": 10343,
+   "output_tokens": 504,
+   "valid_after_repair": false,
+   "cost_usd": 0.0005287
+  },
+  {
+   "item_id": "dcfb7065c6a6-1",
+   "output_text": "{\"data\": {\"item_no\": \"1\", \"title\": \"Adopt audited financial statements\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": null, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopt audited standalone and consolidated financial statements for FY ended March 31, 2024\", \"Includes Board and Auditors' reports\"]}}",
+   "latency_ms": 4657,
+   "output_tokens": 230,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002322
+  },
+  {
+   "item_id": "dcfb7065c6a6-2",
+   "output_text": "{\"item_no\": \"2\", \"title\": \"Re-appoint Director by Rotation\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mr. Bhaskar Rao Madala\", \"role\": \"Director\", \"age\": null, \"din\": \"00474589\", \"is_promoter\": null, \"tenure_years_proposed\": 1, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 1, \"key_facts\": [\"Re-appoints Mr. Bhaskar Rao Madala as a Director by rotation\", \"Resolution is an Ordinary Resolution\", \"Tenure for one year\"]}",
+   "latency_ms": 3500,
+   "output_tokens": 183,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001103
+  },
+  {
+   "item_id": "dcfb7065c6a6-3",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Continuation of Mr. Bhaskar Rao Madala as Whole Time Director\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Mr. Bhaskar Rao Madala\", \"role\": \"Whole Time Director\", \"age\": 77, \"din\": \"00474589\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 6, \"key_facts\": [\"Mr. Bhaskar Rao Madala is 77 years old and liable to retire by rotation.\", \"He has vast experience that has benefited the company.\", \"The board recommends his continuation till November 01, 2026.\", \"No other directors or key personnel are interested in this resolution.\"]}",
+   "latency_ms": 4843,
+   "output_tokens": 227,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001621
+  },
+  {
+   "item_id": "dcfb7065c6a6-4",
+   "output_text": "{\"io\": 4, \"title\": \"Re-designation of Mr. Subbiah Srinivasan Battina\", \"resolution_type\": \"NON_INDEPENDENT_DIRECTOR_APPOINT\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Mr. Subbiah Srinivasan Battina\", \"role\": \"Non-Executive Non-Independent Director\", \"age\": 78, \"din\": \"00482513\", \"is_promoter\": false, \"tenure_years_proposed\": 5, \"prior_tenure_years\": 10, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"Mr. Subbiah Srinivasan Battina is a B.com graduate and a qualified Chartered Accountant with 53 years of experience.\", \"He has rendered professional services as statutory and internal auditor of various types of companies.\", \"The Board believes his specialized knowledge in financial matters can be invaluable for the Company’s financial strategy and planning.\", \"Mr. Subbiah Srinivasan Battina will retire by rotation on October 1, 2024.\", \"He is 78 years old and has provided consent for his proposed appointment as a Non-Executive Non-Independent Director.\"]}",
+   "latency_ms": 13328,
+   "output_tokens": 595,
+   "valid_after_repair": true,
+   "cost_usd": 0.0005572999999999999
+  },
+  {
+   "item_id": "dcfb7065c6a6-5",
+   "output_text": "{\"/item_no\": \"5\", \"/title\": \"Appointment of Non-Executive Independent Director\", \"/resolution_type\": \"INDEPENDENT_DIRECTOR_APPOINT\", \"/is_special_resolution\": true, \"/persons\": [{\"name\": \"Mr. Rakesh Sri Vankina\", \"role\": \"Non-Executive Independent Director\", \"age\": null, \"din\": \"01873325\", \"is_promoter\": false, \"tenure_years_proposed\": 5, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"/amounts\": [], \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": 5, \"/key_facts\": [\"Appointed as Additional Director in Non-Executive Independent Category on June 19, 2024\", \"Not liable to retire by rotation\", \"Holds office for a term of 5 years from June 19, 2024 to June 18, 2029\", \"Has more than 30 years of experience in finance field\", \"Meets the criteria of independence\"]}",
+   "latency_ms": 10999,
+   "output_tokens": 490,
+   "valid_after_repair": false,
+   "cost_usd": 0.0005562
+  },
+  {
+   "item_id": "dcfb7065c6a6-6",
+   "output_text": "{\"/item_no\": \"6\", \"/title\": \"Approve Material Related Party Transaction with M/s. FDR-2030 LLC, USA\", \"/resolution_type\": \"RELATED_PARTY_TRANSACTION\", \"/is_special_resolution\": false, \"/persons\": [{\"name\": \"Bhaskara Rao Madala\", \"role\": \"Whole time Director\", \"age\": 77, \"din\": \"00474589\", \"is_promoter\": true, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}, {\"name\": \"Srinivas Rao Madala\", \"role\": \"Director\", \"age\": null, \"din\": null, \"is_promoter\": true, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}, {\"name\": \"Subbiah Srinivasan Battina\", \"role\": \"Director\", \"age\": null, \"din\": null, \"is_promoter\": true, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"/amounts\": [{\"amount_inr\": null, \"raw\": \"Three Million USD\"}], \"/counterparty\": \"M/s. FDR-2030 LLC, USA\", \"/counterparty_is_related\": true, \"/transaction_nature\": \"Grant of Unsecured Loan\", \"/duration_years\": 1, \"/key_facts\": [\"Transaction is a Material Related Party Transaction\", \"Value: up to Three Million USD\", \"Duration: one year from the date of approval\", \"Involved parties: SoftSol Resources Inc (wholly owned subsidiary) and M/s. FDR-2030 LLC, USA\", \"Approval required as per SEBI Listing Regulations\"]}",
+   "latency_ms": 16359,
+   "output_tokens": 774,
+   "valid_after_repair": false,
+   "cost_usd": 0.0007505999999999999
+  },
+  {
+   "item_id": "418f3f634e62-1",
+   "output_text": "{\"item_no\": \"1\", \"title\": \"Adopt audited financial statements and reports\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": [{\"amount_inr\": null, \"raw\": null}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopts audited financial statements for FY ended 31st March 2023\", \"Includes Board and Auditor reports\"]}",
+   "latency_ms": 6358,
+   "output_tokens": 240,
+   "valid_after_repair": false,
+   "cost_usd": 0.000207
+  },
+  {
+   "item_id": "418f3f634e62-2",
+   "output_text": "{\"data\": {\"item_no\": \"2\", \"title\": \"Declare dividend on equity shares\", \"resolution_type\": \"DIVIDEND\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": null, \"raw\": null}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Declaring dividend for the financial year ended 31st March, 2023\"]}}",
+   "latency_ms": 4703,
+   "output_tokens": 207,
+   "valid_after_repair": false,
+   "cost_usd": 0.00020679999999999999
+  },
+  {
+   "item_id": "418f3f634e62-3",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Re-appointment of Director Harsh V. Lodha\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Shri Harsh V. Lodha\", \"role\": \"Director\", \"age\": null, \"din\": \"00394094\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Director Harsh V. Lodha is retiring by rotation\", \"He offers himself for re-appointment\"]}",
+   "latency_ms": 4077,
+   "output_tokens": 175,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001005
+  },
+  {
+   "item_id": "418f3f634e62-4",
+   "output_text": "{\"data\": {\"item_no\": \"4\", \"title\": \"Ratify Cost Auditor Remuneration for FY 2023-24\", \"resolution_type\": \"AUDITOR_REMUNERATION_COST\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Messrs D. Sabyasachi & Co.\", \"role\": \"Cost Accountants\", \"age\": null, \"din\": \"000369\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": {\"amount_inr\": 100000, \"raw\": \"` 1.00 Lakh (Rupees One Lakh only) plus reimbursement of applicable Goods and Services Tax and actual out of pocket and travelling expenses\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Audit of cost accounting records for FY 2023-24\", \"Cost Auditors appointed by the Board\", \"Remuneration includes GST and travel expenses\"]}}",
+   "latency_ms": 8780,
+   "output_tokens": 498,
+   "valid_after_repair": false,
+   "cost_usd": 0.00041779999999999996
+  },
+  {
+   "item_id": "31ecda70df55-1",
+   "output_text": "{\"data\": {\"item_no\": \"1\", \"title\": \"Adopt Financial Statements\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": null, \"raw\": null}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopt the financial statements for the year ended March 31, 2024\", \"Includes Directors’ and Auditors’ Reports\"]}}",
+   "latency_ms": 4186,
+   "output_tokens": 231,
+   "valid_after_repair": false,
+   "cost_usd": 0.0002272
+  },
+  {
+   "item_id": "31ecda70df55-2",
+   "output_text": "{\"item_no\": \"2\", \"title\": \"Re-appointment of Director by Rotation\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Mrs. Sarika Amit Naheta\", \"role\": \"Director\", \"age\": null, \"din\": \"03515120\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Re-appointment of Mrs. Sarika Amit Naheta by rotation\", \"Eligible for reappointment\"]}",
+   "latency_ms": 3171,
+   "output_tokens": 171,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001113
+  },
+  {
+   "item_id": "31ecda70df55-3",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Borrowing Limits under Section 180(1)(c) of the Companies Act, 2013\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": null, \"amounts\": {\"amount_inr\": 50000000000, \"raw\": \"Rupees Four Hundred Crores only\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Consent given for borrowing up to Rs. 500 Crores\", \"Exceeds paid-up capital and free reserves\", \"Authorization given to finalize and execute documents\"]}",
+   "latency_ms": 4576,
+   "output_tokens": 328,
+   "valid_after_repair": true,
+   "cost_usd": 0.0003008
+  },
+  {
+   "item_id": "31ecda70df55-4",
+   "output_text": "{\"item_no\": \"4\", \"title\": \"Provide security for borrowings up to 500 crores\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 50000000000, \"raw\": \"sum of ` 500 Crores (Rupees Five Hundred Crores only)\"}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Authorizes creation of mortgages/charges/hypothecation and other encumbrances on company's assets.\", \"Authorization includes power to take over management in case of default.\", \"Borrowing limit is set at 500 crores.\", \"Authorization covers various types of financial instruments including term loans and overdrafts.\", \"Resolution is a special resolution.\"]}",
+   "latency_ms": 5733,
+   "output_tokens": 403,
+   "valid_after_repair": true,
+   "cost_usd": 0.0003546
+  },
+  {
+   "item_id": "31ecda70df55-5",
+   "output_text": "{\"io\": 5, \"title\": \"Approval for Loans, Guarantees, and Investments\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": [{\"name\": \"Mrs. Pooja Naheta\", \"role\": \"Managing Director\", \"age\": null, \"din\": \"03548285\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [{\"amount_inr\": 5000000000, \"raw\": \"` 500 Crores (Rupees Five Hundred Crores Only)\"}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Consent given for loans, guarantees, and investments up to `500 Crores.\", \"Exceeding 60% of aggregate paid-up share capital, free reserves, and securities premium.\", \"Authorization for Board to finalize and execute documents related to the resolution.\"]}",
+   "latency_ms": 8500,
+   "output_tokens": 487,
+   "valid_after_repair": true,
+   "cost_usd": 0.0003442
+  },
+  {
+   "item_id": "b23a5979e8e4-1",
+   "output_text": "{\"/item_no\": \"1\", \"/title\": \"Adopt audited financial statements for 2015\", \"/resolution_type\": \"ADOPT_FINANCIALS\", \"/is_special_resolution\": false, \"/persons\": [], \"/amounts\": {\"amount_inr\": null, \"/raw\": null}, \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": null, \"/key_facts\": [\"Adopt audited financial statements for the year ended 31st March 2015\"]}",
+   "latency_ms": 3265,
+   "output_tokens": 238,
+   "valid_after_repair": false,
+   "cost_usd": 0.00021959999999999997
+  },
+  {
+   "item_id": "b23a5979e8e4-2",
+   "output_text": "{\"item_no\": \"2\", \"title\": \"Re-appointment of Director Ashish Bagrodia\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Shri Ashish Bagrodia\", \"role\": \"Director\", \"age\": 53, \"din\": \"00047021\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Shri Ashish Bagrodia is B.E. (Mech.) Hons.\", \"He holds directorship in multiple companies and organizations.\", \"He is Chairman of CSR Committee, Risk Management and member of Stakeholders Relationship Committee.\", \"Unclaimed dividends for certain years need to be transferred to Investor Education and Protection Fund.\"]}",
+   "latency_ms": 4250,
+   "output_tokens": 219,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002492
+  },
+  {
+   "item_id": "b23a5979e8e4-3",
+   "output_text": "{\"item_no\": \"3\", \"title\": \"Ratify re-appointment of statutory auditor\", \"resolution_type\": \"AUDITOR_APPOINT\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"M/s Lodha & Co., Chartered Accountants\", \"role\": \"Statutory Auditor\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": 3, \"prior_tenure_years\": 3, \"board_attendance_pct\": null}], \"amounts\": [{\"amount_inr\": null, \"raw\": \"remuneration to be decided by the Board of Directors\"}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 3, \"key_facts\": [\"Re-appointed as statutory auditor for 3 years\", \"Subject to ratification at every Annual General Meeting\", \"No conflicts of interest\", \"Board recommends approval\"]}",
+   "latency_ms": 3890,
+   "output_tokens": 204,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001574
+  },
+  {
+   "item_id": "b23a5979e8e4-4",
+   "output_text": "{\"item_no\": \"4\", \"title\": \"Appointment of Independent Director\", \"resolution_type\": \"INDEPENDENT_DIRECTOR_APPOINT\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Smt. Neena Singh\", \"role\": \"Independent Director\", \"age\": null, \"din\": \"00233352\", \"is_promoter\": false, \"tenure_years_proposed\": 5, \"prior_tenure_years\": 1, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"Smt. Neena Singh appointed as Additional Director on 27th March 2015\", \"Notice received for candidature for Director position\", \"Meets independence criteria under Act and Listing Agreement\", \"Has extensive experience in banking & finance\", \"Appointed for a period of five years\"]}",
+   "latency_ms": 3858,
+   "output_tokens": 211,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002141
+  },
+  {
+   "item_id": "b23a5979e8e4-5",
+   "output_text": "{\"/item_no\": \"5\", \"/title\": \"Re-appointment of Managing Director with Remuneration\", \"/resolution_type\": \"MANAGERIAL_REMUNERATION\", \"/is_special_resolution\": true, \"/persons\": [{\"name\": \"Shri Ashish Bagrodia\", \"role\": \"Managing Director\", \"age\": null, \"din\": \"00047021\", \"is_promoter\": null, \"tenure_years_proposed\": 5, \"prior_tenure_years\": 3, \"board_attendance_pct\": null}], \"/amounts\": [{\"amount_inr\": 500000, \"raw\": \"Rs.5,00,000/- per month\"}, {\"amount_inr\": 75000, \"raw\": \"Rs.75,000/- per month\"}], \"/counterparty\": null, \"/counterparty_is_related\": null, \"/transaction_nature\": null, \"/duration_years\": 5, \"/key_facts\": [\"Shri Ashish Bagrodia has over two decades of experience in the textile industry.\", \"He has been instrumental in establishing a new spinning unit and a hydro power project.\", \"The remuneration includes a basic salary increment every year.\", \"Perquisites include housing, medical reimbursement, travel allowances, and car facilities.\"]}",
+   "latency_ms": 7641,
+   "output_tokens": 564,
+   "valid_after_repair": false,
+   "cost_usd": 0.0006459
+  },
+  {
+   "item_id": "b23a5979e8e4-6",
+   "output_text": "{\"item_no\": \"6\", \"title\": \"Ratify cost auditor remuneration\", \"resolution_type\": \"AUDITOR_REMUNERATION_COST\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": 65000, \"raw\": \"Rs. 65,000/- (Rupees Sixty Five Thousand Only) including out of pocket expenses\"}, \"counterparty\": \"M/s Aggarwal Vimal & Associates, Cost Accountants, Chandigarh\", \"counterparty_is_related\": false, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Cost Auditor appointed for FY 2015-2016\", \"Total remuneration Rs. 65,000/- including out of pocket expenses\", \"Subject to ratification by shareholders\"]}",
+   "latency_ms": 5656,
+   "output_tokens": 373,
+   "valid_after_repair": true,
+   "cost_usd": 0.0003181
+  },
+  {
+   "item_id": "c04281a2a3dd-1",
+   "output_text": "{\"item_no\": \"1\", \"title\": \"Adopt audited financial statements\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [], \"amounts\": {\"amount_inr\": null, \"raw\": null}, \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopts audited standalone and consolidated financial statements for the year ended March 31, 2026\", \"Includes balance sheet, profit & loss account, cash flow statement\", \"Reports of board of directors and auditors are considered\"]}",
+   "latency_ms": 4468,
+   "output_tokens": 271,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002364
+  },
+  {
+   "item_id": "c04281a2a3dd-2",
+   "output_text": "{\"item_no\": \"2\", \"title\": \"Re-appointment of Whole Time Director\", \"resolution_type\": \"DIRECTOR_REAPPOINT_ROTATION\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Jogendrapal Singh Alagh\", \"role\": \"Whole Time Director\", \"age\": null, \"din\": \"00411418\", \"is_promoter\": null, \"tenure_years_proposed\": null, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Director to be re-appointed by rotation\", \"Director is eligible and has offered himself for re-appointment\"]}",
+   "latency_ms": 3250,
+   "output_tokens": 173,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001162
+  },
+  {
+   "item_id": "c04281a2a3dd-3",
+   "output_text": "{\"/item_no\": \"3\", \"/title\": \"Re-appointment of Managing Director\", \"/resolution_type\": \"MANAGERIAL_REMUNERATION\", \"/is_special_resolution\": true, \"/persons\": [{\"name\": \"Sukhbir Singh Kukreja\", \"role\": \"Managing Director\", \"age\": 50, \"din\": \"00411525\", \"is_promoter\": true, \"tenure_years_proposed\": 5, \"prior_tenure_years\": 25, \"board_attendance_pct\": null}], \"/amounts\": {\"amount_inr\": 10000000, \"raw\": \"Salary: Up to `1,00,00,000/- (Rupees One Crores only) per annum\"}, \"/counterparty\": null, \"/counterparty_is_related\": false, \"/transaction_nature\": null, \"/duration_years\": 5, \"/key_facts\": [\"Mr. Sukhbir Singh Kukreja is the Promoter and Managing Director of the Company.\", \"He has been associated with the Company since January 29, 2002.\", \"The re-appointment is for a further term of five years, commencing from January 29, 2027 and ending on January 28, 2032.\", \"The remuneration includes salary, allowances, perquisites, and other benefits as specified in the Special Resolution.\", \"The remuneration is subject to the limits prescribed under the Companies Act, 2013, including Schedule V thereto, and other applicable laws.\"]}",
+   "latency_ms": 8437,
+   "output_tokens": 688,
+   "valid_after_repair": false,
+   "cost_usd": 0.0007611
+  },
+  {
+   "item_id": "c04281a2a3dd-4",
+   "output_text": "{\"data\": {\"item_no\": \"4\", \"title\": \"Approval to advance loans/give guarantees/provide security\", \"resolution_type\": \"BORROWING_LIMITS\", \"is_special_resolution\": true, \"persons\": [], \"amounts\": {\"amount_inr\": 50000000000, \"raw\": \"aggregate amount not exceeding `500 Crores (Rupees Five Hundred Crores only)\"}, \"counterparty\": null, \"counterparty_is_related\": true, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"The Company may provide financial assistance by way of loans, guarantees or securities to its Subsidiary Companies, Associate Companies, Joint Venture Companies, Group Companies or other entities in which any of the Directors is deemed to be interested.\", \"The approval is sought for an aggregate amount not exceeding `500 Crores.\", \"The resolution is a Special Resolution under Section 185 of the Companies Act, 2013.\"]}}",
+   "latency_ms": 5014,
+   "output_tokens": 446,
+   "valid_after_repair": false,
+   "cost_usd": 0.0004901
+  },
+  {
+   "item_id": "c04281a2a3dd-5",
+   "output_text": "{\"item_no\": \"5\", \"title\": \"Appointment of Secretarial Auditor for 5 years\", \"resolution_type\": \"AUDITOR_APPOINT\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"M/s Ayush Khandelwal & Associates, Company Secretaries\", \"role\": \"Secretarial Auditor\", \"age\": null, \"din\": null, \"is_promoter\": null, \"tenure_years_proposed\": 5, \"prior_tenure_years\": null, \"board_attendance_pct\": null}], \"amounts\": [{\"amount_inr\": 190000, \"raw\": \"Rupees One Lakhs Ninety Thousand only\"}, {\"amount_inr\": null, \"raw\": \"plus applicable tax and reimbursement of traveling and out of pocket expenses\"}], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": 5, \"key_facts\": [\"Appointment of M/s Ayush Khandelwal & Associates as Secretarial Auditor for 5 years\"], \"duration_years\": 5}",
+   "latency_ms": 2765,
+   "output_tokens": 230,
+   "valid_after_repair": true,
+   "cost_usd": 0.0002539
+  },
+  {
+   "item_id": "419b9e510ee6-1",
+   "output_text": "{\"item_no\": \"1\", \"title\": \"Adopt Audited Financial Statements and Reappoint Director\", \"resolution_type\": \"ADOPT_FINANCIALS\", \"is_special_resolution\": false, \"persons\": [{\"name\": \"Pritesh Y. Shah\", \"role\": \"Director\", \"age\": null, \"din\": \"00239665\", \"is_promoter\": null, \"tenure_years_proposed\": 1, \"prior_tenure_years\": 1, \"board_attendance_pct\": null}], \"amounts\": [], \"counterparty\": null, \"counterparty_is_related\": null, \"transaction_nature\": null, \"duration_years\": null, \"key_facts\": [\"Adopts audited financial statements for FY ended March 31, 2023\", \"Reappoints Mr. Pritesh Y. Shah as a director by rotation\"]}",
+   "latency_ms": 2375,
+   "output_tokens": 190,
+   "valid_after_repair": true,
+   "cost_usd": 0.0001987
+  }
+ ]
+}

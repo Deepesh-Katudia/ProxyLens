@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="630" height="560" font-family="system-ui, sans-serif" font-size="11">
+<rect width="100%" height="100%" fill="#fbfaf7"/>
+<text x="10" y="20" font-size="14" font-weight="600">Fine-tuned Qwen2.5-3B (GGUF Q4_K_M, CPU), JSON grammar: resolution type</text>
+<text x="10" y="182" fill="#666">reference ↓ / predicted →</text>
+<text transform="translate(269.0,184) rotate(-60)" fill="#333">adopt financials</text>
+<text transform="translate(299.0,184) rotate(-60)" fill="#333">dividend</text>
+<text transform="translate(329.0,184) rotate(-60)" fill="#333">director reappoint rotation</text>
+<text transform="translate(359.0,184) rotate(-60)" fill="#333">independent director appoint</text>
+<text transform="translate(389.0,184) rotate(-60)" fill="#333">non independent director appoint</text>
+<text transform="translate(419.0,184) rotate(-60)" fill="#333">managerial remuneration</text>
+<text transform="translate(449.0,184) rotate(-60)" fill="#333">auditor appoint</text>
+<text transform="translate(479.0,184) rotate(-60)" fill="#333">auditor remuneration cost</text>
+<text transform="translate(509.0,184) rotate(-60)" fill="#333">capital raise</text>
+<text transform="translate(539.0,184) rotate(-60)" fill="#333">borrowing limits</text>
+<text transform="translate(569.0,184) rotate(-60)" fill="#333">articles or moa amendment</text>
+<text transform="translate(599.0,184) rotate(-60)" fill="#333">other</text>
+<text x="242" y="209.0" text-anchor="end">adopt financials</text>
+<rect x="250" y="190" width="28" height="28" fill="rgba(30,130,80,0.43)" stroke="#e5e2da"/>
+<text x="264.0" y="209.0" text-anchor="middle" fill="#222">3</text>
+<rect x="280" y="190" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="310" y="190" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="340" y="190" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="370" y="190" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="400" y="190" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="430" y="190" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="460" y="190" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="490" y="190" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="520" y="190" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="550" y="190" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="580" y="190" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<text x="242" y="239.0" text-anchor="end">dividend</text>
+<rect x="250" y="220" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="280" y="220" width="28" height="28" fill="rgba(30,130,80,0.34)" stroke="#e5e2da"/>
+<text x="294.0" y="239.0" text-anchor="middle" fill="#222">2</text>
+<rect x="310" y="220" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="340" y="220" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="370" y="220" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="400" y="220" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="430" y="220" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="460" y="220" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="490" y="220" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="520" y="220" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="550" y="220" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="580" y="220" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<text x="242" y="269.0" text-anchor="end">director reappoint rotation</text>
+<rect x="250" y="250" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="280" y="250" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="310" y="250" width="28" height="28" fill="rgba(30,130,80,0.43)" stroke="#e5e2da"/>
+<text x="324.0" y="269.0" text-anchor="middle" fill="#222">3</text>
+<rect x="340" y="250" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="370" y="250" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="400" y="250" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="430" y="250" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="460" y="250" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="490" y="250" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="520" y="250" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="550" y="250" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="580" y="250" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<text x="242" y="299.0" text-anchor="end">independent director appoint</text>
+<rect x="250" y="280" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="280" y="280" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="310" y="280" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="340" y="280" width="28" height="28" fill="rgba(30,130,80,1.00)" stroke="#e5e2da"/>
+<text x="354.0" y="299.0" text-anchor="middle" fill="#fff">9</text>
+<rect x="370" y="280" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="400" y="280" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="430" y="280" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="460" y="280" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="490" y="280" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="520" y="280" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="550" y="280" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="580" y="280" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<text x="242" y="329.0" text-anchor="end">managerial remuneration</text>
+<rect x="250" y="310" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="280" y="310" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="310" y="310" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="340" y="310" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="370" y="310" width="28" height="28" fill="rgba(180,50,40,0.24)" stroke="#e5e2da"/>
+<text x="384.0" y="329.0" text-anchor="middle" fill="#222">1</text>
+<rect x="400" y="310" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="430" y="310" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="460" y="310" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="490" y="310" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="520" y="310" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="550" y="310" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="580" y="310" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<text x="242" y="359.0" text-anchor="end">auditor appoint</text>
+<rect x="250" y="340" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="280" y="340" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="310" y="340" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="340" y="340" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="370" y="340" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="400" y="340" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="430" y="340" width="28" height="28" fill="rgba(30,130,80,0.24)" stroke="#e5e2da"/>
+<text x="444.0" y="359.0" text-anchor="middle" fill="#222">1</text>
+<rect x="460" y="340" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="490" y="340" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="520" y="340" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="550" y="340" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="580" y="340" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<text x="242" y="389.0" text-anchor="end">auditor remuneration cost</text>
+<rect x="250" y="370" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="280" y="370" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="310" y="370" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="340" y="370" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="370" y="370" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="400" y="370" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="430" y="370" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="460" y="370" width="28" height="28" fill="rgba(30,130,80,0.24)" stroke="#e5e2da"/>
+<text x="474.0" y="389.0" text-anchor="middle" fill="#222">1</text>
+<rect x="490" y="370" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="520" y="370" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="550" y="370" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="580" y="370" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<text x="242" y="419.0" text-anchor="end">capital raise</text>
+<rect x="250" y="400" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="280" y="400" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="310" y="400" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="340" y="400" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="370" y="400" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="400" y="400" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="430" y="400" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="460" y="400" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="490" y="400" width="28" height="28" fill="rgba(30,130,80,0.34)" stroke="#e5e2da"/>
+<text x="504.0" y="419.0" text-anchor="middle" fill="#222">2</text>
+<rect x="520" y="400" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="550" y="400" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="580" y="400" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<text x="242" y="449.0" text-anchor="end">borrowing limits</text>
+<rect x="250" y="430" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="280" y="430" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="310" y="430" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="340" y="430" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="370" y="430" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="400" y="430" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="430" y="430" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="460" y="430" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="490" y="430" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="520" y="430" width="28" height="28" fill="rgba(30,130,80,0.34)" stroke="#e5e2da"/>
+<text x="534.0" y="449.0" text-anchor="middle" fill="#222">2</text>
+<rect x="550" y="430" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="580" y="430" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<text x="242" y="479.0" text-anchor="end">articles or moa amendment</text>
+<rect x="250" y="460" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="280" y="460" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="310" y="460" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="340" y="460" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="370" y="460" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="400" y="460" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="430" y="460" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="460" y="460" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="490" y="460" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="520" y="460" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="550" y="460" width="28" height="28" fill="rgba(30,130,80,0.24)" stroke="#e5e2da"/>
+<text x="564.0" y="479.0" text-anchor="middle" fill="#222">1</text>
+<rect x="580" y="460" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<text x="242" y="509.0" text-anchor="end">other</text>
+<rect x="250" y="490" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="280" y="490" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="310" y="490" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="340" y="490" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="370" y="490" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="400" y="490" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="430" y="490" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="460" y="490" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="490" y="490" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="520" y="490" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="550" y="490" width="28" height="28" fill="#ffffff" stroke="#e5e2da"/>
+<rect x="580" y="490" width="28" height="28" fill="rgba(30,130,80,0.62)" stroke="#e5e2da"/>
+<text x="594.0" y="509.0" text-anchor="middle" fill="#fff">5</text>
+</svg>

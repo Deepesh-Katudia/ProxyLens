@@ -1,6 +1,44 @@
 # Progress
 
-## Phase 6: API + frontend (built 2026-10-04; awaiting review)
+## Phase 7: Eval harness + report (built 2026-10-05; awaiting review)
+
+### Status against acceptance criteria
+| Criterion | Status |
+|---|---|
+| `eval/run.py`, metrics, `REPORT.md` generator, `/eval` page, regression test | ✅ `eval/run.py` (teacher / any OpenRouter model / local GGUF; resumable), `eval/metrics.py`, `eval/report.py` (REPORT.md, SVG confusion matrices, `eval_runs` summary), `/eval` page (comparison table, confusion matrix per model, latency and cost bars, reference banner), `tests/test_eval_regression.py` + `eval/baseline.json` |
+| The report shows base vs fine-tuned vs teacher **on the gold set** with real numbers | ⚠️ Partly. Real numbers for the teacher (184 items), the fine-tuned GGUF (first 30 items) and an extra untuned 7B baseline (184). **Base 3B, and fine-tuned on all 184, need `notebooks/02_eval_student.ipynb` on a Colab T4** (Deepesh). The set is **not human gold**: see below |
+
+### Reference labels: what they really are
+Plan: a model drafts, Deepesh reviews. `scripts/draft_gold.py` drafted all 184 items with Claude Sonnet 5.5 ($1.81; a different model family from the Gemini teacher). The labels file shows all 184 saved within 3 minutes, a median 0.8 s apart, and 183 identical to their drafts. So they were not reviewed. The report does not assert provenance; it derives it from the files (`eval/reference.py`): **"Mixed reference: 1 human-labelled, 183 model drafts saved unchanged."** That sentence is printed above every table, and the /eval page shows it as a banner. Reviewing the items on /label (each save records `draft_model`) upgrades the claim automatically.
+
+### Results (2026-10-05)
+| Model | n | JSON valid | Type acc. | Type macro-F1 | Fallback | Latency p50 | Cost / 1k |
+|---|---|---|---|---|---|---|---|
+| Teacher (Gemini 3.8 Flash) | 184 | 100.0% | 94.6% | 91.0% | 0.0% | 2.8 s | $2.74 |
+| Fine-tuned 3B (GGUF Q4_K_M, laptop CPU, JSON grammar) | 30 | 100.0% | 96.7% | 90.9% | 0.0% | 41.6 s | $4.82 (estimate) |
+| Untuned Qwen2.5-7B | 184 | 26.1% | 24.5% | 31.1% | 34.2% | 5.0 s | $0.31 |
+
+- The fine-tuned 3B matches the teacher on type macro-F1 over its 30 items. The one miss: a whole-time director's re-appointment *with pay terms*, labelled MANAGERIAL_REMUNERATION by the reference.
+- **Honest cost finding:** at laptop-CPU latency (p50 41.6 s), the student costs *more* per 1,000 resolutions on Cloud Run ($4.82, estimated) than the teacher API ($2.74). The "fraction of the teacher's cost" story only holds if Phase 8 gets serving latency down (more vCPUs, smaller context, batching) or if API prices rise. Phase 8 measures real Cloud Run latency.
+- An untuned 7B fails the schema 74% of the time on the first try, which shows what fine-tuning buys at 3B.
+- Citation precision before guardrails: 100% (5/5), but over only 6 web-app analyses. Too few to mean much.
+- Recommendation agreement: not measured (no vote labels).
+
+### Design notes
+- JSON validity is measured on the first reply; invalid replies count as wrong in every other metric and appear as `INVALID` in the confusion matrix. Fallback rate is measured only where a repair was attempted (`eval.run`); notebook runs show —.
+- Grammar-constrained decoding makes JSON validity about 100% by construction, so such rows are labelled "JSON grammar".
+- F1 shows — when the items contain nothing of that kind (e.g. no counterparties in the 30-item subset), not 0%. Rows on different item counts are flagged.
+- Persons match on names with honorifics and punctuation removed; amounts match one-to-one within ±1%; counterparty matches on containment after dropping "Private Limited", etc.
+- The confusion matrix is SVG written directly (no plotting dependency) and renders on GitHub.
+- The regression test is opt-in (`PROXYLENS_MODEL_TESTS=1`, about 30 min on CPU). It re-runs the GGUF on the 30 baseline items and fails on a drop of more than 2 points in JSON validity or type macro-F1.
+- CI now type-checks `eval/` too.
+
+### Next (Deepesh)
+1. Run `notebooks/02_eval_student.ipynb` on a Colab T4 (`SPLIT="test"`); copy the two JSON files into `eval/results/`; run `uv run python -m eval.report --db`.
+2. Optional, to turn the reference into real gold: review items on /label.
+
+
+## Phase 6: API + frontend (built 2026-10-04; accepted)
 
 ### Status against acceptance criteria
 | Criterion | Status |

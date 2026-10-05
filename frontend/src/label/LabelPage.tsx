@@ -30,6 +30,7 @@ export function LabelPage() {
   const [progress, setProgress] = useState<GoldProgress | null>(null)
   const [item, setItem] = useState<GoldItem | null>(null)
   const [draft, setDraft] = useState<Extraction | null>(null)
+  const [draftModel, setDraftModel] = useState<string | null>(null)
   const [skipReason, setSkipReason] = useState('')
   const [apiKey, setApiKey] = useState(() => stored(KEY_STORAGE))
   const [labeller, setLabeller] = useState(() => stored(LABELLER_STORAGE))
@@ -48,7 +49,14 @@ export function LabelPage() {
     fetchItem(itemId)
       .then((loaded) => {
         setItem(loaded)
-        setDraft(loaded.label?.extraction ?? blankExtraction(loaded))
+        // An existing label wins; otherwise start from the model draft (to be reviewed), else blank.
+        if (loaded.label?.extraction) {
+          setDraft(loaded.label.extraction)
+          setDraftModel(loaded.label.draft_model ?? null)
+        } else {
+          setDraft(loaded.draft ?? blankExtraction(loaded))
+          setDraftModel(loaded.draft ? loaded.draft_model : null)
+        }
         setSkipReason(loaded.label?.skip_reason ?? '')
       })
       .catch((e: Error) => setMessage({ kind: 'error', text: e.message }))
@@ -61,6 +69,10 @@ export function LabelPage() {
 
   const submit = async (status: 'labelled' | 'skipped') => {
     if (!item || !draft) return
+    if (!labeller.trim()) {
+      setMessage({ kind: 'error', text: 'Enter your name at the top (recorded with each label).' })
+      return
+    }
     if (status === 'skipped' && !skipReason.trim()) {
       setMessage({ kind: 'error', text: 'Say why the item is skipped.' })
       return
@@ -72,12 +84,14 @@ export function LabelPage() {
           status,
           extraction: status === 'labelled' ? cleaned(draft) : null,
           skip_reason: status === 'skipped' ? skipReason.trim() : null,
-          labeller,
+          labeller: labeller.trim(),
+          draft_model: status === 'labelled' ? draftModel : null,
         },
         apiKey,
       )
       setMessage({ kind: 'ok', text: status === 'labelled' ? 'Saved.' : 'Skipped.' })
       refresh()
+      next()
     } catch (e) {
       setMessage({ kind: 'error', text: (e as Error).message })
     }
@@ -169,6 +183,12 @@ export function LabelPage() {
         <aside className="min-h-0 overflow-y-auto border-l border-ink/10 bg-white px-5 py-5">
           {item && draft ? (
             <div className="flex flex-col gap-5">
+              {draftModel && !item.label && (
+                <p className="rounded-md border border-amber-500/40 bg-amber-50 px-3 py-2 text-sm text-amber-900">
+                  Pre-filled by <span className="font-mono">{draftModel}</span>. Check every field against the notice text and fix anything wrong
+                  before saving. Saving records you as the reviewer.
+                </p>
+              )}
               <ExtractionForm value={draft} onChange={setDraft} />
               <div className="flex flex-col gap-2 border-t border-ink/10 pt-4">
                 <div className="flex gap-2">

@@ -1,0 +1,255 @@
+{
+ "run_id": "2026-10-05_finetuned_gguf_proxylens-qwen3b-q4-k-m_test",
+ "provider": "finetuned_gguf",
+ "model": "proxylens-qwen3b-q4_k_m",
+ "split": "test",
+ "created_at": "2026-10-05T07:26:37.479598+00:00",
+ "hardware": "local CPU (llama.cpp)",
+ "decoding": {
+  "greedy": true,
+  "max_new_tokens": 1024,
+  "constrained": true
+ },
+ "items": [
+  {
+   "item_id": "682bb8696d21-1",
+   "output_text": "{\"item_no\":1,\"title\":\"Adoption of Audited Financial Statements for FY ended 31st March, 2024\",\"resolution_type\":\"ADOPT_FINANCIALS\",\"is_special_resolution\":false,\"persons\":[],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":null,\"key_facts\":[\"To receive, consider and adopt the audited Financial Statements of the Company for the Financial Year ended 31st March, 2024.\",\"Includes adoption of the Director's Report and Auditor's Report thereon.\"]}",
+   "latency_ms": 53968,
+   "output_tokens": 126,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "682bb8696d21-2",
+   "output_text": "{\"item_no\":2,\"title\":\"Declaration of dividend on equity shares for FY ended 31st March, 2024\",\"resolution_type\":\"DIVIDEND\",\"is_special_resolution\":false,\"persons\":[],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":null,\"key_facts\":[\"Declaration of dividend on equity shares for the financial year ended 31st March, 2024.\"]}",
+   "latency_ms": 23672,
+   "output_tokens": 100,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "682bb8696d21-3",
+   "output_text": "{\"item_no\":3,\"title\":\"Re-appointment of Mr. Kothapalli Srinivasa Rao retiring by rotation\",\"resolution_type\":\"DIRECTOR_REAPPOINT_ROTATION\",\"is_special_resolution\":false,\"persons\":[{\"name\":\"Mr. Kothapalli Srinivasa Rao\",\"role\":\"Director\",\"age\":null,\"din\":\"10198629\",\"is_promoter\":null,\"tenure_years_proposed\":null,\"prior_tenure_years\":null,\"board_attendance_pct\":null}],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":null,\"key_facts\":[\"Mr. Kothapalli Srinivasa Rao retires by rotation under Section 152(6) of the Companies Act, 2013.\",\"Being eligible, he offers himself for reappointment.\"]}",
+   "latency_ms": 41577,
+   "output_tokens": 185,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "682bb8696d21-4",
+   "output_text": "{\"item_no\":4,\"title\":\"Re-appointment of Mr. Prabhnoor Singh Grewal as whole time Director (Sales)\",\"resolution_type\":\"NON_INDEPENDENT_DIRECTOR_APPOINT\",\"is_special_resolution\":false,\"persons\":[{\"name\":\"Mr. Prabhnoor Singh Grewal\",\"role\":\"Director (Sales)\",\"age\":43,\"din\":\"09217422\",\"is_promoter\":null,\"tenure_years_proposed\":2.0,\"prior_tenure_years\":3.0,\"board_attendance_pct\":null}],\"amounts\":[{\"amount_inr\":700000.0,\"raw\":\"₹700,000/- per month\"}],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":2.0,\"key_facts\":[\"Re-appointment of Mr. Prabhnoor Singh Grewal as Director (Sales) for a period of two (2) years effective 29th June, 2024.\",\"Proposed remuneration of ₹700,000/- per month as minimum remuneration in absence of profits or no profits in any year.\",\"Proposed as an Ordinary resolution pursuant to Sections 152, 196, 197, and Schedule V of the Companies Act, 2013.\",\"Previously appointed as Director (Sales) for a 3-year term effective 29th June, 2021, with office liable to retire by rotation.\",\"Proposed as a break in his office.\"]}",
+   "latency_ms": 79797,
+   "output_tokens": 333,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "682bb8696d21-5",
+   "output_text": "{\"item_no\":5,\"title\":\"Appointment of Dr. Anu Appaiah K A as a Non-Executive Independent Director\",\"resolution_type\":\"INDEPENDENT_DIRECTOR_APPOINT\",\"is_special_resolution\":true,\"persons\":[{\"name\":\"Dr. Anu Appaiah K A\",\"role\":\"Non-Executive Independent Director\",\"age\":null,\"din\":\"09064176\",\"is_promoter\":null,\"tenure_years_proposed\":5.0,\"prior_tenure_years\":null,\"board_attendance_pct\":null}],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":5.0,\"key_facts\":[\"Appointed as an Additional Director of the Company, categorized as independent, w.e.f. 27th September, 2024.\",\"Proposed to be appointed as an Independent Director for a term of five consecutive years effective from 27th September, 2024 till 26th September, 2029.\",\"Office of the Independent Director is not liable to retire by rotation.\"]}",
+   "latency_ms": 47827,
+   "output_tokens": 231,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "682bb8696d21-6",
+   "output_text": "{\"item_no\":6,\"title\":\"Appointment of Dr. Venkata Hymavathi Thota as a Non-Executive Independent Director\",\"resolution_type\":\"INDEPENDENT_DIRECTOR_APPOINT\",\"is_special_resolution\":true,\"persons\":[{\"name\":\"Dr. Venkata Hymavathi Thota\",\"role\":\"Non-Executive Independent Director\",\"age\":null,\"din\":\"10783209\",\"is_promoter\":null,\"tenure_years_proposed\":5.0,\"prior_tenure_years\":null,\"board_attendance_pct\":null}],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":5.0,\"key_facts\":[\"Appointed as an Additional Director of the Company, categorized as independent Women Director, w.e.f. 27th September, 2024.\",\"Proposed to be appointed as an Independent Director for a term of five consecutive years effective from 27th September, 2024 till 26th September, 2029.\",\"Office of the Independent Director is not liable to retire by rotation.\"]}",
+   "latency_ms": 57062,
+   "output_tokens": 237,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "682bb8696d21-7",
+   "output_text": "{\"item_no\":7,\"title\":\"Re-appointment of Mr. Ramchander Vyasabhattu as a Non-Executive Independent Director\",\"resolution_type\":\"INDEPENDENT_DIRECTOR_APPOINT\",\"is_special_resolution\":true,\"persons\":[{\"name\":\"Mr. Ramchander Vyasabhattu\",\"role\":\"Non-Executive Independent Director\",\"age\":71,\"din\":\"03400005\",\"is_promoter\":false,\"tenure_years_proposed\":5.0,\"prior_tenure_years\":5.0,\"board_attendance_pct\":null}],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":5.0,\"key_facts\":[\"Re-appointment of Mr. Ramchander Vyasabhattu as an Independent Director for a second term of five consecutive years.\",\"Proposed to be effective w.e.f. 13th February, 2025.\",\"He is not liable to retire by rotation.\",\"He was previously appointed as an Independent Director for a term of five consecutive years from 13th February, 2020 till 13th February, 2025.\",\"He is aged 71 years and has over four decades of experience in project finance, administration, and holding directorships in other companies.\"]}",
+   "latency_ms": 72062,
+   "output_tokens": 278,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "9fdb6e146965-1",
+   "output_text": "{\"item_no\":1,\"title\":\"Adoption of Audited Financial Statements for the year ended 31st March 2023\",\"resolution_type\":\"ADOPT_FINANCIALS\",\"is_special_resolution\":false,\"persons\":[],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":null,\"key_facts\":[\"To receive, consider and adopt the Audited Balance Sheet as at 31st March 2023.\",\"To receive, consider and adopt the Profit and Loss Account for the year ended 31st March 2023.\",\"To receive, consider and adopt the Reports of the Directors and Auditors thereon.\"]}",
+   "latency_ms": 23203,
+   "output_tokens": 148,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "9fdb6e146965-2",
+   "output_text": "{\"item_no\":2,\"title\":\"Re-appointment of Mr. Parasmal Kanugo retiring by rotation\",\"resolution_type\":\"DIRECTOR_REAPPOINT_ROTATION\",\"is_special_resolution\":false,\"persons\":[{\"name\":\"Mr. Parasmal Kanugo\",\"role\":\"Director\",\"age\":null,\"din\":\"00920021\",\"is_promoter\":null,\"tenure_years_proposed\":null,\"prior_tenure_years\":null,\"board_attendance_pct\":null}],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":null,\"key_facts\":[\"Mr. Parasmal Kanugo (DIN 00920021) retires by rotation.\",\"Being eligible, Mr. Parasmal Kanugo offers himself for re-appointment.\"]}",
+   "latency_ms": 25108,
+   "output_tokens": 174,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "9fdb6e146965-3",
+   "output_text": "{\"item_no\":3,\"title\":\"Appointment of M/s. Haribhakti & Co. LLP as Statutory Auditors and fixing their remuneration\",\"resolution_type\":\"AUDITOR_APPOINT\",\"is_special_resolution\":false,\"persons\":[],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":null,\"key_facts\":[\"Appointment of M/s. Haribhakti & Co. LLP, Chartered Accountants, as Statutory Auditors.\",\"Proposed to fill the casual vacancy caused by the resignation of M/s. Maloo Bhatt & Co., Chartered Accountants.\",\"Proposed tenure is from 11th October, 2022 up to the conclusion of the 33rd Annual General Meeting.\",\"Remuneration and terms of appointment are set out in the explanatory statement annexed to this Notice.\"]}",
+   "latency_ms": 35062,
+   "output_tokens": 186,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "9fdb6e146965-4",
+   "output_text": "{\"item_no\":4,\"title\":\"Ratification of Appointment for Cost Auditors along with Remuneration\",\"resolution_type\":\"AUDITOR_REMUNERATION_COST\",\"is_special_resolution\":false,\"persons\":[],\"amounts\":[{\"amount_inr\":50000.0,\"raw\":\"Rs. 50,000/- (Rupees Fifty thousand only)\"}],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":null,\"key_facts\":[\"Appointment of M/s. Divyesh Vagadiya & Associates, Cost Accountants, Vadodara (Firm Registration No. 102628).\",\"Proposed remuneration of Rs. 50,000 plus applicable taxes and out of pocket expenses.\",\"Appointment covers the audit of cost records for the financial year 2023-24.\",\"Proposed as an Ordinary Resolution under Section 148 of the Companies Act, 2013.\"]}",
+   "latency_ms": 37469,
+   "output_tokens": 212,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "92809b886c11-1",
+   "output_text": "{\"item_no\":1,\"title\":\"Adoption of Audited Financial Statements for FY ended March 31, 2019\",\"resolution_type\":\"ADOPT_FINANCIALS\",\"is_special_resolution\":false,\"persons\":[],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":null,\"key_facts\":[\"Adoption of Audited Balance Sheet as at March 31, 2019 and Statement of Profit and Loss for FY ended March 31, 2019.\",\"Adoption of Audited Consolidated Financial Statements for the financial year ended March 31, 2019.\",\"Reports of the Board of Directors and Auditors thereon.\",\"Report of Auditors on Consolidated Financial Statements.\"]}",
+   "latency_ms": 26202,
+   "output_tokens": 166,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "92809b886c11-2",
+   "output_text": "{\"item_no\":2,\"title\":\"Declaration of Dividend on Equity Shares for FY 2018-19\",\"resolution_type\":\"DIVIDEND\",\"is_special_resolution\":false,\"persons\":[],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":null,\"key_facts\":[\"Declaration of dividend on equity shares for the Financial Year 2018-19\"]}",
+   "latency_ms": 13719,
+   "output_tokens": 92,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "92809b886c11-3",
+   "output_text": "{\"item_no\":3,\"title\":\"Re-appointment of Mr. Rajesh Sharma retiring by rotation\",\"resolution_type\":\"DIRECTOR_REAPPOINT_ROTATION\",\"is_special_resolution\":false,\"persons\":[{\"name\":\"Mr. Rajesh Sharma\",\"role\":\"Director\",\"age\":null,\"din\":\"00020037\",\"is_promoter\":null,\"tenure_years_proposed\":null,\"prior_tenure_years\":null,\"board_attendance_pct\":null}],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":null,\"key_facts\":[\"Mr. Rajesh Sharma (DIN: 00020037) retires by rotation.\",\"Being eligible, Mr. Rajesh Sharma offers himself for re-appointment.\"]}",
+   "latency_ms": 24500,
+   "output_tokens": 167,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "92809b886c11-4",
+   "output_text": "{\"item_no\":4,\"title\":\"Re-appointment of Mr. Beni Prasad Rauka as an Independent Director\",\"resolution_type\":\"INDEPENDENT_DIRECTOR_APPOINT\",\"is_special_resolution\":true,\"persons\":[{\"name\":\"Mr. Beni Prasad Rauka\",\"role\":\"Independent Director\",\"age\":null,\"din\":\"00295213\",\"is_promoter\":null,\"tenure_years_proposed\":5.0,\"prior_tenure_years\":5.0,\"board_attendance_pct\":null}],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":5.0,\"key_facts\":[\"Re-appointment of Mr. Beni Prasad Rauka as an Independent Director for a second term of five consecutive years from April 01, 2019 to March 31, 2024.\",\"Proposed as a Special Resolution and not liable to retire by rotation.\",\"Previously appointed as an Additional Director (Independent) with effect from April 01, 2019.\",\"Previously appointed as Independent Director at the AGM held on August 04, 2014 for a first term of five years from April 01, 2019 to March 31, 2019.\",\"Proposed to be re-appointed as a Director of the Company.\"]}",
+   "latency_ms": 92250,
+   "output_tokens": 293,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "92809b886c11-5",
+   "output_text": "{\"item_no\":5,\"title\":\"Re-appointment of Ms. Bhagyam Ramani as an Independent Director\",\"resolution_type\":\"INDEPENDENT_DIRECTOR_APPOINT\",\"is_special_resolution\":true,\"persons\":[{\"name\":\"Ms. Bhagyam Ramani\",\"role\":\"Independent Director\",\"age\":null,\"din\":\"00107097\",\"is_promoter\":null,\"tenure_years_proposed\":5.0,\"prior_tenure_years\":null,\"board_attendance_pct\":null}],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":5.0,\"key_facts\":[\"Re-appointment of Ms. Bhagyam Ramani as an Independent Director for a second term of five consecutive years from April 01, 2019 to March 31, 2024.\",\"Proposed as a Special Resolution and she is not liable to retire by rotation.\",\"Previously appointed as an Additional Director (Independent) of the Company with effect from April 01, 2019.\",\"Previously appointed as Independent Director at the AGM held on August 04, 2014 for a first term of five years from April 01, 2019 to March 31, 2019.\",\"Ms. Bhagyam Ramani holds a Master's degree in Economics from the University of Mumbai and has over 40 years of experience in treasury operations and portfolio management.\"]}",
+   "latency_ms": 95516,
+   "output_tokens": 312,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "92809b886c11-6",
+   "output_text": "{\"item_no\":6,\"title\":\"Re-appointment of Mr. Mukesh Kacker as an Independent Director\",\"resolution_type\":\"INDEPENDENT_DIRECTOR_APPOINT\",\"is_special_resolution\":true,\"persons\":[{\"name\":\"Mr. Mukesh Kacker\",\"role\":\"Independent Director\",\"age\":null,\"din\":\"01569098\",\"is_promoter\":null,\"tenure_years_proposed\":5.0,\"prior_tenure_years\":null,\"board_attendance_pct\":null}],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":5.0,\"key_facts\":[\"Re-appointment of Mr. Mukesh Kacker as an Independent Director for a second term of five consecutive years from April 01, 2019 to March 31, 2024.\",\"Proposed as a Special Resolution and not liable to retire by rotation.\",\"Previously appointed as an Additional Director (Independent) of the Company with effect from April 01, 2019.\",\"Previously appointed as Independent Director at the AGM held on August 04, 2014 for a first term of five years from April 01, 2019 to March 31, 2019.\",\"Mr. Mukesh Kacker holds a Master's degree in Economics from Harvard University and served as an Indian Administrative Service officer for three decades.\"]}",
+   "latency_ms": 92796,
+   "output_tokens": 300,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "92809b886c11-7",
+   "output_text": "{\"item_no\":7,\"title\":\"Re-appointment of Mr. T. R. Bajalia as an Independent Director\",\"resolution_type\":\"INDEPENDENT_DIRECTOR_APPOINT\",\"is_special_resolution\":true,\"persons\":[{\"name\":\"Mr. T. R. Bajalia\",\"role\":\"Independent Director\",\"age\":null,\"din\":\"02291892\",\"is_promoter\":null,\"tenure_years_proposed\":5.0,\"prior_tenure_years\":5.0,\"board_attendance_pct\":null}],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":5.0,\"key_facts\":[\"Re-appointment of Mr. T. R. Bajalia as an Independent Director for a second term of five consecutive years from June 19, 2019 to June 18, 2024.\",\"Proposed as a Special Resolution under Section 149 of the Companies Act, 2013 and Schedule IV.\",\"Not liable to retire by rotation.\",\"Previously appointed as an Additional Director (Independent) with effect from June 19, 2019.\",\"Submitted declaration meeting independence criteria under Section 149(6) of the Companies Act, 2013 and Regulation 16 of SEBI Listing Regulations.\"]}",
+   "latency_ms": 81953,
+   "output_tokens": 283,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "92809b886c11-8",
+   "output_text": "{\"item_no\":8,\"title\":\"Appointment of Mr. Ajay Kumar Relan as a Director and as an Independent Director\",\"resolution_type\":\"INDEPENDENT_DIRECTOR_APPOINT\",\"is_special_resolution\":false,\"persons\":[{\"name\":\"Mr. Ajay Kumar Relan\",\"role\":\"Director and Independent Director\",\"age\":null,\"din\":\"00002632\",\"is_promoter\":null,\"tenure_years_proposed\":5.0,\"prior_tenure_years\":null,\"board_attendance_pct\":null}],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":5.0,\"key_facts\":[\"Appointed as an Additional Director with effect from December 04, 2018.\",\"Proposed appointment as an Independent Director for a term of five years from December 04, 2018 upto December 03, 2023.\",\"Not liable to retire by rotation.\",\"Submitted declaration of independence pursuant to Section 149(6) and 149(7) of the Companies Act, 2013.\",\"Previously served on the boards of Hindustan Media Ventures Limited, HT Media Limited, and Zenrock Comtrade Private Limited.\"]}",
+   "latency_ms": 71467,
+   "output_tokens": 263,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "92809b886c11-9",
+   "output_text": "{\"item_no\":9,\"title\":\"Appointment of Mr. Ajit Mohan Sharan as a Director and as an Independent Director\",\"resolution_type\":\"INDEPENDENT_DIRECTOR_APPOINT\",\"is_special_resolution\":false,\"persons\":[{\"name\":\"Mr. Ajit Mohan Sharan\",\"role\":\"Director and Independent Director\",\"age\":null,\"din\":\"02458844\",\"is_promoter\":null,\"tenure_years_proposed\":5.0,\"prior_tenure_years\":null,\"board_attendance_pct\":null}],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":5.0,\"key_facts\":[\"Appointed as an Additional Director with effect from June 01, 2019.\",\"Proposed appointment as an Independent Director for a term of five years from June 01, 2019 upto May 31, 2024.\",\"Not liable to retire by rotation.\",\"Submitted declaration of independence pursuant to Section 149(6) and 149(7) of the Companies Act, 2013.\",\"Previously served as Secretary to the Government in the Ministries of Sports and Ayush.\"]}",
+   "latency_ms": 86109,
+   "output_tokens": 257,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "92809b886c11-10",
+   "output_text": "{\"item_no\":10,\"title\":\"Borrowing in excess of Paid-up Capital & Free reserves\",\"resolution_type\":\"BORROWING_LIMITS\",\"is_special_resolution\":true,\"persons\":[],\"amounts\":[{\"amount_inr\":65000000000.0,\"raw\":\"` 6,500 Crores (Rupees Six Thousand Five Hundred Crores)\"}],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":null,\"key_facts\":[\"Supersedes the resolution passed at the 24th AGM held on August 02, 2018.\",\"Authorizes the Board to borrow up to Rs. 6,500 Crores in excess of paid-up capital and free reserves.\",\"Borrowings may be obtained from bank(s), financial institutions, mutual funds, NRIs, foreign investors, or other persons.\",\"Borrowings may be secured or unsecured, and on terms as the Board deems fit.\"]}",
+   "latency_ms": 47156,
+   "output_tokens": 213,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "92809b886c11-11",
+   "output_text": "{\"item_no\":11,\"title\":\"Mortgage / Create charge on the assets of the Company\",\"resolution_type\":\"BORROWING_LIMITS\",\"is_special_resolution\":true,\"persons\":[],\"amounts\":[{\"amount_inr\":65000000000.0,\"raw\":\"` 6,500 Crores (Rupees Six Thousand Five Hundred Crores)\"}],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":null,\"key_facts\":[\"Supersedes the resolution passed at the 24th AGM held on August 02, 2018.\",\"Authorizes the Board of Directors or any Committee thereof to create mortgages and/or charges on movable and/or immovable properties.\",\"Secures debentures, loans, or finance and other credit facilities up to a sum not exceeding Rs. 6,500 Crores.\"]}",
+   "latency_ms": 39921,
+   "output_tokens": 194,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "92809b886c11-12",
+   "output_text": "{\"item_no\":12,\"title\":\"Issue of Non-Convertible Debentures\",\"resolution_type\":\"CAPITAL_RAISE\",\"is_special_resolution\":true,\"persons\":[],\"amounts\":[{\"amount_inr\":10000000000.0,\"raw\":\"` 1,000 Crores (Rupees One Thousand Crores)\"}],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":1.0,\"key_facts\":[\"Approval sought for issue of Secured or Unsecured Non-Convertible Debentures/Bonds up to Rs 1,000 Crores.\",\"Proposed to be issued on private placement basis in one or more series/tranches.\",\"Proposed to augment long-term resources and meet working capital and normal capex requirements.\",\"Resolution proposed as a Special Resolution under Section 42 of the Act.\"]}",
+   "latency_ms": 52733,
+   "output_tokens": 186,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "92809b886c11-13",
+   "output_text": "{\"item_no\":13,\"title\":\"Amend main object clause of Memorandum of Association\",\"resolution_type\":\"ARTICLES_OR_MOA_AMENDMENT\",\"is_special_resolution\":true,\"persons\":[],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":null,\"key_facts\":[\"Proposed amendment to append sub-clauses (1)(b) and (1)(c) to clause III(A) of the MOA.\",\"Sub-clause (1)(b) provides for lending and finance to persons, co-operatives, associations, and others for construction, development, and purchase of real estate.\",\"Sub-clause (1)(c) provides for lending and finance to micro, small, and medium business enterprises in India.\",\"Proposed as a Special Resolution pursuant to Section 13 of the Companies Act, 2013.\"]}",
+   "latency_ms": 48422,
+   "output_tokens": 185,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "92809b886c11-14",
+   "output_text": "{\"item_no\":14,\"title\":\"Approval for raising of funds by way of issue of securities through Qualified Institutions Placement (QIP)\",\"resolution_type\":\"CAPITAL_RAISE\",\"is_special_resolution\":true,\"persons\":[],\"amounts\":[{\"amount_inr\":10000000000.0,\"raw\":\"Rs.1,000 crores (Rupees One Thousand crores)\"}],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":1.0,\"key_facts\":[\"Approval sought for raising funds by way of issue of equity shares through Qualified Institutions Placement (QIP).\",\"Proposed aggregate amount not exceeding Rs. 1,000 crores (including premium, if any).\",\"Issue to be made to Qualified Institutional Buyers (QIBs) within 365 days from the date of passing the resolution.\",\"Pricing to be determined in compliance with ICDR Regulations, as amended.\",\"Pricing relevant date shall be the date of the meeting in which the Board decides to open the QIP Issue.\"]}",
+   "latency_ms": 70155,
+   "output_tokens": 228,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "dd90e14a7ed7-1",
+   "output_text": "{\"item_no\":1,\"title\":\"Explanatory Statement\",\"resolution_type\":\"OTHER\",\"is_special_resolution\":false,\"persons\":[],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":null,\"key_facts\":[\"Explanatory statement is provided but no explanatory statement text is present.\"]}",
+   "latency_ms": 9844,
+   "output_tokens": 73,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "dd90e14a7ed7-2",
+   "output_text": "{\"item_no\":2,\"title\":\"EXPLANATORY STATEMENT\",\"resolution_type\":\"OTHER\",\"is_special_resolution\":false,\"persons\":[],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":null,\"key_facts\":[\"EXPLANATORY STATEMENT: (none)\"]}",
+   "latency_ms": 9202,
+   "output_tokens": 69,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "dd90e14a7ed7-3",
+   "output_text": "{\"item_no\":3,\"title\":\"EXPLANATORY STATEMENT\",\"resolution_type\":\"OTHER\",\"is_special_resolution\":false,\"persons\":[],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":null,\"key_facts\":[\"EXPLANATORY STATEMENT: (none)\"]}",
+   "latency_ms": 9141,
+   "output_tokens": 69,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "dd90e14a7ed7-4",
+   "output_text": "{\"item_no\":4,\"title\":\"EXPLANATORY STATEMENT\",\"resolution_type\":\"OTHER\",\"is_special_resolution\":false,\"persons\":[],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":null,\"key_facts\":[\"EXPLANATORY STATEMENT: (none)\"]}",
+   "latency_ms": 9046,
+   "output_tokens": 69,
+   "valid_after_repair": true,
+   "cost_usd": null
+  },
+  {
+   "item_id": "dd90e14a7ed7-5",
+   "output_text": "{\"item_no\":5,\"title\":\"EXPLANATORY STATEMENT\",\"resolution_type\":\"OTHER\",\"is_special_resolution\":false,\"persons\":[],\"amounts\":[],\"counterparty\":null,\"counterparty_is_related\":null,\"transaction_nature\":null,\"duration_years\":null,\"key_facts\":[\"EXPLANATORY STATEMENT: (none)\"]}",
+   "latency_ms": 9156,
+   "output_tokens": 69,
+   "valid_after_repair": true,
+   "cost_usd": null
+  }
+ ]
+}

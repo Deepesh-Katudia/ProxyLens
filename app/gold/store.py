@@ -19,6 +19,8 @@ from app.schemas.resolution import ResolutionExtraction
 
 DEFAULT_CANDIDATES = Path("data/gold/candidates.jsonl")
 DEFAULT_LABELS = Path("data/gold/labels.jsonl")
+# Model pre-fills the labeller reviews (scripts/draft_gold.py). Never a label by themselves.
+DEFAULT_DRAFTS = Path("data/gold/drafts.jsonl")
 
 
 class LabelStatus(StrEnum):
@@ -31,6 +33,8 @@ class GoldLabel(BaseModel):
     extraction: ResolutionExtraction | None = None
     skip_reason: str | None = Field(default=None, max_length=500)
     labeller: str = Field(default="", max_length=100)
+    # Set when the labeller started from a model draft and reviewed it (provenance).
+    draft_model: str | None = Field(default=None, max_length=100)
 
     @model_validator(mode="after")
     def _consistent(self) -> "GoldLabel":
@@ -59,12 +63,15 @@ class GoldItem(BaseModel):
     text: str
     explanatory_statement: str | None
     label: GoldLabel | None
+    draft: ResolutionExtraction | None = None
+    draft_model: str | None = None
 
 
 @dataclass
 class GoldStore:
     candidates_path: Path = DEFAULT_CANDIDATES
     labels_path: Path = DEFAULT_LABELS
+    drafts_path: Path = DEFAULT_DRAFTS
 
     def __post_init__(self) -> None:
         self._lock = threading.Lock()
@@ -77,6 +84,15 @@ class GoldStore:
         for row in read_jsonl(self.labels_path):
             latest[row["item_id"]] = GoldLabel.model_validate(row["label"])
         return latest
+
+    def drafts(self) -> dict[str, tuple[str, ResolutionExtraction]]:
+        """Latest draft per item: (model, extraction)."""
+        if not self.drafts_path.exists():
+            return {}
+        return {
+            row["item_id"]: (row["model"], ResolutionExtraction.model_validate(row["extraction"]))
+            for row in read_jsonl(self.drafts_path)
+        }
 
     def list_items(self) -> list[GoldItemSummary]:
         labels = self._labels()
@@ -95,6 +111,7 @@ class GoldStore:
         candidate = next((c for c in self._candidates() if c["item_id"] == item_id), None)
         if candidate is None:
             return None
+        draft = self.drafts().get(item_id)
         return GoldItem(
             item_id=candidate["item_id"],
             company=candidate.get("company", ""),
@@ -105,6 +122,8 @@ class GoldStore:
             text=candidate["text"],
             explanatory_statement=candidate.get("explanatory_statement"),
             label=self._labels().get(item_id),
+            draft=draft[1] if draft else None,
+            draft_model=draft[0] if draft else None,
         )
 
     def save_label(self, item_id: str, label: GoldLabel) -> None:

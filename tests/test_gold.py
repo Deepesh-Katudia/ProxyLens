@@ -39,7 +39,7 @@ def store(tmp_path: Path) -> GoldStore:
             },
         ],
     )
-    return GoldStore(candidates, tmp_path / "labels.jsonl")
+    return GoldStore(candidates, tmp_path / "labels.jsonl", tmp_path / "drafts.jsonl")
 
 
 def test_latest_label_wins_and_history_is_kept(store: GoldStore) -> None:
@@ -51,6 +51,31 @@ def test_latest_label_wins_and_history_is_kept(store: GoldStore) -> None:
     assert item is not None and item.label is not None
     assert item.label.status is LabelStatus.LABELLED
     assert len(store.labels_path.read_text(encoding="utf-8").splitlines()) == 2
+
+
+def test_drafts_prefill_and_provenance_is_recorded(store: GoldStore) -> None:
+    assert store.get_item("g-2").draft is None  # type: ignore[union-attr]
+    write_jsonl(
+        store.drafts_path,
+        [{"item_id": "g-2", "model": "anthropic/claude-sonnet-5.5", "extraction": EXTRACTION}],
+    )
+
+    item = store.get_item("g-2")
+    assert item is not None and item.draft is not None and item.label is None
+    assert item.draft_model == "anthropic/claude-sonnet-5.5"
+    assert item.draft.resolution_type.value == "INDEPENDENT_DIRECTOR_APPOINT"
+
+    store.save_label(
+        "g-2",
+        GoldLabel(
+            status=LabelStatus.LABELLED,
+            extraction=EXTRACTION,
+            labeller="Deepesh",
+            draft_model="anthropic/claude-sonnet-5.5",
+        ),
+    )
+    saved = store.labelled()["g-2"]
+    assert saved.draft_model == "anthropic/claude-sonnet-5.5" and saved.labeller == "Deepesh"
 
 
 def test_unknown_items_are_rejected(store: GoldStore) -> None:

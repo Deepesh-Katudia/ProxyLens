@@ -51,6 +51,7 @@ export type GoldLabel = {
   extraction: Extraction | null
   skip_reason: string | null
   labeller: string
+  draft_model?: string | null // model draft the labeller started from and reviewed
 }
 
 export type GoldItemSummary = {
@@ -78,6 +79,8 @@ export type GoldItem = {
   text: string
   explanatory_statement: string | null
   label: GoldLabel | null
+  draft: Extraction | null
+  draft_model: string | null
 }
 
 async function request<T>(url: string, init?: RequestInit): Promise<T> {
