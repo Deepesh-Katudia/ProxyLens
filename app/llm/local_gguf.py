@@ -21,9 +21,17 @@ LlamaFactory = Callable[..., Any]
 
 def _default_llama_factory(**kwargs: Any) -> Any:
     try:
-        from llama_cpp import Llama
+        from llama_cpp import Llama, llama_print_system_info
     except ImportError as exc:  # optional extra
         raise LLMError("llama-cpp-python is not installed; run `uv sync --extra student`") from exc
+    # CPU features (AVX2, ...) decide inference speed; log them with the thread count.
+    logger.info(
+        "llama.cpp system info",
+        extra={
+            "n_threads": kwargs.get("n_threads"),
+            "system_info": llama_print_system_info().decode(errors="replace").strip(),
+        },
+    )
     return Llama(**kwargs)
 
 
